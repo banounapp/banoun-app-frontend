@@ -13,10 +13,10 @@ export const FormField = () => {
     username: Yup.string()
       .max(15, 'لابد ان تكون 15 حرف على الاقل')
       .required('مطلوب'),
-    firstname: Yup.string()
+    firstName: Yup.string()
       .max(7, 'لابد ان تكون 7 حرف على الاقل')
       .required('مطلوب'),
-    lastname: Yup.string()
+    lastName: Yup.string()
       .max(7, 'لابد ان تكون 7 حرف على الاقل')
       .required('مطلوب'),
     email: Yup.string()
@@ -33,8 +33,8 @@ export const FormField = () => {
   return (
     <Formik
       initialValues={{
-        firstname: '',
-        lastname: '',
+        firstName: '',
+        lastName: '',
         username: '',
         email: '',
         password: '',
@@ -54,10 +54,10 @@ export const FormField = () => {
           <h2 className="my-10 lg:my-7 text-lg md:text-xl lg:text-2xl " >انشاء الحساب</h2>
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-            textFieldProps={{ name: 'firstname', placeholder: "الاسم الاول", type: "text" }} />
+            textFieldProps={{ name: 'firstName', placeholder: "الاسم الاول", type: "text" }} />
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-            textFieldProps={{ name: 'lastname', placeholder: "الاسم التانى", type: "text" }} />
+            textFieldProps={{ name: 'lastName', placeholder: "الاسم التانى", type: "text" }} />
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
             textFieldProps={{ name: 'username', placeholder: "اسم المستخدم", type: "text" }} />
