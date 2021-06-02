@@ -78,11 +78,11 @@ export const FormField = () => {
 
           <p className="social-text text-base mt-6 ">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
 
-          <Button stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 my-3  " type='submit'>
-            Facebook  <Icons iconLink='fab fa-facebook-f' to='/login' />
+          <Button stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 my-3  " type='submit'>acebook
+              <Icons iconLink='fab fa-facebook-f' to='/login' />
           </Button>
-          <Button stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 mx-3 my-3" type='submit'>
-            Google  <Icons iconLink='fab fa-google' to='/login' />
+          <Button stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 mx-3 my-3" type='submit'>oogle
+              <Icons iconLink='fab fa-google' to='/login' />
           </Button><br></br>
 
           <p className=" mx-2 my-5  inline-block lg:hidden">لديك حساب؟</p>

@@ -83,14 +83,14 @@ export const FormFieldLogin = () => {
           <Button
             stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 my-3  "
             type="submit"
-          >
-            Facebook <Icons iconLink="fab fa-facebook-f" to="/login" />
+          >acebook
+            <Icons iconLink="fab fa-facebook-f" to="/login" />
           </Button>
           <Button
             stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 mx-3 my-3"
             type="submit"
-          >
-            Google <Icons iconLink="fab fa-google" to="/login" />
+          >oogle
+             <Icons iconLink="fab fa-google" to="/login" />
           </Button>
           <br></br>
 

@@ -1,8 +1,8 @@
-import { TextField, Icons } from "../atoms";
+import { TextField, Icons, } from "../atoms";
 
 const inputField = ({ iconsProps, textFieldProps }) => {
   return (
-    <div className="flex  my-4 mx-10 md:relative md:right-20">
+    <div className="flex mr-20 my-4 mx-10 md:relative md:right-20">
       <Icons icon={iconsProps.icon} />
       <TextField {...textFieldProps} />
     </div>
