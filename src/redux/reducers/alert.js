@@ -1,20 +1,32 @@
-import { alertConstants } from '../actions/types';
+export const successAlert = (state = "", action) => {
+  switch (action.type) {
+    case "OPEN_SUCCESS_ALERT":
+      return (state = action.payload);
+    case "CLOSE_SUCCESS_ALERT":
+      return (state = "");
+    default:
+      return state;
+  }
+};
 
-export function alert(state = {}, action) {
-    switch (action.type) {
-        case alertConstants.SUCCESS:
-            return {
-                type: 'alert-success',
-                message: action.message
-            };
-        case alertConstants.ERROR:
-            return {
-                type: 'alert-danger',
-                message: action.message
-            };
-        case alertConstants.CLEAR:
-            return {};
-        default:
-            return state
-    }
-}
+export const infoAlert = (state = "", action) => {
+  switch (action.type) {
+    case "OPEN_INFO_ALERT":
+      return (state = action.payload);
+    case "CLOSE_INFO_ALERT":
+      return (state = "");
+    default:
+      return state;
+  }
+};
+
+export const errorAlert = (state = "", action) => {
+  switch (action.type) {
+    case "OPEN_ERROR_ALERT":
+      return (state = action.payload);
+    case "CLOSE_ERROR_ALERT":
+      return (state = "");
+    default:
+      return state;
+  }
+};

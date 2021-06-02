@@ -1,10 +1,9 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Register from '../pages/Register';
-import Login from '../pages/Login';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
 
-
-const Routes = props => {
+const Routes = (props) => {
   return (
     <section>
       <Switch>

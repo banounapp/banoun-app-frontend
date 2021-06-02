@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
-import {Route, Switch} from 'react-router-dom';
-import Routes from './routing/Routes';
-import { setAuthToken } from './services/auth';
-// import { ToastContainer } from 'react-toastify';
-
-
-
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import Routes from "./routing/Routes";
+import { setAuthToken } from "./services/auth";
 
 const App = () => {
   useEffect(() => {
@@ -15,11 +11,10 @@ const App = () => {
     }
   }, []);
   return (
-         <Switch>
-           <Route component={Routes} />
-           {/* <ToastContainer /> */}
-         </Switch>
-   );
-}
- 
+    <Switch>
+      <Route component={Routes} />
+    </Switch>
+  );
+};
+
 export default App;
