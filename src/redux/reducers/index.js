@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
-import RootReducer from './rootReducer';
+import { combineReducers } from "redux";
+import { errorAlert, infoAlert, successAlert } from "./alert";
 
 export default combineReducers({
-    RootReducer,
- 
+  errorAlert,
+  infoAlert,
+  successAlert,
 });
