@@ -1,8 +1,9 @@
 import React from "react";
+import { Btn } from "../atoms/btn";
 
 const Section5 = () => {
   return (
-    <div className="mt-10 px-8 sm:px-20 ">
+    <div className="mt-10 px-8 sm:px-20 mb-20 mt-20">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
         <h1 className="text-3xl md:text-4xl mb-4"> اترك تعليقك </h1>
       </div>
@@ -33,9 +34,9 @@ const Section5 = () => {
               <i className="fas fa-star hover:text-tahuna-sands-800 px-0 sm:px-1 fa-xs sm:text-lg"></i>
             </div>
             <div>
-              <button className="px-2 md:px-6 mx-auto ml-0 sm:ml-10 py-1 bg-gray-800 text-white text-sm md:text-lg  mt-2 rounded ">
+              <Btn stylee="px-2 md:px-6 mx-auto ml-0 sm:ml-10 py-1 bg-gray-800 text-white text-sm md:text-lg  mt-2 rounded ">
                 أرسال
-              </button>
+              </Btn>
             </div>
           </div>
         </div>

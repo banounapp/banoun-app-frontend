@@ -1,4 +1,5 @@
 import React from "react";
+import { Btn } from "../atoms/btn";
 
 const Header = () => {
   return (
@@ -24,10 +25,10 @@ const Header = () => {
             </h3>
           </div>
         </div>
-        <button className="px-3 py-1 rounded bg-silver-tree-500">
+        <Btn stylee=" py-1 text-white text-lg mx-0 px-0 bg-silver-tree-500">
           تسجيل دخول
-        </button>
-        <button className="px-3 py-1 rounded border-2 mx-3">انشاء حساب</button>
+        </Btn>
+        <Btn stylee="py-1  text-lg  border-2 mx-3">انشاء حساب</Btn>
       </div>
     </div>
   );

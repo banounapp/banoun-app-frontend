@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import DropDownList from "../atoms/dropdown";
+import SearchInput from "../molecules/searchInput";
 import "./navbar.css";
 
 const NavBar = () => {
@@ -86,44 +88,12 @@ const NavBar = () => {
                 {/* DROP DOWN */}
 
                 <div>
-                  <div className="dropdown  relative">
-                    <button className=" py-2 px-4 mr-1 rounded inline-flex items-center">
-                      <span className="mr-1">المحتوي</span>
-                      <svg
-                        className="fill-current h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
-                      </svg>
-                    </button>
-                    <ul className="dropdown-menu absolute  hidden w-60 pt-1">
-                      <li className="">
-                        <a
-                          className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                          href="#"
-                        >
-                          المحتوي
-                        </a>
-                      </li>
-                      <li className="">
-                        <a
-                          className="bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                          href="#"
-                        >
-                          المحتوي 2
-                        </a>
-                      </li>
-                      <li className="">
-                        <a
-                          className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                          href="#"
-                        >
-                          المحتوي 3
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                  <DropDownList
+                    parent="المحتوي"
+                    child1="الحمل"
+                    child2="ما قبل الولادة"
+                    child3="الولادة"
+                  />
                 </div>
                 <a
                   href="#"
@@ -149,65 +119,13 @@ const NavBar = () => {
           </div>
           <div className=" inset-y-0  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* SEARCH  */}
-            <div className="relative rounded  shadow-md  text-gray-600 focus-within:text-gray-400">
-              <span className="absolute  inset-y-0 right-0 flex items-center pl-2">
-                <button
-                  type="submit"
-                  className="p-1 focus:outline-none focus:shadow-outline"
-                >
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    className="w-6 h-6"
-                  >
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                  </svg>
-                </button>
-              </span>
-              <input
-                type="search"
-                name="q"
-                className="py-2 text-center sm:w-full   text-sm text-white ml-4 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
-                placeholder="  البحث...      "
-                autoComplete="off"
-              />
-            </div>
+            <SearchInput placeholder="  البحث...      " />
           </div>
           {/*  */}
         </div>
         <div className="   lg:hidden md:hidden    flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           {/* SEARCH  */}
-          <div className="relative rounded  shadow-sm  text-gray-600 focus-within:text-gray-400">
-            <span className="absolute  inset-y-0 right-0 flex items-center pl-2">
-              <button
-                type="submit"
-                className="p-1 focus:outline-none focus:shadow-outline"
-              >
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6"
-                >
-                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </button>
-            </span>
-            <input
-              type="search"
-              name="q"
-              className="py-2  px-8 shadow-md  w-full text-sm text-white ml-4 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
-              placeholder="  البحث...      "
-              autoComplete="off"
-            />
-          </div>
+          <SearchInput placeholder="  البحث...      " />
         </div>
       </div>
 
@@ -224,44 +142,12 @@ const NavBar = () => {
             </a>
 
             <div>
-              <div className="dropdown w-1/6  relative">
-                <button className=" py-2 px-4  rounded inline-flex items-center">
-                  <span>المحتوي</span>
-                  <svg
-                    className="fill-current h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
-                  </svg>
-                </button>
-                <ul className="dropdown-menu absolute mr-16 text-center  hidden w-64  pt-1">
-                  <li className="">
-                    <a
-                      className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                      href="#"
-                    >
-                      المحتوي
-                    </a>
-                  </li>
-                  <li className="">
-                    <a
-                      className="bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                      href="#"
-                    >
-                      المحتوي 2
-                    </a>
-                  </li>
-                  <li className="">
-                    <a
-                      className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                      href="#"
-                    >
-                      المحتوي 3
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <DropDownList
+                parent="المحتوي"
+                child1="الحمل"
+                child2="ما قبل الولادة"
+                child3="الولادة"
+              />
             </div>
 
             <a

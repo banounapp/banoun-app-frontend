@@ -1,8 +1,9 @@
 import React from "react";
+import { Btn } from "../atoms/btn";
 
 const Section6 = () => {
   return (
-    <div className="bg-spring-rain-500 px-20  pb-20 mt-5">
+    <div className="bg-spring-rain-500 px-20  pb-20 mt-10 pt-4">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
         <h1 className="text-3xl md:text-4xl mb-4"> أستشير </h1>
       </div>
@@ -22,9 +23,9 @@ const Section6 = () => {
               </h3>
             </div>
           </div>
-          <button className="px-10 py-3      text-white  rounded bg-gray-800">
+          <Btn stylee="px-10 py-3      text-white  rounded bg-gray-800">
             اعرف المزيد
-          </button>
+          </Btn>
         </div>
       </div>
     </div>

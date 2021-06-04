@@ -1,4 +1,5 @@
 import React from "react";
+import { Btn } from "../atoms/btn";
 
 const Section2 = () => {
   return (
@@ -28,9 +29,9 @@ const Section2 = () => {
               </h3>
             </div>
           </div>
-          <button className="px-10 py-3      text-white  rounded bg-gray-800">
+          <Btn stylee="md:px-10 py-3   text-white  rounded bg-gray-800">
             اعرف المزيد
-          </button>
+          </Btn>
         </div>
       </div>
     </div>
