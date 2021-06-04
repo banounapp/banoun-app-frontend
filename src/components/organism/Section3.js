@@ -4,7 +4,7 @@ const Section3 = () => {
   return (
     // bg-silver-tree-500
     <div className=" pb-5 ">
-      <div className="pt-5  px-20 my-14 md:mb-20 mt-10  ">
+      <div className="pt-5 px-6 md:px-32 my-14 md:mb-20 mt-10  ">
         <h1 className="text-3xl md:text-4xl mb-4">تواصل معنا </h1>
         <p className="text-sm md:text-2xl mb-4">
           هنا نقدم لك أفضل الارشادات للتربية الصحيحة

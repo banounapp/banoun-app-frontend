@@ -14,8 +14,8 @@ const Card = ({ stylee, imageSource, category }) => {
         ></img>
       </div>
       <div className="text-center  w-full text-lg sm:text-xl my-auto">
-        <h1>{category}</h1>
-        <Btn stylee="lg:px-10 lg:py-1 bg-black text-white"> للمزيد</Btn>
+        <h1 className="text-sm sm:text-xl">{category}</h1>
+        <Btn stylee=" md:px-10 md:py-1 bg-black text-white"> للمزيد</Btn>
       </div>
     </div>
   );

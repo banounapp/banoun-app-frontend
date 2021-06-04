@@ -117,7 +117,7 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-          <div className=" inset-y-0  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className=" inset-y-0 mr-40 sm:mr-20  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* SEARCH  */}
             <SearchInput placeholder="  البحث...      " />
           </div>
@@ -131,7 +131,7 @@ const NavBar = () => {
 
       {/* TOGGLE MENU */}
       {toggleBurgerIcon ? (
-        <div className="sm:hidden relative" id="mobile-menu">
+        <div className="md:hidden relative" id="mobile-menu">
           <div className="px-2 pt-2 absolute w-full bg-white pb-3 space-y-1">
             <a
               href="#"

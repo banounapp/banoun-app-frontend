@@ -6,6 +6,7 @@ const Header = () => {
     <div className="block items-center md:flex   px-20 my-14">
       <div className="sm:w-30 lg:w-2/3 md:w-2/5 ">
         <img
+          className="m-auto"
           alt=""
           src="https://img.freepik.com/free-vector/family-meeting-grandparents-country-house-excited-children-parents-visiting-grandmother-grandfather-boy-running-granny-vector-illustration-happy-family-love-parenting_74855-8358.jpg?size=626&ext=jpg"
         ></img>

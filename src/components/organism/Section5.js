@@ -3,7 +3,7 @@ import { Btn } from "../atoms/btn";
 
 const Section5 = () => {
   return (
-    <div className="mt-10 px-8 sm:px-20 mb-20 mt-20">
+    <div className="mt-10 px-8 md:px-32 mb-20 mt-20">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
         <h1 className="text-3xl md:text-4xl mb-4"> اترك تعليقك </h1>
       </div>
