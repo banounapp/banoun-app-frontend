@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "../molecules/card";
+import { Card } from "../molecules";
 
-const Section1 = () => {
+export const Section1 = () => {
   return (
     <div className="relative z-10 px-8 md:px-32  bg-spring-rain-500 pb-5">
       <div className="pt-5 mb-10 px-6 text-center">
@@ -63,4 +63,4 @@ const Section1 = () => {
   );
 };
 
-export default Section1;
+

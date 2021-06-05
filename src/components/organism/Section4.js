@@ -1,7 +1,7 @@
 import React from "react";
 import Comments from "../molecules/Comments";
 
-const Section4 = () => {
+export const Section4 = () => {
   return (
     <div className=" pb-5 px-6 md:px-32">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
@@ -30,4 +30,4 @@ const Section4 = () => {
   );
 };
 
-export default Section4;
+

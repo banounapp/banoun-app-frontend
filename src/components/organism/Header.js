@@ -1,7 +1,7 @@
 import React from "react";
 import { Btn } from "../atoms/btn";
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className="block items-center md:flex   px-20 my-14">
       <div className="sm:w-30 lg:w-2/3 md:w-2/5 ">
@@ -35,4 +35,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+

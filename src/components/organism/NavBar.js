@@ -3,7 +3,7 @@ import DropDownList from "../atoms/dropdown";
 import SearchInput from "../molecules/searchInput";
 import "./navbar.css";
 
-const NavBar = () => {
+export const NavBar = () => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
 
   return (
@@ -70,7 +70,7 @@ const NavBar = () => {
             <div className="flex-shrink-0 flex items-center">
               <a
                 href="#"
-                className="text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
               >
                 بنون
               </a>
@@ -117,7 +117,7 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-          <div className=" inset-y-0 mr-40 sm:mr-20  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className=" inset-y-0 lg:mr-40 sm:mr-20  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* SEARCH  */}
             <SearchInput placeholder="  البحث...      " />
           </div>
@@ -177,4 +177,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+

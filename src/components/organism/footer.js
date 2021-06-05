@@ -1,82 +1,13 @@
 import React from "react";
 
-const Footer = () => {
+import { Icons } from './../atoms/icon';
+export const Footer = () => {
   return (
     <footer className="footer-1 text-center text-white sm:text-right bg-gray-800 py-8 sm:py-12">
       <div className="container mx-auto px-4">
         <div className="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
-          <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
-            <h5 className="text-xl font-bold mb-6">بنون</h5>
-            <ul className="list-none footer-links">
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  عن بنون
-                </a>
-              </li>
-
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  الاشتراك
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  المحتوي
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
-            <h5 className="text-xl font-bold mb-6">Resources</h5>
-            <ul className="list-none footer-links">
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  المحتوي1
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  المحتوي2
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  المحتوي3
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  الحمل
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="px-4 mt-4 sm:w-1/3 xl:w-1/6 sm:mx-auto xl:mt-0 xl:ml-auto">
-            <h5 className="text-xl md:ml-10 font-bold mb-6 sm:text-center xl:text-left">
-              كن متصلا!
-            </h5>
+          <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/2 ">
+            <h5 className="text-xl font-bold mb-6"> تا بعـنــا عـلى</h5>
             <div className="flex justify-center xl:justify-start">
               <a
                 href=""
@@ -97,9 +28,79 @@ const Footer = () => {
                 <i className="fab fa-google-plus-g"></i>
               </a>
             </div>
-            <div className="mt-5">
-              <label>تواصل</label>
-              <input placeholder="رايك" />
+            <br />
+            <ul className="list-none footer-links flex flex-col ">
+              <li className="mb-2 ">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent hover:border-silver-tree hover:text-silver-tree"
+                >
+                  الصفحة الرئيسية
+                </a>
+              </li>
+
+              <li className="mb-2">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent hover:border-silver-tree hover:text-silver-tree"
+                >
+                  المحتوى
+                </a>
+              </li>
+              <li className="mb-2">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent hover:border-silver-tree hover:text-silver-tree"
+                >
+                  عن بنـــون
+                </a>
+              </li>
+            </ul>
+            <ul className="list-none footer-links flex flex-col ">
+              <li className="mb-2">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent hover:border-silver-tree hover:text-silver-tree"
+                >
+                  تواصل  معــنا
+                </a>
+              </li>
+
+              <li className="mb-2">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent hover:border-silver-tree hover:text-silver-tree"
+                >
+                  اراء الزوار
+                </a>
+              </li>
+              <li className="mb-2">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent hover:border-silver-tree hover:text-silver-tree"
+                >
+                  استشــير
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+
+          <div className="px-4 mt-4 sm:w-1/3 xl:w-1/3  sm:mx-auto xl:mt-0 md ">
+            <h5 className="text-xl md:ml-10 font-bold mb-6 sm:text-center  ">
+              يسعــدنا ان نسمــع مــنك
+            </h5>
+
+            <div className="mr-100 lg:w-2/3 pr-20  ">
+
+
+              <p className='bg-silver-tree text-white p-2 flex' ><Icons icon='fas fa-phone' />8116 240 411 02 +</p>
+              <br />
+
+              <p className='bg-silver-tree text-white p-2 flex ' ><Icons icon='fas fa-envelope' /> banoun.app@gmail.com </p>
+
+
             </div>
           </div>
         </div>
@@ -108,4 +109,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+

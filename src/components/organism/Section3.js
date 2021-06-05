@@ -1,6 +1,6 @@
 import React from "react";
 
-const Section3 = () => {
+export const Section3 = () => {
   return (
     // bg-silver-tree-500
     <div className=" pb-5 ">
@@ -84,4 +84,4 @@ const Section3 = () => {
   );
 };
 
-export default Section3;
+

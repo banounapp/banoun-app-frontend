@@ -1,7 +1,7 @@
 import React from "react";
 import { Btn } from "../atoms/btn";
 
-const Section2 = () => {
+export const Section2 = () => {
   return (
     <div className="px-4 md:px-32  pb-5 mt-5">
       <div className="pt-5  px-6 md:mb-20   ">
@@ -38,4 +38,4 @@ const Section2 = () => {
   );
 };
 
-export default Section2;
+
