@@ -1,5 +1,5 @@
 import React from "react";
-import { Btn } from "../atoms/btn";
+import { Btn } from "../atoms";
 
 export const Section2 = () => {
   return (

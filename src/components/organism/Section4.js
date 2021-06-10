@@ -1,5 +1,5 @@
 import React from "react";
-import Comments from "../molecules/Comments";
+import { Comments } from "../molecules";
 
 export const Section4 = () => {
   return (

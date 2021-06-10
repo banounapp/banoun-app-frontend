@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Icons } from './../atoms/icon';
+import { Icons } from '../atoms';
 export const Footer = () => {
   return (
     <footer className="footer-1 text-center text-white sm:text-right bg-gray-800 py-8 sm:py-12">

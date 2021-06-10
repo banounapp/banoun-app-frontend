@@ -1,15 +1,15 @@
 import React from "react";
-import { Btn } from "../atoms/btn";
+import { Btn } from "../atoms";
 
 export const Section6 = () => {
   return (
-    <div className="bg-spring-rain-500  md:px-32  pb-20 mt-10 pt-4">
+    <div className="bg-spring-rain-500  md:px-32  pb-20 mt-10 pt-4" id='consult'>
       <div className="pt-5 px-8  my-14 md:mb-20 mt-10  ">
         <h1 className="text-3xl md:text-4xl mb-4"> أستشير </h1>
       </div>
 
       {/* Video div */}
-      <div className="block md:flex  justify-center ">
+      <div className="block md:flex  justify-center " >
         <div className="sm:w-30 lg:w-2/3 rounded md:w-2/5 ">
           <img src="https://png.pngtree.com/element_our/20200610/ourlarge/pngtree-online-doctor-consultation-image_2248276.jpg"></img>
         </div>

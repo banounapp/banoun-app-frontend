@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../atoms/button";
+import { Button } from "../atoms";
 import { Link } from "react-router-dom";
 
 export const LeftSideLogin = () => {

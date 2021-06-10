@@ -1,5 +1,5 @@
 import React from "react";
-import { Btn } from "../atoms/btn";
+import { Btn } from "../atoms";
 
 export const Header = () => {
   return (
@@ -26,10 +26,6 @@ export const Header = () => {
             </h3>
           </div>
         </div>
-        <Btn stylee=" py-1 text-white text-lg mx-0 px-0 bg-silver-tree-500">
-          تسجيل دخول
-        </Btn>
-        <Btn stylee="py-1  text-lg  border-2 mx-3">انشاء حساب</Btn>
       </div>
     </div>
   );

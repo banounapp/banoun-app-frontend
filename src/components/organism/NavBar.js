@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import DropDownList from "../atoms/dropdown";
-import SearchInput from "../molecules/searchInput";
+import { DropDownList } from "../atoms";
+import { SearchInput } from "../molecules";
 import "./navbar.css";
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
@@ -68,22 +69,22 @@ export const NavBar = () => {
           </div>
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
               >
                 بنون
-              </a>
+              </Link>
             </div>
             <div className="hidden my-auto sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
                   aria-current="page"
                 >
                   الصفحة الرئيسية
-                </a>
+                </Link>
 
                 {/* DROP DOWN */}
 
@@ -91,29 +92,32 @@ export const NavBar = () => {
                   <DropDownList
                     parent="المحتوي"
                     child1="الحمل"
-                    child2="ما قبل الولادة"
-                    child3="الولادة"
+                    child2="ما بعد الولادة"
+                    child3="الطفوله"
+                    child4="المراهقه"
+                    child5="الحالات الخاصه"
+
                   />
                 </div>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   عن بنون
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   اراء الزوار
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="#"
                   className="  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   أستشير!
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -133,38 +137,40 @@ export const NavBar = () => {
       {toggleBurgerIcon ? (
         <div className="md:hidden relative" id="mobile-menu">
           <div className="px-2 pt-2 absolute w-full bg-white pb-3 space-y-1">
-            <a
-              href="#"
+            <Link
+              to="#"
               className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
               aria-current="page"
             >
               الرئيسية
-            </a>
+            </Link>
 
             <div>
               <DropDownList
                 parent="المحتوي"
                 child1="الحمل"
-                child2="ما قبل الولادة"
-                child3="الولادة"
+                child2="ما بعد الولادة"
+                child3="الطفوله"
+                child4="المراهقه"
+                child5="الحالات الخاصه"
               />
             </div>
 
-            <a
-              href="#"
+            <Link
+              to="#"
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               عن بنون
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="#"
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               اراء الزوار
-            </a>
+            </Link>
             <a
-              href="#"
+              href="#consult"
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               استشر!

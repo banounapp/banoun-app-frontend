@@ -1,7 +1,7 @@
 import React from "react";
-import Input from "../atoms/input";
+import { Input } from "../atoms";
 
-const SearchInput = ({ placeholder }) => {
+export const SearchInput = ({ placeholder }) => {
   return (
     <div className="relative rounded  shadow-md  text-gray-600 focus-within:text-gray-400">
       <span className="absolute  inset-y-0 right-0 flex items-center pl-2">
@@ -27,4 +27,4 @@ const SearchInput = ({ placeholder }) => {
   );
 };
 
-export default SearchInput;
+

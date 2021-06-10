@@ -1,6 +1,6 @@
 import React from "react";
 
-const Comments = ({ name, email, comment }) => {
+export const Comments = ({ name, email, comment }) => {
   return (
     <div className="mt-5 border-2 py-4 px-2 md:p-4 shadow">
       <div className="block  sm:flex justify-between">
@@ -36,4 +36,4 @@ const Comments = ({ name, email, comment }) => {
   );
 };
 
-export default Comments;
+

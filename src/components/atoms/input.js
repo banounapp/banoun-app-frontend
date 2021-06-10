@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ placeholder }) => {
+export const Input = ({ placeholder }) => {
   return (
     <input
       type="search"
@@ -12,4 +12,4 @@ const Input = ({ placeholder }) => {
   );
 };
 
-export default Input;
+

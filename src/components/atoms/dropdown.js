@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
-const DropDownList = ({ parent, child1, child2, child3 }) => {
+export const DropDownList = ({ parent, child1, child2, child3, child4, child5 }) => {
   return (
     <div className="dropdown w-1/6  relative">
       <button className=" py-2 px-4  rounded inline-flex items-center">
@@ -15,32 +16,48 @@ const DropDownList = ({ parent, child1, child2, child3 }) => {
       </button>
       <ul className="dropdown-menu absolute mr-16 sm:mr-6 text-center  hidden w-64  pt-1">
         <li>
-          <a
+          <Link
             className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            href="#"
+            to="/pregnacy"
           >
             {child1}
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className="bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            href="#"
+            to="#"
           >
             {child2}
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            href="#"
+            to="#"
           >
             {child3}
-          </a>
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+            to="#"
+          >
+            {child4}
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+            to="#"
+          >
+            {child5}
+          </Link>
         </li>
       </ul>
     </div>
   );
 };
 
-export default DropDownList;
+
