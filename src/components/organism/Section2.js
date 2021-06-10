@@ -3,7 +3,7 @@ import { Btn } from "../atoms";
 
 export const Section2 = () => {
   return (
-    <div className="px-4 md:px-32  pb-5 mt-5">
+    <div className="px-4 md:px-32  pb-5 mt-5" id='banoun'>
       <div className="pt-5  px-6 md:mb-20   ">
         <h1 className="text-3xl md:text-4xl mb-4">عن بنون</h1>
         <p className="text-sm md:text-2xl mb-4">

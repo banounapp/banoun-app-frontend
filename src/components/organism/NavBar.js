@@ -99,25 +99,25 @@ export const NavBar = () => {
 
                   />
                 </div>
-                <Link
-                  to="#"
+                <a
+                  href="#banoun"
                   className="  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   عن بنون
-                </Link>
+                </a>
 
-                <Link
-                  to="#"
+                <a
+                  href="#visitors"
                   className="  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   اراء الزوار
-                </Link>
-                <Link
-                  to="#"
+                </a>
+                <a
+                  href="#consult"
                   className="  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   أستشير!
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -156,19 +156,19 @@ export const NavBar = () => {
               />
             </div>
 
-            <Link
-              to="#"
+            <a
+              href="#banoun"
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               عن بنون
-            </Link>
+            </a>
 
-            <Link
-              to="#"
+            <a
+              href="#visitors"
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               اراء الزوار
-            </Link>
+            </a>
             <a
               href="#consult"
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
