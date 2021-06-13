@@ -12,14 +12,14 @@ import { Fragment } from "react";
         GetCategory(id);
     
       }, [id]);
-      console.log(sub_category);
     return (
         <Fragment>
             {
                 !sub_category ?<Spinner/> :
                     (
                     <div className='block m-8 p-4 md:flex  justify-around flex-wrap '>
-                {sub_category&& sub_category.sub_category.map(sub=>(
+                {!sub_category.sub_category?<Spinner/> :
+                 sub_category.sub_category.map(sub=>(
                     
                     <>
                         {
