@@ -152,15 +152,12 @@ import PropTypes from "prop-types";
             </Link>
 
             <div>
-              <DropDownList
-                parent="المحتوي"
-                child1="الحمل"
-                child2="ما بعد الولادة"
-                child3="الطفوله"
-                child4="المراهقه"
-                child5="الحالات الخاصه"
-              />
-            </div>
+                  <DropDownList
+                    parent="المحتوي"
+                    category={categories}
+
+                  />
+                </div>
 
             <a
               href="#banoun"
