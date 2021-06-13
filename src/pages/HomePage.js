@@ -1,6 +1,6 @@
 import React from "react";
-import {
-  NavBar,
+import NavBar from '../components/organism/NavBar';
+import  {
   Header,
   Section1,
   Section2,
