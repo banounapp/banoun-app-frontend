@@ -11,6 +11,7 @@ const BooksArticles = () => {
   return (
     <>
       <div className='bg-pale-leaf pb-5'>
+          {/* {} */}
         <NavBar />
         <HeaderArtcles />
       </div>
