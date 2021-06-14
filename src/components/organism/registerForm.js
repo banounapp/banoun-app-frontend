@@ -1,7 +1,9 @@
-import { InputField } from '../molecules';
+import {InputField} from '../molecules';
 import { Button, Icons } from '../atoms';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { signup } from '../../services/auth';
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,6 +12,12 @@ export const FormField = () => {
   const validate = Yup.object({
     username: Yup.string()
       .max(15, 'لابد ان تكون 15 حرف على الاقل')
+      .required('مطلوب'),
+    firstName: Yup.string()
+      .max(7, 'لابد ان تكون 7 حرف على الاقل')
+      .required('مطلوب'),
+    lastName: Yup.string()
+      .max(7, 'لابد ان تكون 7 حرف على الاقل')
       .required('مطلوب'),
     email: Yup.string()
       .email('البريد الالكترونى غير صحيح')
@@ -22,70 +30,67 @@ export const FormField = () => {
       .required('مطلوب')
   })
 
-  const submitHandler = () => {
-    console.log('nnnnnn');
-  }
-
   return (
     <Formik
       initialValues={{
+        firstName: '',
+        lastName: '',
         username: '',
         email: '',
         password: '',
         confirmPassword: ''
       }}
       validationSchema={validate}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={async (values, { setSubmitting }) => {
+        await signup(values)
+        setSubmitting(false);
+
       }}
     >
 
       {formik => (
-        <div className="forms-container content-center ">
-          <div className="signin-signup  ">
-            <Form action="#"
-              className="sign-up-form relative top-20 left-15 text-center content-center"
+        <Form action="#"
+          className="text-center content-center justify-center md:mx-10 " >
+          <h2 className="my-10 lg:my-7 text-lg md:text-xl lg:text-2xl " >انشاء الحساب</h2>
 
-            >
-              <h2 className="title font-bold text-lg font-display " >انشاء الحساب</h2>
-              <div className="input-field mt-4 p-2">
-                <InputField iconsProps={{ icon: "text-gray-500 fas fa-user p-3" }}
-                  textFieldProps={{ name: 'username', placeholder: "اسم المستخدم", type: "text" }} />
+          <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+            textFieldProps={{ name: 'firstName', placeholder: "الاسم الاول", type: "text" }} />
 
-              </div>
-              <div className="input-field p-2 ">
+          <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+            textFieldProps={{ name: 'lastName', placeholder: "الاسم التانى", type: "text" }} />
 
-                <InputField iconsProps={{ icon: "text-gray-500 fas fa-envelope p-3" }}
-                  textFieldProps={{ name: 'email', placeholder: "البريد الالكترونى", type: "email" }} />
+          <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+            textFieldProps={{ name: 'username', placeholder: "اسم المستخدم", type: "text" }} />
 
-              </div>
-              <div className="input-field p-2">
+          <InputField iconsProps={{ icon: "text-gray-500 fas fa-envelope " }}
+            textFieldProps={{ name: 'email', placeholder: "البريد الالكترونى", type: "email" }} />
 
-                <InputField iconsProps={{ icon: "text-gray-500 fas fa-lock p-3" }}
-                  textFieldProps={{ name: 'password', placeholder: "الرقم السرى", type: "password" }} />
+          <InputField iconsProps={{ icon: "text-gray-500 fas fa-lock " }}
+            textFieldProps={{ name: 'password', placeholder: "الرقم السرى", type: "password" }} />
 
-              </div>
-              <div className="input-field p-2">
-                <InputField iconsProps={{ icon: "text-gray-500 fas fa-lock p-3" }}
-                  textFieldProps={{ name: 'confirmPassword', placeholder: "تأكيد الرقم السرى", type: "password" }} />
-              </div>
+          <InputField iconsProps={{ icon: "text-gray-500 fas fa-lock " }}
+            textFieldProps={{ name: 'confirmPassword', placeholder: "تأكيد الرقم السرى", type: "password" }} />
 
-              <Button stylee="bg-silver-tree  text-white" type='submit'>
-                انشاء الحساب
+
+          <Button stylee="bg-silver-tree  text-white my-4" type='submit'>
+            انشاء الحساب
                 </Button>
 
-              <p className="social-text mt-6">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
-              <div className="social-media mt-6 mb-10 ">
-                <Icons iconLink='fab fa-facebook-f' to='/login' /> &nbsp;
-                <Icons iconLink='fab fa-google' to='/login' />
-              </div>
-            </Form>
+          <p className="social-text text-base mt-6 ">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
 
-          </div>
-        </div>
+          <Button stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 my-3  " type='submit'>acebook
+              <Icons iconLink='fab fa-facebook-f' to='/login' />
+          </Button>
+          <Button stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 mx-3 my-3" type='submit'>oogle
+              <Icons iconLink='fab fa-google' to='/login' />
+          </Button><br></br>
+
+          <p className=" mx-2 my-5  inline-block lg:hidden">لديك حساب؟</p>
+          <Link to='/login' className="text-silver-tree inline-block lg:hidden ">
+            تسجيل الدخول
+                      </Link>
+
+        </Form>
 
       )}
 
