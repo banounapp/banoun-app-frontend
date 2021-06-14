@@ -1,69 +1,105 @@
-import InputField from './../molecules/inputField';
-import { Button,Icons  } from './../atoms';
-import {Formik, Form} from 'formik';
-import * as Yup from 'yup';
-
-
+import {InputField} from "./../molecules";
+import { Button, Icons } from "./../atoms";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { login } from "../../services/auth";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 export const FormFieldLogin = () => {
-  const validate=Yup.object({
-    username:Yup.string()
-    .max(15,'لابد ان تكون 15 حرف على الاقل')
-    .required('مطلوب'),
-    password:Yup.string()
-    .min(6,'لابد ان يكون 6 ارقام على الاقل')
-    .required('مطلوب'),
-   
-  })
-  
-    return ( 
-      <Formik
-        initialValues={{
-          username: '',
-          password: '',
+  const [alertMessage, setAlertMessage] = useState("");
+  const validate = Yup.object({
+    username: Yup.string()
+      .max(15, "لابد ان تكون 15 حرف على الاقل")
+      .required("مطلوب"),
+    password: Yup.string()
+      .min(6, "لابد ان يكون 6 ارقام على الاقل")
+      .required("مطلوب"),
+  });
 
-        }}
-        validationSchema={validate}
-        validationSchema={validate}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        {formik => (
-          <div className="forms-container content-center">
-            <div className="signin-signup ">
-              <Form action="#" className="sign-up-form relative top-20 left-15 text-center content-center ">
-                <h2 className="title font-bold text-lg " > تسجيل الدخول</h2>
-                <div className="input-field mt-4 p-2">
-                  <InputField iconsProps={{ icon: "text-gray-500 fas fa-user p-3" }}
-                    textFieldProps={{ name: 'username', placeholder: "اسم المستخدم", type: "text" }} />
+  const onSubmit = async (values) => {
+    const res = await login(values);
+    console.log(res);
+    if (res.isError) {
+      setAlertMessage(res.errorMessage);
+      setTimeout(() => {
+        setAlertMessage("");
+      }, 2000);
+    } else {
+      sessionStorage.setItem('token', res.data.data)
+    }
 
-                </div>
+  };
 
-                <div className="input-field p-2">
-                  <InputField iconsProps={{ icon: "text-gray-500 fas fa-lock p-3" }}
-                    textFieldProps={{ name: 'password', placeholder: "الرقم السرى", type: "password" }} />
-                </div>
-                <Button stylee="bg-silver-tree  text-white" type='submit'>
-                  تسجيل الدخول
-                </Button>
-
-                <p className="social-text mt-6">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
-                <div className="social-media mt-6  mb-10 ">
-                  <Icons iconLink='fab fa-facebook-f' to='/login' /> &nbsp;
-                <Icons iconLink='fab fa-google' to='/login' />
-                </div>
-              </Form>
+  return (
+    <Formik
+      initialValues={{
+        username: "",
+        password: "",
+      }}
+      validationSchema={validate}
+      onSubmit={(values) => onSubmit(values)}
+    >
+      {(formik) => (
+        <Form
+          action="#"
+          className="text-center content-center justify-center md:mx-10 "
+        >
+          <h2 className="my-10 lg:my-7 text-lg md:text-xl lg:text-2xl">
+            تسجيل الدخول
+          </h2>
+          {alertMessage !== "" && (
+            <div class="flex items-center bg-red-500 border-l-4 border-red-700 py-2 px-3 shadow-md mb-2 w-9/12 justify-self-center align-self-center mx-8">
+              <div class="text-white max-w-xs ">{alertMessage}</div>
             </div>
-          </div>
+          )}
+          <InputField
+            iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+            textFieldProps={{
+              name: "username",
+              placeholder: "اسم المستخدم",
+              type: "text",
+            }}
+          />
 
-        )}
+          <InputField
+            iconsProps={{ icon: "text-gray-500 fas fa-lock " }}
+            textFieldProps={{
+              name: "password",
+              placeholder: "الرقم السرى",
+              type: "password",
+            }}
+          />
 
-      </Formik>
+          <Button stylee="bg-silver-tree  text-white my-4" type="submit">
+            تسجيل الدخول
+          </Button>
 
+          <p className="social-text text-base mt-6 ">
+            او سجل دخول عن طريق مواقع التواصل الاجتماعيه
+          </p>
+
+          <Button
+            stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 my-3  "
+            type="submit"
+          >acebook
+            <Icons iconLink="fab fa-facebook-f" to="/login" />
+          </Button>
+          <Button
+            stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 mx-3 my-3"
+            type="submit"
+          >oogle
+             <Icons iconLink="fab fa-google" to="/login" />
+          </Button>
+          <br></br>
+
+          <p className=" mx-2 my-5  inline-block lg:hidden ">ليس لديك جساب؟ </p>
+          <Link to="/" className="text-silver-tree  inline-block  lg:hidden">
+            انشاء حساب
+          </Link>
+        </Form>
+      )}
+    </Formik>
   );
-}
+};
