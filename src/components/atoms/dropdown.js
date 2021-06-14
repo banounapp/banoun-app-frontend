@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-export const DropDownList = ({ parent, child1, child2, child3, child4, child5 }) => {
+export const DropDownList = ({ parent, category}) => {
+  console.log(category);
   return (
     <div className="dropdown w-1/6  relative">
       <button className=" py-2 px-4  rounded inline-flex items-center">
@@ -16,45 +17,20 @@ export const DropDownList = ({ parent, child1, child2, child3, child4, child5 })
       </button>
       <ul className="dropdown-menu absolute mr-16 sm:mr-6 text-center  hidden w-64  pt-1">
         <li>
-          <Link
-            className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            to="/pregnacy"
-          >
-            {child1}
-          </Link>
+          {category && 
+          category.map((item)=>
+             <Link
+             className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+             to={`/pregnacy/${item._id}`}
+           >
+             {item.name}
+           </Link>
+
+          )}
+         
         </li>
-        <li>
-          <Link
-            className="bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            to="#"
-          >
-            {child2}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            to="#"
-          >
-            {child3}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            to="#"
-          >
-            {child4}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="rounded-b bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-            to="#"
-          >
-            {child5}
-          </Link>
-        </li>
+      
+      
       </ul>
     </div>
   );

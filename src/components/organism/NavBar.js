@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { DropDownList } from "../atoms";
 import { SearchInput } from "../molecules";
 import "./navbar.css";
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import {GetAllCategories} from '.././../redux/actions/categories';
+import PropTypes from "prop-types";
 
-export const NavBar = () => {
+  const  NavBar = ({GetAllCategories,categories}) => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
+  useEffect(() => {
+
+    GetAllCategories();
+
+  }, []);
+  console.log(categories);
+
 
   return (
     <nav>
@@ -91,11 +101,7 @@ export const NavBar = () => {
                 <div>
                   <DropDownList
                     parent="المحتوي"
-                    child1="الحمل"
-                    child2="ما بعد الولادة"
-                    child3="الطفوله"
-                    child4="المراهقه"
-                    child5="الحالات الخاصه"
+                    category={categories}
 
                   />
                 </div>
@@ -146,15 +152,12 @@ export const NavBar = () => {
             </Link>
 
             <div>
-              <DropDownList
-                parent="المحتوي"
-                child1="الحمل"
-                child2="ما بعد الولادة"
-                child3="الطفوله"
-                child4="المراهقه"
-                child5="الحالات الخاصه"
-              />
-            </div>
+                  <DropDownList
+                    parent="المحتوي"
+                    category={categories}
+
+                  />
+                </div>
 
             <a
               href="#banoun"
@@ -182,5 +185,19 @@ export const NavBar = () => {
     </nav>
   );
 };
+const mapStateToProps = (state) => ({
+  categories: state.categories.categories
+
+});
+
+NavBar.propTypes = {
+  
+  GetAllCategories: PropTypes.func.isRequired,
+};
 
 
+export default connect(mapStateToProps,{
+
+  GetAllCategories
+
+})(NavBar);
