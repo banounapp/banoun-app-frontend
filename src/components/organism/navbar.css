@@ -1,0 +1,7 @@
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#menu-button:hover + .toggle-menu-bar {
+  visibility: visible;
+}

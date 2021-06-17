@@ -7,7 +7,7 @@ export async function login(dataform) {
     if (res.data.code === 0) {
         result = { data: res.data, isError: false, errorMessage: "" };
         return result;
-    } else if (res.data.code == 1) {
+    } else if (res.data.code === 1) {
         result = {
             data: null,
             isError: true,
@@ -31,7 +31,7 @@ export async function signup(dataform) {
     if (res.data.code === 0) {
         result = { data: res.data, isError: false, errorMessage: "" };
         return result;
-    } else if (res.data.code == 1) {
+    } else if (res.data.code === 1) {
         result = {
             data: null,
             isError: true,
