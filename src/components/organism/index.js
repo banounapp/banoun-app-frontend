@@ -1,23 +1,17 @@
-export * from './RightSideRegister'
-export * from './registerForm'
-export * from './loginFrom'
-export * from './LeftSideLogin'
-export * from './headerPregnacy'
-export * from './haederArticles'
-export * from './NavBar'
-export * from './Section1'
-export * from './Section2'
-export * from './Section3'
-export * from './Section4'
-export * from './Section5'
-export * from './Section6'
-export * from './cardsPregnacy'
-export * from './cardbook'
-export * from './cardArticles'
-
-export * from './footer'
-export * from './Header'
-
-
-
-
+export * from './RightSideRegister';
+export * from './registerForm';
+export * from './loginFrom';
+export * from './LeftSideLogin';
+export * from './headerPregnacy';
+export * from './NavBar';
+export * from './Section1';
+export * from './Section2';
+export * from './Section3';
+export * from './Section4';
+export * from './Section5';
+export * from './Section6';
+export * from './cardsPregnacy';
+export * from './secEditProfile';
+export * from './secAppoinemnt';
+export * from './footer';
+export * from './Header';
