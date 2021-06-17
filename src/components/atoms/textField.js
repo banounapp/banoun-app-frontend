@@ -1,9 +1,9 @@
 import React from 'react'
-import {ErrorMessage, useField} from 'formik'
+import { ErrorMessage, useField } from 'formik'
 
 
-export const TextField = ({...props}) => {
-    const [field,meta]=useField(props);
+export const TextField = ({ ...props }) => {
+    const [field, meta] = useField(props);
     return (
         <div>
             <input type='text'

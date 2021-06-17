@@ -5,6 +5,11 @@ export * from './card'
 export * from './btn'
 export * from './dropdown'
 export * from './input'
+export * from './cardb'
+export * from './dropdowndoc'
+export * from './btndoc'
+
+
 
 
 

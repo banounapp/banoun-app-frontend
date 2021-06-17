@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-export const DropDownList = ({ parent, category}) => {
+export const DropDownList = ({ parent, category }) => {
   console.log(category);
   return (
     <div className="dropdown w-1/6  relative">
@@ -17,20 +17,21 @@ export const DropDownList = ({ parent, category}) => {
       </button>
       <ul className="dropdown-menu absolute mr-16 sm:mr-6 text-center  hidden w-64  pt-1">
         <li>
-          {category && 
-          category.map((item)=>
-             <Link
-             className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-             to={`/pregnacy/${item._id}`}
-           >
-             {item.name}
-           </Link>
+          {category &&
+            category.map((item) =>
+              <Link
+                key={item._id}
+                className="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                to={`/pregnacy/${item._id}`}
+              >
+                {item.name}
+              </Link>
 
-          )}
-         
+            )}
+
         </li>
-      
-      
+
+
       </ul>
     </div>
   );

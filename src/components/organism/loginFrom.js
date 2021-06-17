@@ -50,7 +50,7 @@ export const FormFieldLogin = () => {
               </div>
               <Button stylee="bg-silver-tree  text-white" type='submit'>
                 تسجيل الدخول
-                </Button>
+              </Button>
 
               <p className="social-text mt-6">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
               <div className="social-media mt-6  mb-10 ">

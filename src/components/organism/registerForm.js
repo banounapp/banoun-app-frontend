@@ -75,7 +75,7 @@ export const FormField = () => {
 
               <Button stylee="bg-silver-tree  text-white" type='submit'>
                 انشاء الحساب
-                </Button>
+              </Button>
 
               <p className="social-text mt-6">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
               <div className="social-media mt-6 mb-10 ">
