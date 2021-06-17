@@ -96,75 +96,75 @@ export const RegisterConsult = () => {
 
 
             {
-            formik => (
-                <Form action="#"
-                    className="text-center content-center justify-center md:mx-10 lg:mr-30 " >
-                    <h2 className=" my-10 lg:my-7 text-lg md:text-xl lg:text-2xl lg:ml-40" >انشاء حساب كمتخصص</h2>
-                    <div className=' grid grid-cols-1 md:grid-cols-2 lg:gris-cols-2 -mr-80'>
-                        <InputField
-                            iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-                            textFieldProps={{ name: 'username', placeholder: "الاسم بالكامل", type: "text" }} />
+                formik => (
+                    <Form action="#"
+                        className="text-center content-center justify-center md:mx-10 lg:mr-30 " >
+                        <h2 className=" my-10 lg:my-7 text-lg md:text-xl lg:text-2xl lg:ml-40" >انشاء حساب كمتخصص</h2>
+                        <div className=' grid grid-cols-1 md:grid-cols-2 lg:gris-cols-2 -mr-80'>
+                            <InputField
+                                iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+                                textFieldProps={{ name: 'username', placeholder: "الاسم بالكامل", type: "text" }} />
 
-                        {/* <InputField
+                            {/* <InputField
                             iconsProps={{ icon: " fas fa-camera " }}
                             textFieldProps={{ name: 'camera', placeholder: "", type: "file" }} /> */}
 
-                        <InputField
-                            iconsProps={{ icon: "text-gray-500 fas fa-phone " }}
-                            textFieldProps={{ name: 'phone', placeholder: "رقم التليفون", type: "number" }} />
+                            <InputField
+                                iconsProps={{ icon: "text-gray-500 fas fa-phone " }}
+                                textFieldProps={{ name: 'phone', placeholder: "رقم التليفون", type: "number" }} />
 
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-envelope " }}
-                            textFieldProps={{ name: 'email', placeholder: "البريد الالكترونى", type: "email" }} />
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-envelope " }}
+                                textFieldProps={{ name: 'email', placeholder: "البريد الالكترونى", type: "email" }} />
 
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-key " }}
-                            textFieldProps={{ name: 'password', placeholder: "الرقم السرى", type: "password" }} />
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-key " }}
+                                textFieldProps={{ name: 'password', placeholder: "الرقم السرى", type: "password" }} />
 
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-key " }}
-                            textFieldProps={{ name: 'confirmPassword', placeholder: "تأكيد الرقم السرى", type: "password" }} />
-                        {/* <InputField iconsProps={{ icon: "text-gray-500 fas fa-id-card-alt" }}
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-key " }}
+                                textFieldProps={{ name: 'confirmPassword', placeholder: "تأكيد الرقم السرى", type: "password" }} />
+                            {/* <InputField iconsProps={{ icon: "text-gray-500 fas fa-id-card-alt" }}
                             textFieldProps={{ name: 'id', placeholder: "الرقم القومى ", type: "number" }} /> */}
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt" }}
-                            textFieldProps={{ name: 'address', placeholder: "العنوان  ", type: "text" }} />
-                        <InputField
-                            iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt " }}
-                            textFieldProps={{ name: 'city', placeholder: "المحافظه ", type: "text" }} />
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt" }}
+                                textFieldProps={{ name: 'address', placeholder: "العنوان  ", type: "text" }} />
+                            <InputField
+                                iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt " }}
+                                textFieldProps={{ name: 'city', placeholder: "المحافظه ", type: "text" }} />
 
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-briefcase " }}
-                            textFieldProps={{ name: 'job', placeholder: "وظيفتك ", type: "text" }} />
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-briefcase " }}
+                                textFieldProps={{ name: 'job', placeholder: "وظيفتك ", type: "text" }} />
 
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
-                            textFieldProps={{ name: 'gender', placeholder: "النوع", type: "text" }} />
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
-                            textFieldProps={{ name: 'Specialization', placeholder: "التخصص", type: "text" }} />
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
+                                textFieldProps={{ name: 'gender', placeholder: "النوع", type: "text" }} />
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
+                                textFieldProps={{ name: 'Specialization', placeholder: "التخصص", type: "text" }} />
 
-                        <InputField iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
-                            textFieldProps={{ name: 'bio', placeholder: " نبذه عنك ", type: "text" }} />
-                        <div className="file-input">
-                            <input type="file" id="file" className="file" name='certification' />
-                            <label htmlFor="file">
-                                Select file
-                                <p className="file-name"></p>
-                            </label>
-                        </div>
-                        {/* <div class="wrapper">
+                            <InputField iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
+                                textFieldProps={{ name: 'bio', placeholder: " نبذه عنك ", type: "text" }} />
+                            <div className="file-input">
+                                <input type="file" id="file" className="file" name='certification' />
+                                <label htmlFor="file">
+                                    Select file
+                                    <p className="file-name"></p>
+                                </label>
+                            </div>
+                            {/* <div class="wrapper">
                             <div class="file-upload">
                                 <input type="file" />
                                 <i class="fa fa-arrow-up"></i>
                             </div>
                         </div> */}
 
-                    </div>
+                        </div>
 
 
 
 
-                    <Button stylee="bg-silver-tree lg:ml-40 text-white my-4 content-center" type='submit'>
-                        دخول
-                    </Button>
+                        <Button stylee="bg-silver-tree lg:ml-40 text-white my-4 content-center" type='submit'>
+                            دخول
+                        </Button>
 
-                </Form>
+                    </Form>
 
-            )}
+                )}
 
         </Formik>
 

@@ -13,16 +13,16 @@ const Routes = (props) => {
   return (
     <section>
       <Switch>
-      <Route exact path="/pregnacy/:id" component={Category} />
-      <Route exact path="/sub/:catId/:subId" component={BooksArticles} />
-      <Route exact path="/consult" component={Consult}/>
-      <Route exact path="/profile" component={Profile}/>
+        <Route exact path="/pregnacy/:id" component={Category} />
+        <Route exact path="/sub/:catId/:subId" component={BooksArticles} />
+        <Route exact path="/consult" component={Consult} />
+        <Route exact path="/profile" component={Profile} />
 
         <Route exact path="/" component={HomePage} />
         <Route exact path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/RegisterCousulter" component={RegisterConsulter} />
-        {/* <Route path="/RegisterCousulter" component={RegisterConsulter} /> */}
+        <Route path="/RegisterCousulter" component={RegisterConsulter} />
 
 
       </Switch>

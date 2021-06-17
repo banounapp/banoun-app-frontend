@@ -1,7 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { GetUer } from './../../redux/actions/userProfile';
+import { useEffect } from 'react';
 
+const EditProfile = ({ GetUer, user }) => {
+  useEffect(() => {
+    GetUer()
+  })
 
-export const EditProfile = () => {
   return (
     <div className='bg-white w-60 pt-4 pb-4 md:w-96 m-auto pt-5 lg:w-1/4 lg:mt-14 lg:sticky lg:top-0'>
       <div className=''>
@@ -11,13 +17,19 @@ export const EditProfile = () => {
         </p>
       </div>
       <div className='text-center mt-3 sm:w-56 md:text-lg m-auto lg:text-xl'>
-        <p>صفية سعيد</p>
-        <p>العمر 34 سنة</p>
-        <p>Safial1002@gmail.com</p>
-        <p>2000 365 012 +2</p>
-        <p  className='text-silver-tree-500 mt-10 md:text-lg lg:text-xl'> <i class=" p-2 fas fa-sign-out-alt"></i>تسجيل الخروج </p>
-      </div>
-      
+        {user && (<><p>{user.username}</p>
+          <p>{user.age}</p>
+          <p>{user.email}</p>
+          <p>{user.phone}</p>
+          <p className='text-silver-tree-500 mt-10 md:text-lg lg:text-xl'> <i class=" p-2 fas fa-sign-out-alt"></i>تسجيل الخروج </p>
+        </>)}</div>
+
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  user: state.userProfile.user
+});
+
+export default connect(mapStateToProps, { GetUer })(EditProfile);
