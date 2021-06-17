@@ -13,6 +13,10 @@ export * from './Section5'
 export * from './Section6'
 
 
+export * from './secAppoinemnt';
+export * from './secEditProfile';
+
+
 
 
 export * from './headerconsult'

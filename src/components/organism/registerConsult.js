@@ -46,12 +46,13 @@ export const RegisterConsult = () => {
 
     })
     const onSubmit = async (values) => {
-        const res = await FormSpecialist(values);
         console.log(values);
+
+        const res = await FormSpecialist(values);
         console.log(res);
 
     };
-    console.log(FormSpecialist());
+    console.log(FormSpecialist);
 
     return (
         <Formik
@@ -94,7 +95,8 @@ export const RegisterConsult = () => {
         >
 
 
-            {formik => (
+            {
+            formik => (
                 <Form action="#"
                     className="text-center content-center justify-center md:mx-10 lg:mr-30 " >
                     <h2 className=" my-10 lg:my-7 text-lg md:text-xl lg:text-2xl lg:ml-40" >انشاء حساب كمتخصص</h2>

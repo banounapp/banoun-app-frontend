@@ -7,6 +7,7 @@ import HomePage from './../pages/HomePage';
 import Category from './../pages/Category';
 import BooksArticles from './../pages/booksArticles';
 import Consult from "../pages/consult";
+import Profile from './../pages/profile';
 
 const Routes = (props) => {
   return (
@@ -15,6 +16,7 @@ const Routes = (props) => {
       <Route exact path="/pregnacy/:id" component={Category} />
       <Route exact path="/sub/:catId/:subId" component={BooksArticles} />
       <Route exact path="/consult" component={Consult}/>
+      <Route exact path="/profile" component={Profile}/>
 
         <Route exact path="/" component={HomePage} />
         <Route exact path="/register" component={Register} />
