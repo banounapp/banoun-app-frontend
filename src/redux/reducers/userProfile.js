@@ -5,7 +5,8 @@ import {
 const initialState = {
     user: null,
     loading: true,
-    error: {}
+    error: {},
+    isAuthenticated:false,
 }
 export default function (state = initialState, action) {
     const { type, payload } = action;
@@ -14,13 +15,17 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 user: payload,
-                loading: false
+                loading: false,
+                isAuthenticated:true,
+
             }
         case Error_User:
             return {
                 ...state,
                 error: payload,
-                loading: false
+                loading: false,
+                isAuthenticated:false,
+
             };
         default:
             return state;

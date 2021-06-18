@@ -52,13 +52,3 @@ export const Appointment = () => {
   );
 };
 
-{/* <div className='m-4 md:space-y-10'> */}
-  {/* <p className="md:text-xl m-10">مواعيد محجوزة</p>
-  {/* </div> */}
-  {/* <CardAppoinment
-    specialistName='اخصائى دكتور رامى ياسر'
-    status='الحضوراونلاين'
-    color='text-forest-green-500'
-    appoinemnt='الاحد  ,14 مارس   2021 9.00 ص'
-    meeting='http://meet.google.com/pef-wzvg-pgm'
-  />  */}

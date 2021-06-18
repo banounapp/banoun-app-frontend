@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { DropDownDoc } from "../atoms";
 import { Pagination} from "../atoms";
 import { connect } from "react-redux";
@@ -47,14 +47,18 @@ const Doctors = ({GetAllSpecialist,specialists}) => {
 
 {
   specialists&&specialists.map(item=>(
+    <Fragment>
+
+
     <CardDoc
     
+    imageSource=
     
-    imageSource="images/docgirl.png"
-    
+    {item.image?`https://banoun-app.herokuapp.com/api/upload/show/${item?.image?.filename}`: item.gender=="female"?"images/docgirl.png":"images/docboy.png"}
+    // imageSource={item.gender=="female"?"images/docgirl.png":"images/docboy.png"}
     
     docname={item.username} des={item.job}   className="-mt-16"/>
-
+</Fragment>
   ))
 }
        

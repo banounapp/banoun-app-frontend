@@ -1,5 +1,7 @@
 import React from "react";
 import { Btn } from "../atoms";
+import { Link } from 'react-router-dom';
+
 
 export const Section6 = () => {
   return (
@@ -23,9 +25,12 @@ export const Section6 = () => {
               </h3>
             </div>
           </div>
-          <Btn stylee="px-10 py-3      text-white  rounded bg-gray-800">
+           <Link to="/consult" >
+           <Btn stylee="px-10 py-3      text-white  rounded bg-gray-800">
             اعرف المزيد
           </Btn>
+           </Link>
+         
         </div>
       </div>
     </div>

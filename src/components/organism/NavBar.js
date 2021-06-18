@@ -78,6 +78,19 @@ const NavBar = ({ GetAllCategories, categories }) => {
                         </button>
                     </div>
                     <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
+                        {sessionStorage.getItem('token')&&
+  <div className="flex-shrink-0 flex items-center">
+  <Link
+          to="/profile"
+          className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+      >
+
+<i class="fa fa-user" aria-hidden="true"></i>
+
+          </Link>
+      </div>
+                        }
+                  
                         <div className="flex-shrink-0 flex items-center">
                             <Link
                                 to="/"
@@ -85,7 +98,8 @@ const NavBar = ({ GetAllCategories, categories }) => {
                             >
                                 بنون
                             </Link>
-                        </div>
+                        </div >
+                        
                         <div className="hidden my-auto sm:block sm:ml-6">
                             <div className="flex space-x-4">
                                 <Link
@@ -124,6 +138,9 @@ const NavBar = ({ GetAllCategories, categories }) => {
                                 >
                                     أستشير!
                                 </a>
+                                {/* <Link>
+                                مقالات
+                                </Link> */}
                             </div>
                         </div>
                     </div>
@@ -178,7 +195,8 @@ const NavBar = ({ GetAllCategories, categories }) => {
                         >
                             استشر!
                         </a>
-                        <hr></hr>
+                        <hr>
+                        </hr>
                     </div>
                 </div>
             ) : null}
