@@ -57,7 +57,10 @@ const Doctors = ({GetAllSpecialist,specialists}) => {
     {item.image?`https://banoun-app.herokuapp.com/api/upload/show/${item?.image?.filename}`: item.gender=="female"?"images/docgirl.png":"images/docboy.png"}
     // imageSource={item.gender=="female"?"images/docgirl.png":"images/docboy.png"}
     
-    docname={item.username} des={item.job}   className="-mt-16"/>
+    docname={item.username} des={item.job} 
+    
+    rate={item.rate}
+    className="-mt-16"/>
 </Fragment>
   ))
 }

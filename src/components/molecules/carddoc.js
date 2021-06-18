@@ -1,6 +1,7 @@
 import React from "react";
+import _ from "lodash";
 
-export const CardDoc = ({  imageSource, docname, des }) => {
+export const CardDoc = ({  imageSource, docname, des,rate }) => {
   
 
   return (
@@ -14,13 +15,14 @@ export const CardDoc = ({  imageSource, docname, des }) => {
            <h1 className="text-base lg:text-base text-center mt-3">{docname}</h1>
          <h3 className="text-sm  text-center  text-gray-400 mt-1">{des}</h3>
        <div className="text-center lg:pb-2">
-       <i class="far fa-star fa-xs"></i>
-       <i className='fas fa-star text-amber-500 fa-xs '></i>
-         <i className='fas fa-star text-amber-500 fa-xs '></i>
-         <i className='fas fa-star text-amber-500 fa-xs '></i>
-         <i className='fas fa-star text-amber-500 fa-xs '></i>
-       
-         
+       {/* <i class="far fa-star fa-xs"></i> */}
+     
+         {_.times(rate, (i) => (
+                     <i   key={i}className='fas fa-star text-amber-500 fa-xs '></i>
+
+
+
+          ))}
        </div>
 
        
