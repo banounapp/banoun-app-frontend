@@ -1,6 +1,7 @@
 export * from './RightSideRegister'
 export * from './registerForm'
 export * from './loginForm'
+export * from './loginConsult'
 export * from './LeftSideLogin'
 export * from './registerConsult'
 export * from './NavBar'

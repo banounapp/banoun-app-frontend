@@ -1,5 +1,7 @@
 import React from 'react';
-import { RightSideRegister, RegisterConsult } from '../components/organism'
+import { RightSideRegister } from '../components/organism'
+import RegisterConsult from './../components/organism/registerConsult';
+
 
 const RegisterConsulter = () => {
     return (

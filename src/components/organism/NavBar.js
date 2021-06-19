@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { GetAllCategories } from ".././../redux/actions/categories";
 import PropTypes from "prop-types";
 
-const NavBar = ({ GetAllCategories, categories }) => {
+const NavBar = ({ GetAllCategories, categories, user }) => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
   useEffect(() => {
     GetAllCategories();
@@ -75,7 +75,7 @@ const NavBar = ({ GetAllCategories, categories }) => {
             </button>
           </div>
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
-            {sessionStorage.getItem("token") && (
+            {user && sessionStorage.getItem("token") && (
               <div className="flex-shrink-0 flex items-center">
                 <Link
                   to="/profile"
@@ -134,7 +134,7 @@ const NavBar = ({ GetAllCategories, categories }) => {
                   className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  مقالات
+                  مقا لا ت
                 </Link>
               </div>
             </div>
@@ -195,6 +195,7 @@ const NavBar = ({ GetAllCategories, categories }) => {
 };
 const mapStateToProps = (state) => ({
   categories: state.categories.categories,
+  user: state.userProfile.user
 });
 
 NavBar.propTypes = {

@@ -90,7 +90,7 @@ export const FormFieldLogin = () => {
             stylee="bg-gray-100 border-2 border-gray-200 text-gray-600 mx-3 my-3"
             type="submit"
           >oogle
-             <Icons iconLink="fab fa-google" to="/login" />
+            <Icons iconLink="fab fa-google" to="/login" />
           </Button>
           <br></br>
 

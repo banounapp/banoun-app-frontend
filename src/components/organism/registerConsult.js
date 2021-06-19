@@ -2,18 +2,19 @@ import InputField from '../molecules/inputField';
 import { Button } from '../atoms';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { FormSpecialist } from '../../services/formSpecialist';
 
 
 import './registerConsult.css'
+import { connect } from 'react-redux';
+import { GetAuth } from './../../redux/actions/registerSpecialist';
 
 
-export const RegisterConsult = () => {
+const RegisterConsult = ({ GetAuth }) => {
+
     const validate = Yup.object({
         username: Yup.string()
             .max(15, 'لابد ان تكون 15 حرف على الاقل')
             .required('مطلوب'),
-
         email: Yup.string()
             .email('البريد الالكترونى غير صحيح')
             .required('مطلوب'),
@@ -32,27 +33,27 @@ export const RegisterConsult = () => {
         job: Yup.string()
             .max(7, 'لابد ان تكون 7 حرف على الاقل')
             .required('مطلوب'),
-        confirmPassword: Yup.string()
-            .oneOf([Yup.ref('password'), null], 'لابد ان يكون متشابه')
-            .required('مطلوب'),
         NationalID: Yup.string()
+            .required('مطلوب'),
+        city: Yup.string()
             .required('مطلوب'),
         address: Yup.string()
             .required('مطلوب'),
         Specialization: Yup.string()
             .required('مطلوب'),
-        city: Yup.string()
+        confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), null], 'لابد ان يكون متشابه')
             .required('مطلوب'),
 
     })
-    const onSubmit = async (values) => {
-        console.log(values);
+    // const onSubmit = async (values) => {
+    //     console.log(values);
 
-        const res = await FormSpecialist(values);
-        console.log(res);
+    //     const res = await FormSpecialist(values);
+    //     console.log(res);
 
-    };
-    console.log(FormSpecialist);
+    // };
+    // console.log(FormSpecialist);
 
     return (
         <Formik
@@ -67,36 +68,23 @@ export const RegisterConsult = () => {
                 image: '',
                 NationalID: '',
                 certification: '',
-                confirmPassword: '',
+                city: '',
                 address: '',
                 Specialization: '',
-                city: '',
-
-
-
+                confirmPassword: '',
 
             }}
-            // validationSchema={validate}
-            // onSubmit={async (values, { setSubmitting }) => {
-            //     await formSpecialist(values)
-            //     setSubmitting(false);
+            //  validationSchema={validate}
 
-            // }}
-            validationSchema={validate}
-            onSubmit={(values) => {
-                console.log(values);
-                onSubmit(values)
-
-            }
-
-            }
-
-
+            onSubmit={async (values, actions) => {
+                GetAuth(values);
+                // await FormSpecialist(values)
+                // alert(JSON.stringify(values, null, 2));
+                actions.setSubmitting(false);
+            }}
         >
-
-
             {
-                formik => (
+                (formik) => (
                     <Form action="#"
                         className="text-center content-center justify-center md:mx-10 lg:mr-30 " >
                         <h2 className=" my-10 lg:my-7 text-lg md:text-xl lg:text-2xl lg:ml-40" >انشاء حساب كمتخصص</h2>
@@ -146,18 +134,23 @@ export const RegisterConsult = () => {
                                     <p className="file-name"></p>
                                 </label>
                             </div>
-                            {/* <div class="wrapper">
-                            <div class="file-upload">
-                                <input type="file" />
-                                <i class="fa fa-arrow-up"></i>
+                            <div className="file-input">
+                                <input type="file" id="file" className="file" name='NationalID' />
+                                <label htmlFor="file">
+                                    Select file
+                                    <p className="file-name"></p>
+                                </label>
                             </div>
-                        </div> */}
+                            <div className="file-input">
+                                <input type="file" id="file" className="file" name='image' />
+                                <label htmlFor="file">
+                                    Select file
+                                    <p className="file-name"></p>
+                                </label>
+                            </div>
+
 
                         </div>
-
-
-
-
                         <Button stylee="bg-silver-tree lg:ml-40 text-white my-4 content-center" type='submit'>
                             دخول
                         </Button>
@@ -171,4 +164,4 @@ export const RegisterConsult = () => {
     );
 }
 
-
+export default connect(null, { GetAuth })(RegisterConsult);

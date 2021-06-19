@@ -16,3 +16,8 @@ export const AddComment = "AddComment";
 export const RemoveComment = "RemoveComment";
 
 export const Get_One_post = "Get_One_post";
+export const Get_auth_Specialist = "Get_auth_Specialist";
+export const Error_auth_specialist = "Error_auth_specialist";
+
+
+
