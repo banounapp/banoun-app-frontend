@@ -66,11 +66,11 @@ const NavBar = () => {
               </svg>
             </button>
           </div>
-          <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex-shrink-0 flex items-center">
+          <div className=" flex items-center  justify-center sm:items-stretch sm:justify-start">
+            <div className="flex-shrink-0  flex items-center">
               <a
                 href="#"
-                className="text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                className="text-4xl text-silver-tree-900  px-3 py-2 rounded-md text-sm font-medium"
               >
                 بنون
               </a>

@@ -29,8 +29,8 @@ module.exports = {
       colors: {
         "silver-tree": {
           DEFAULT: "#77BFA3",
-          50: "#FFFFFF",
-          100: "#FFFFFF",
+          50: "#C4C4C4",
+          100: "#F9F9F9",
           200: "#DFF0E9",
           300: "#BCE0D2",
           400: "#9ACFBA",
@@ -44,8 +44,8 @@ module.exports = {
           DEFAULT: "#DDE7C7",
           50: "#FFFFFF",
           100: "#FFFFFF",
-          200: "#FFFFFF",
-          300: "#FFFFFF",
+          200: "#D6EAD4",
+          300: "#E3F1E2",
           400: "#F3F6EB",
           500: "#DDE7C7",
           600: "#C7D8A3",
@@ -90,7 +90,7 @@ module.exports = {
           600: "#77B785",
           700: "#56A568",
           800: "#458353",
-          900: "#33623E",
+          900: "#2F8161",
         },
         red: {
           DEFAULT: "#FF0000",
