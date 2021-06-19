@@ -3,12 +3,15 @@ import { Route, Switch } from "react-router-dom";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import RegisterConsulter from "../pages/registerConsulter";
-import HomePage from './../pages/HomePage';
-import Category from './../pages/Category';
-import BooksArticles from './../pages/booksArticles';
+import HomePage from "./../pages/HomePage";
+import Category from "./../pages/Category";
+import BooksArticles from "./../pages/booksArticles";
 import Consult from "../pages/consult";
-import Profile from './../pages/profile';
-import PrivateRoute from './privateRoute';
+import Profile from "./../pages/profile";
+import PrivateRoute from "./privateRoute";
+import Postdoc from "./../pages/Postdoc";
+import DetailsPost from "./../pages/DetailsPost";
+
 const Routes = (props) => {
   return (
     <section>
@@ -22,8 +25,9 @@ const Routes = (props) => {
         <Route path="/login" component={Login} />
         <Route path="/RegisterCousulter" component={RegisterConsulter} />
         <Route path="/RegisterCousulter" component={RegisterConsulter} />
-        <Route  exact path="/profile" component ={Profile}/>
-
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/posts" component={Postdoc} />
+        <Route exact path="/DetailsPost/:id" component={DetailsPost} />
       </Switch>
     </section>
   );

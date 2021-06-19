@@ -7,8 +7,12 @@ export const Error_specialist = "Error_specialist";
 export const Get_User = "Get_User";
 export const Error_User = "Error_User";
 
+export const Get_Post = "Get_Post";
+export const Post_Error = "Post_Error";
+export const Update_like = "Update_like";
+export const Delete_Post = "Delete_Post";
+export const Add_post = "Add_Post";
+export const AddComment = "AddComment";
+export const RemoveComment = "RemoveComment";
 
-
-
-
-
+export const Get_One_post = "Get_One_post";
