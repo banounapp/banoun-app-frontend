@@ -60,6 +60,7 @@ const Doctors = ({ GetAllSpecialist, specialists }) => {
                   rate={item.rate}
                   className="-mt-16"
                   id={item._id}
+                  link={`doctorbooking/${item._id}`}
                 />
               </Fragment>
             ))}

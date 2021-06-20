@@ -1,25 +1,20 @@
-import React from 'react';
-import {
-  Footer,
-  HeaderConsult,
+import React from "react";
+import { Footer, HeaderConsult } from "../components/organism";
+import Doctors from "../components/organism/doctors";
+import NavBar from "../components/organism/NavBar";
 
-} from '../components/organism';
-import   Doctors from "../components/organism/doctors"
-import NavBar from '../components/organism/NavBar';
-
-import { Statics } from '../components/organism/statics';
+import { Statics } from "../components/organism/statics";
 
 const Consult = () => {
   return (
     <>
-      <div className='bg-alabaster-500 '>
-         
+      <div className="bg-alabaster-500 ">
         <NavBar />
         <HeaderConsult />
-        <Statics/>
-        <Doctors/>
+        <Statics />
+        <Doctors />
       </div>
-      
+
       {/* <Footer /> */}
     </>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 
-export const CardDoc = ({ imageSource, docname, des, rate, id }) => {
+export const CardDoc = ({ imageSource, docname, des, rate, id, link }) => {
   return (
     <div className=" border-2 border-pale-leaf-500  rounded w-40 h-48  lg:w-44 lg:h-52 bg-white m-auto mt-10 lg:mt-16 lg:px-10">
       <img
@@ -17,6 +18,9 @@ export const CardDoc = ({ imageSource, docname, des, rate, id }) => {
         {_.times(rate, (i) => (
           <i key={i} className="fas fa-star text-amber-500 fa-xs "></i>
         ))}
+        <Link to={link} params={{ id: { id } }}>
+          احجز
+        </Link>
       </div>
     </div>
   );

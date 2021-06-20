@@ -11,7 +11,8 @@ import Profile from "./../pages/profile";
 // import PrivateRoute from "./privateRoute";
 import Postdoc from "./../pages/Postdoc";
 import DetailsPost from "./../pages/DetailsPost";
-import LoginConsulter from './../pages/LoginConsulter';
+import LoginConsulter from "./../pages/LoginConsulter";
+import DoctorBooking from "../pages/DoctorBooking";
 
 const Routes = (props) => {
   return (
@@ -28,6 +29,7 @@ const Routes = (props) => {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/posts" component={Postdoc} />
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
+        <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
       </Switch>
     </section>
   );

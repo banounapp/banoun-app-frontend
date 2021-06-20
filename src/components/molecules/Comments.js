@@ -35,5 +35,3 @@ export const Comments = ({ name, email, comment }) => {
     </div>
   );
 };
-
-
