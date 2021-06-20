@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
+    "@material-ui/core": "^4.11.4",
     "@tailwindcss/postcss7-compat": "^2.1.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
@@ -21,6 +22,7 @@
     "react-toastify": "^7.0.4",
     "react-toastr": "^3.0.0",
     "react-transition-group": "^1.2.1",
+    "reactjs-popup": "^2.0.4",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",

@@ -12,7 +12,7 @@ export * from './Section4'
 export * from './Section5'
 export * from './Section6'
 
-
+export * from './formprofile'
 export * from './secAppoinemnt';
 export * from './secEditProfile';
 
