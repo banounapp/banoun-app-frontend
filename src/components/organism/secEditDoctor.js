@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PopupD from '../atoms/popD';
-// import FormEdit from './formprofile'
-import FormEditDoctor from './formdoctor'
+import FormEditDoctor from './formdoctor';
 
 import { GetUer } from './../../redux/actions/userProfile';
 import { useEffect } from 'react';
@@ -34,31 +33,21 @@ const EditProfileDoc = ({ GetUer, user }) => {
 
         <p className='text-center text-silver-tree-500 md:text-lg lg:text-xl'>
           تعديل الصفحة الشخصية{' '}
-          <i className='p-2  fas fa-edit cursor-pointer' onClick={togglePopup}></i>
-          </p>
-          {isOpen && (
-           
-             < PopupD
-              content={
-                <>
-                 <FormEditDoctor />
-                </>
-              }
-              handleClose={togglePopup}
-
-            />
-            //userEdit
-            // <Popup
-            //   content={
-            //     <>
-            //      {/* <FormEdit /> */}
-            //      <FormEditDoctor />
-            //     </>
-            //   }
-            //   handleClose={togglePopup}
-            // />
-          )}
-       
+          <i
+            className='p-2  fas fa-edit cursor-pointer'
+            onClick={togglePopup}
+          ></i>
+        </p>
+        {isOpen && (
+          <PopupD
+            content={
+              <>
+                <FormEditDoctor />
+              </>
+            }
+            handleClose={togglePopup}
+          />
+        )}
       </div>
       <div className='text-center mt-3 sm:w-56 md:text-lg m-auto lg:text-xl'>
         {user && (

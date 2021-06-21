@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Popup from '../atoms/popD';
-import FormEdit from './formprofile'
+import FormEdit from './formprofile';
 
 import { GetUer } from './../../redux/actions/userProfile';
 import { useEffect } from 'react';
@@ -33,22 +33,21 @@ const EditProfile = ({ GetUer, user }) => {
 
         <p className='text-center text-silver-tree-500 md:text-lg lg:text-xl'>
           تعديل الصفحة الشخصية{' '}
-          <i className='p-2  fas fa-edit cursor-pointer' onClick={togglePopup}></i>
-          </p>
-          {isOpen && (
-           
-             
-            //userEdit
-            <Popup
-              content={
-                <>
-                 <FormEdit />
-                </>
-              }
-              handleClose={togglePopup}
-            />
-          )}
-       
+          <i
+            className='p-2  fas fa-edit cursor-pointer'
+            onClick={togglePopup}
+          ></i>
+        </p>
+        {isOpen && (
+          <Popup
+            content={
+              <>
+                <FormEdit />
+              </>
+            }
+            handleClose={togglePopup}
+          />
+        )}
       </div>
       <div className='text-center mt-3 sm:w-56 md:text-lg m-auto lg:text-xl'>
         {user && (
