@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import Popup from '../atoms/popD';
-import FormEdit from './formprofile'
+import PopupD from '../atoms/popD';
+// import FormEdit from './formprofile'
+import FormEditDoctor from './formdoctor'
 
 import { GetUer } from './../../redux/actions/userProfile';
 import { useEffect } from 'react';
 
-const EditProfile = ({ GetUer, user }) => {
+const EditProfileDoc = ({ GetUer, user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
@@ -37,16 +38,25 @@ const EditProfile = ({ GetUer, user }) => {
           </p>
           {isOpen && (
            
-             
-            //userEdit
-            <Popup
+             < PopupD
               content={
                 <>
-                 <FormEdit />
+                 <FormEditDoctor />
                 </>
               }
               handleClose={togglePopup}
+
             />
+            //userEdit
+            // <Popup
+            //   content={
+            //     <>
+            //      {/* <FormEdit /> */}
+            //      <FormEditDoctor />
+            //     </>
+            //   }
+            //   handleClose={togglePopup}
+            // />
           )}
        
       </div>
@@ -72,4 +82,4 @@ const mapStateToProps = (state) => ({
   user: state.userProfile.user,
 });
 
-export default connect(mapStateToProps, { GetUer })(EditProfile);
+export default connect(mapStateToProps, { GetUer })(EditProfileDoc);

@@ -8,7 +8,7 @@ import Category from './../pages/Category';
 import BooksArticles from './../pages/booksArticles';
 import Consult from '../pages/consult';
 import Profile from './../pages/profile';
-import EditProfile from './../pages/EditProfile';
+import ProfileDoc from './../pages/profileD';
 import PrivateRoute from './privateRoute';
 const Routes = (props) => {
   return (
@@ -23,7 +23,8 @@ const Routes = (props) => {
         <Route path='/login' component={Login} />
         <Route path='/RegisterCousulter' component={RegisterConsulter} />
         <Route exact path='/profile' component={Profile} />
-        <Route exact path='/editprofile' component={EditProfile} />
+        <Route exact path='/profileDoctor' component={ProfileDoc} />
+
       </Switch>
     </section>
   );
