@@ -5,3 +5,4 @@ export * from "./carddoc";
 export * from "./searchdoc";
 export * from "./Post";
 export * from "./DetailsPostdoc";
+export * from './inputEdit'

@@ -30,6 +30,7 @@ const Routes = (props) => {
         <Route exact path="/posts" component={Postdoc} />
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
         <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
+
       </Switch>
     </section>
   );

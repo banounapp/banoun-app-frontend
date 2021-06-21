@@ -11,3 +11,5 @@ export * from './btndoc'
 export * from './dropdowndoc'
 export * from './card'
 export * from './cardAppoin'
+export * from './popup';
+export * from './popD';

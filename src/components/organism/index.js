@@ -21,3 +21,5 @@ export * from "./headerconsult";
 export * from "./doctors";
 export * from "./statics";
 export * from "./LeftSideLogindoc";
+export * from './formprofile'
+export * from './formdoctor'
