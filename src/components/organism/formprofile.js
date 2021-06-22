@@ -1,9 +1,33 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Btn } from '../atoms';
 
 import InputEdit from '../molecules/inputEdit';
+import { GetEditUer } from './../../redux/actions/userProfile';
+import { connect } from 'react-redux';
 
-const FormEdit = () => {
+const FormEdit = ({ GetEditUer, user, togglePopup }) => {
+  console.log(user)
+  const [formData, setFormData] = useState({
+    lastname: user?.lastName ? user.lastName : "",
+    firstname: user?.firstName ? user.firstName : "",
+    phone: user?.phone ? user.phone : "",
+    username: user?.username ? user.username : "",
+  })
+  const { lastname, firstname, phone, username } = formData;
+  const onChangeMethod = e => {
+    console.dir(e.target);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+  const onSubmit = async e => {
+    e.preventDefault();
+    console.log(formData)
+    const IS_DATA_CHANGED = await GetEditUer(formData);
+
+    IS_DATA_CHANGED && togglePopup()
+  }
+
+
   return (
     <div>
       <p className='text-sm mt-4 ml-10 md:text-lg lg:text-xl'>تعديل الملف الشخصى</p>
@@ -17,50 +41,66 @@ const FormEdit = () => {
       </div>
       {/* inputs //////////////////////////////////////////////////////////////////////////////////////////*/}
 
-      <div className='py-3 px-7  md:px-24 lg:px-56  xl:px-72 2xl:px-96 ' >
+      <form className='py-3 px-7  md:px-24 lg:px-56  xl:px-72 2xl:px-96 ' onSubmit={e => onSubmit(e)} >
         <div className=' flex ml-14'>
           <InputEdit
             name='الاسم الاول'
-            value='ريم'
+            FormName="firstName"
+            value={firstname}
             stylep=' py-3 text-sm   md:text-xl '
             sdiv="ml-4 md:ml-16"
             style='w-20  border border-silver-tree rounded bg-gunsmoke-100 py-1 px-2 text-cape-cod-500 text-sm md:w-40'
+            onChangeMethod={onChangeMethod}
           />
+
           <InputEdit
             name='الاسم الثانى'
-            value='محمد'
+            FormName="lastName"
+            value={lastname}
             stylep='py-3 text-sm md:text-lg md:text-xl'
             style=' w-20 border border-silver-tree rounded bg-gunsmoke-100 py-1 px-2 text-cape-cod-500  text-sm md:w-40'
+            onChangeMethod={onChangeMethod}
+
           />
         </div>
 
         <div className=' '>
           <InputEdit
-            name='العنوان'
-            value='الاسماعيلية'
+            name='اسم المستخدم'
+            FormName="username"
+            value={username}
             stylep='py-3 text-sm md:text-lg md:text-xl'
             style='w-44 border border-silver-tree rounded bg-gunsmoke-100 py-1 px-2 text-cape-cod-500  text-sm md:w-96'
+            onChangeMethod={onChangeMethod}
+
           />
           <InputEdit
             name='التليفون'
-            value='939 64 218 010 '
+            FormName="phone"
+            value={phone}
             stylep='py-3 text-sm md:text-lg md:text-xl'
             style='w-44 border border-silver-tree rounded bg-gunsmoke-100 py-1 px-2 text-cape-cod-500  text-sm md:w-96'
+            onChangeMethod={onChangeMethod}
+
           />
         </div>
 
-         <Btn stylee='px-4 mr-10 py-1  bg-silver-tree text-white rounded text-sm md:w-44 md:mt-10 md:mr-20 lg:p-2'>
+        <Btn stylee='px-4 mr-10 py-1  bg-silver-tree text-white rounded text-sm md:w-44 md:mt-10 md:mr-20 lg:p-2'>
           {' '}
           حفظ التغيرات
         </Btn>
-      </div>
+      </form>
 
-  
+
     </div>
   );
 };
 
-export default FormEdit;
+
+const mapStateToProps = (state) => ({
+  user: state.userProfile.user,
+});
+
+export default connect(mapStateToProps, { GetEditUer })(FormEdit);
 
 
-  

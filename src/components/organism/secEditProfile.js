@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
 import Popup from '../atoms/popD';
 import FormEdit from './formprofile';
 
 import { GetUer } from './../../redux/actions/userProfile';
 import { useEffect } from 'react';
+import { logout } from "./../../services/auth"
 
-const EditProfile = ({ GetUer, user }) => {
+const EditProfile = ({ GetUer, user, history }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
@@ -31,18 +33,18 @@ const EditProfile = ({ GetUer, user }) => {
           />
         )}
 
-        <p className='text-center text-silver-tree-500 md:text-lg lg:text-xl'>
+        <p className='text-center text-silver-tree-500 md:text-lg lg:text-xl' onClick={togglePopup} style={{ cursor: "pointer" }}>
           تعديل الصفحة الشخصية{' '}
           <i
             className='p-2  fas fa-edit cursor-pointer'
-            onClick={togglePopup}
+
           ></i>
         </p>
         {isOpen && (
           <Popup
             content={
               <>
-                <FormEdit />
+                <FormEdit togglePopup={togglePopup} />
               </>
             }
             handleClose={togglePopup}
@@ -56,7 +58,7 @@ const EditProfile = ({ GetUer, user }) => {
             <p>{user.age}</p>
             <p>{user.email}</p>
             <p>{user.phone}</p>
-            <p className='text-silver-tree-500 mt-10 md:text-lg lg:text-xl'>
+            <p className='text-silver-tree-500 mt-10 md:text-lg lg:text-xl' onClick={(e) => logout(history)} style={{ cursor: "pointer" }}>
               {' '}
               <i class=' p-2 fas fa-sign-out-alt'></i>تسجيل الخروج{' '}
             </p>
@@ -71,4 +73,4 @@ const mapStateToProps = (state) => ({
   user: state.userProfile.user,
 });
 
-export default connect(mapStateToProps, { GetUer })(EditProfile);
+export default withRouter(connect(mapStateToProps, { GetUer })(EditProfile));

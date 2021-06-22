@@ -1,32 +1,36 @@
 import {
-    Get_User,
-    Error_User
-} from '../actions/types';
+    Post_Review,
+    Get_Review,
+    Error_Review
+} from "../actions/types";
 const initialState = {
-    user: null,
+    Reviews: [],
     loading: true,
     error: {},
-    isAuthenticated: false,
-}
+};
 export default function (state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
-        case Get_User:
+        case Post_Review:
             return {
                 ...state,
-                user: payload,
+                Reviews: [payload, ...state.Reviews],
                 loading: false,
-                isAuthenticated: true,
-
-            }
-        case Error_User:
+            };
+        case Error_Review:
             return {
                 ...state,
                 error: payload,
                 loading: false,
-                isAuthenticated: false,
-
             };
+
+        case Get_Review:
+            return {
+                ...state,
+                Reviews: payload,
+                loading: false,
+            };
+
         default:
             return state;
     }

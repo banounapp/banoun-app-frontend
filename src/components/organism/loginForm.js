@@ -1,13 +1,16 @@
-import InputField from "./../molecules/inputField";
-import { Button, Icons } from "./../atoms";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import { login } from "../../services/auth";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { withRouter } from "react-router-dom";
+
+import InputField from "./../molecules/inputField";
+import { Button, Icons } from "./../atoms";
+import * as Yup from "yup";
+import { login } from "../../services/auth";
+import { connect } from 'react-redux';
 
 
-export const FormFieldLogin = () => {
+const FormFieldLogin = ({ history, dispatch }) => {
   const [alertMessage, setAlertMessage] = useState("");
   const validate = Yup.object({
     username: Yup.string()
@@ -27,7 +30,14 @@ export const FormFieldLogin = () => {
         setAlertMessage("");
       }, 2000);
     } else {
-      sessionStorage.setItem('token', res.data.data)
+
+      sessionStorage.setItem('token', res.data.data);
+      await dispatch({
+        type: "Get_User",
+        payload: res.data
+      });
+      history.push("/");
+
     }
 
   };
@@ -55,6 +65,8 @@ export const FormFieldLogin = () => {
             </div>
           )}
           <InputField
+
+            SpecificStyle="flex mb-6 md:relative md:right-20"
             iconsProps={{ icon: "text-gray-500 fas fa-user " }}
             textFieldProps={{
               name: "username",
@@ -64,6 +76,7 @@ export const FormFieldLogin = () => {
           />
 
           <InputField
+            SpecificStyle="flex  md:relative md:right-20"
             iconsProps={{ icon: "text-gray-500 fas fa-lock " }}
             textFieldProps={{
               name: "password",
@@ -103,3 +116,7 @@ export const FormFieldLogin = () => {
     </Formik>
   );
 };
+
+const mapDispatchToProps = (dispatch) => dispatch;
+
+export default withRouter(connect(mapDispatchToProps)(FormFieldLogin))

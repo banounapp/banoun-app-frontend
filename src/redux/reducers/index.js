@@ -4,7 +4,7 @@ import categories from "./categories";
 import specialist from "./specialist";
 import userProfile from "./userProfile";
 import posts from "./posts";
-import confirm from "./confirm";
+import Reviews from "./Reviews";
 export default combineReducers({
   errorAlert,
   infoAlert,
@@ -13,5 +13,5 @@ export default combineReducers({
   specialist,
   userProfile,
   posts,
-  confirm,
+  Reviews
 });

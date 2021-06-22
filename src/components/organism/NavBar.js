@@ -13,9 +13,11 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
     GetAllCategories();
   }, []);
   console.log(categories);
+  console.table(user, sessionStorage)
 
   return (
     <nav>
+
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-4">
         <div className="text-bl relative flex items-center justify-content-around h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -207,4 +209,4 @@ NavBar.propTypes = {
 
 export default connect(mapStateToProps, {
   GetAllCategories,
-})(NavBar);
+})(NavBar)

@@ -13,6 +13,7 @@ import Postdoc from "./../pages/Postdoc";
 import DetailsPost from "./../pages/DetailsPost";
 import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
+import Confirmation from './../pages/confirmation';
 
 const Routes = (props) => {
   return (
@@ -30,6 +31,9 @@ const Routes = (props) => {
         <Route exact path="/posts" component={Postdoc} />
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
         <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
+        <Route exact path="/confirmation" component={Confirmation} />
+
+
 
       </Switch>
     </section>
