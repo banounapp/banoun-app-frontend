@@ -8,7 +8,10 @@ import { Button, Icons } from "./../atoms";
 import * as Yup from "yup";
 import { login } from "../../services/auth";
 import { connect } from 'react-redux';
-
+import {
+  Get_User,
+  
+} from '../../redux/actions/types';
 
 const FormFieldLogin = ({ history, dispatch }) => {
   const [alertMessage, setAlertMessage] = useState("");
@@ -31,11 +34,22 @@ const FormFieldLogin = ({ history, dispatch }) => {
       }, 2000);
     } else {
 
-      sessionStorage.setItem('token', res.data.data);
-      await dispatch({
-        type: "Get_User",
-        payload: res.data
-      });
+
+      sessionStorage.setItem('token', res.data.token);
+
+      if(res.data.type == "User"){
+
+        await dispatch({
+          type: Get_User,
+          payload: res.data.data
+        });
+      }
+      else{
+        await dispatch({
+          type: "Get_Profile_Spec",
+          payload: res.data.data
+        });
+      }
       history.push("/");
 
     }

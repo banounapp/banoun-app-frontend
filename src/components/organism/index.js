@@ -23,3 +23,5 @@ export * from "./statics";
 export * from "./LeftSideLogindoc";
 export * from './formprofile'
 export * from './formdoctor'
+export * from './rightdocprofile'
+export * from './tabs'

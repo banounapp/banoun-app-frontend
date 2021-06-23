@@ -1,4 +1,5 @@
 import { client } from "./client";
+import specialist from './../redux/reducers/specialist';
 
 //API Login
 export async function login(dataform) {
@@ -30,7 +31,7 @@ export async function logout(history) {
 
     sessionStorage.removeItem('token');
     history.push("/login")
-
+    
 
 }
 
@@ -80,3 +81,32 @@ export async function confirmationCodeuser(Code) {
         return result;
     }
 }
+
+
+export async function InitializeData(dispatch) {
+    try{
+
+        let result ;
+        const res = await client.get("/customRoutes/dataInitialization");
+        if (res?.data.specialist) {
+            result = { data: res.data, isError: false, errorMessage: "" };
+            await dispatch({
+                type: "Get_Profile_Spec",
+                payload: result.data.specialist
+              });
+        }
+        else if(res?.data.user){
+            result = { data: res.data, isError: false, errorMessage: "" };
+
+                await dispatch({
+                  type: "Get_User",
+                  payload: result.data.user
+                });
+
+        }
+        
+    }
+    catch(e){
+        console.log(e.message)
+    }
+} 
