@@ -14,7 +14,7 @@ import DetailsPost from "./../pages/DetailsPost";
 import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
 import Confirmation from './../pages/confirmation';
-
+import DocProfile from './../pages/docprofile';
 const Routes = (props) => {
   return (
     <section>
@@ -32,7 +32,7 @@ const Routes = (props) => {
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
         <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
         <Route exact path="/confirmation" component={Confirmation} />
-
+        <Route  exact path="/docprofile" component ={DocProfile}/>
 
 
       </Switch>
