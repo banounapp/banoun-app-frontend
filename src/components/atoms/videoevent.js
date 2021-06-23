@@ -1,18 +1,18 @@
 import React ,{useEffect,useState}from 'react';
 
 import { connect } from 'react-redux';
-import {  Get_Profile_Specialist } from './../../redux/actions/specialist';
+// import {  Get_Profile_Specialist } from './../../redux/actions/specialist';
 
 
-const VideoEvent = ({ Get_Profile_Specialist , specialist_auth}) => {
+const VideoEvent = ({   specialist_auth}) => {
 
   const specialist = specialist_auth
   
-  useEffect(() => {
+  // useEffect(() => {
     
-        Get_Profile_Specialist()
+  //       Get_Profile_Specialist()
 
-  },[specialist_auth])
+  // },[specialist_auth])
   return (
    <>
   <div >
@@ -53,4 +53,4 @@ const mapStateToProps = (state) => ({
   specialist_auth: state.specialist.specialist_auth
  });
  
- export default connect(mapStateToProps, {  Get_Profile_Specialist } )(VideoEvent);
+ export default connect(mapStateToProps)(VideoEvent);

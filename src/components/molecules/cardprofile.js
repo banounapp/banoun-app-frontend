@@ -1,10 +1,9 @@
 import React ,{useEffect,useState}from 'react';
 import { ModalEditDoc } from "../atoms";
 import { connect } from 'react-redux';
-import {  Get_Profile_Specialist } from './../../redux/actions/specialist';
-const CardProfile = ({    Get_Profile_Specialist , specialist_auth}) => {
+const CardProfile = ({   specialist}) => {
 
- const specialist = specialist_auth
+//  const specialist = specialist_auth
   
   // useEffect(() => {
     
@@ -51,7 +50,7 @@ const CardProfile = ({    Get_Profile_Specialist , specialist_auth}) => {
 };
 const mapStateToProps = (state) => ({
 
- specialist_auth: state.specialist.specialist_auth
+ specialist: state.specialist.specialist_auth
 });
 
-export default connect(mapStateToProps, {  Get_Profile_Specialist } )(CardProfile);
+export default connect(mapStateToProps )(CardProfile);

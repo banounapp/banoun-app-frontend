@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import CardProfile from '../molecules/cardprofile'
 import { CardClient } from '../molecules/cardclients';
-import {connect} from 'react-redux'
-import {  Get_Profile_Specialist } from './../../redux/actions/specialist';
 
 
- const RightDocProfile = ({Get_Profile_Specialist}) => {
+
+ const RightDocProfile = () => {
 
   
   return (
@@ -18,5 +17,5 @@ import {  Get_Profile_Specialist } from './../../redux/actions/specialist';
   );
 };
 
-export default connect(null, { Get_Profile_Specialist })(RightDocProfile)
+export default RightDocProfile
 

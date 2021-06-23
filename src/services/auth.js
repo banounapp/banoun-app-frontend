@@ -30,7 +30,7 @@ export async function logout(history) {
 
     sessionStorage.removeItem('token');
     history.push("/login")
-
+    
 
 }
 

@@ -2,15 +2,16 @@ import React, { Fragment, useEffect } from "react";
 import { DropDownDoc } from "../atoms";
 import { Pagination } from "../atoms";
 import { connect } from "react-redux";
-import { GetAllSpecialist } from ".././../redux/actions/specialist";
+// import { GetAllSpecialist } from ".././../redux/actions/specialist";
 
 import { BtnDoc } from "../atoms";
 import { CardDoc } from "../molecules";
 import { SearchDoc } from "../molecules/searchdoc";
 const Doctors = ({ GetAllSpecialist, specialists }) => {
-  useEffect(() => {
-    GetAllSpecialist();
-  }, []);
+  // useEffect(() => {
+  //   GetAllSpecialist();
+  // });
+
   return (
     <>
       <div className="  py-7 bg-alabaster-500  ">
@@ -76,5 +77,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  GetAllSpecialist,
+  // GetAllSpecialist,
 })(Doctors);
