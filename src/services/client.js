@@ -1,8 +1,10 @@
 import axios from 'axios'
 
 export const client = axios.create({
-  baseURL: 'https://banoun-app.herokuapp.com/api',
-  timeout: 10000
+  baseURL: 'http://localhost:5000/api',
+  timeout: 10000,
+  headers: {'Authorization': sessionStorage.token},
+
 })
 
 // client.interceptors.request.use({

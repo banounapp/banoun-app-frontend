@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import RegisterConsulter from "../pages/registerConsulter";
@@ -15,8 +16,11 @@ import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
 import Confirmation from './../pages/confirmation';
 import DocProfile from './../pages/docprofile';
-const Routes = (props) => {
-  
+import {InitializeData} from "./../services/auth"
+const Routes = ({dispatch}) => {
+  useEffect(() => {
+    InitializeData(dispatch);
+  },[]);
   return (
     <section>
       <Switch>
@@ -41,4 +45,5 @@ const Routes = (props) => {
   );
 };
 
-export default Routes;
+const mapDispatchToProps = (dispatch)=>dispatch;
+export default connect(mapDispatchToProps)(Routes);

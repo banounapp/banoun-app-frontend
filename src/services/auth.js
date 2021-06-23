@@ -1,4 +1,5 @@
 import { client } from "./client";
+import specialist from './../redux/reducers/specialist';
 
 //API Login
 export async function login(dataform) {
@@ -81,3 +82,33 @@ export async function confirmationCodeuser(Code) {
     }
 }
 
+
+export async function InitializeData(dispatch) {
+    try{
+
+        let result = { data: null, isError: true, errorMessage: "" };
+        const res = await client.get("/customRoutes/dataInitialization");
+        console.log(res)
+        if (res?.data.specialist) {
+            result = { data: res.data, isError: false, errorMessage: "" };
+            await dispatch({
+                type: "Get_Profile_Spec",
+                payload: result.data.specialist
+              });
+            console.log("auth1")
+        }
+        else if(res?.data.User){
+            result = { data: res.data, isError: false, errorMessage: "" };
+
+                await dispatch({
+                  type: "Get_User",
+                  payload: result.data.User
+                });
+                console.log("auth2")
+
+        }
+    }
+    catch(e){
+        console.log(e.message)
+    }
+} 
