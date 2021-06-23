@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const local = "http://localhost:5000/api"
+const Global  ="https://banoun-app.herokuapp.com/"
 export const client = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: `${Global}/api`,
   timeout: 10000,
   headers: {'Authorization': sessionStorage.token},
 
