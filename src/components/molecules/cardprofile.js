@@ -19,7 +19,7 @@ const CardProfile = ({   specialist}) => {
        <img src="images/1-business-woman-removebg-preview 2.png" alt="profile pic" className=" w-24 h-28 mr-3 mt-3 rounded-full"/>
        </div>
 
-       <h2  className=" text-center relative -top-10 text-2xl"> {specialist && specialist[0]?.username}</h2>
+       <h2  className=" text-center relative -top-10 text-2xl"> { specialist?.username}</h2>
        <div className="relative -top-10 text-center"> 
        <i className='fas fa-star text-amber-500 fa-xs '></i>
          <i className='fas fa-star text-amber-500 fa-xs '></i>
@@ -31,15 +31,15 @@ const CardProfile = ({   specialist}) => {
        </div>
        <ul className=" relative -top-9 right-3 md:text-lg lg:text-sm text-gray-700">
            <ModalEditDoc/>
-           <li><i class="fas fa-shopping-bag px-3 py-1"></i>   {specialist && specialist[0]?.job} </li>
+           <li><i class="fas fa-shopping-bag px-3 py-1"></i>   { specialist?.job} </li>
          
-           <li> <i class="fas fa-map-marker-alt px-3 py-1"></i> {specialist && specialist[0]?.address} </li>
-           <li> <i class="fas fa-venus-mars px-3 py-1"></i>{specialist && specialist[0]?.gender}</li>
-           <li><i class="fas fa-dollar-sign px-3 py-1"></i>{specialist && specialist[0]?.price}</li>
-           <li><i class="fas fa-phone-square-alt px-3 py-1"></i> {specialist && specialist[0]?.phone}</li>
+           <li> <i class="fas fa-map-marker-alt px-3 py-1"></i> { specialist?.address} </li>
+           <li> <i class="fas fa-venus-mars px-3 py-1"></i>{ specialist?.gender}</li>
+           <li><i class="fas fa-dollar-sign px-3 py-1"></i>{ specialist?.price}</li>
+           <li><i class="fas fa-phone-square-alt px-3 py-1"></i> { specialist?.phone}</li>
            {/* <li><i class="far fa-address-card px-3 py-1"></i> 2652569847694</li> */}
 
-           <li><span className="px-3 text-2xl xl:text-xl xl:px-1">@</span> {specialist && specialist[0]?.email} </li>
+           <li><span className="px-3 text-2xl xl:text-xl xl:px-1">@</span> { specialist?.email} </li>
        </ul>
        
 

@@ -37,7 +37,7 @@ export const GetOneSpecialist = (id) => async (dispatch) => {
   }
 };
 
-
+//wrong
 export const Get_Profile_Specialist = () => async (dispatch) => {
 
   const config = {

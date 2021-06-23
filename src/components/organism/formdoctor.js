@@ -7,13 +7,13 @@ const FormEditDoctor = ({Get_Edit_Specialist, specialist,togglePopup}) => {
 
   const [formData, setFormData] = useState({
 
-    price: specialist && specialist[0]?.price ? specialist[0].price : "",
-    job:specialist && specialist[0]?.job ? specialist[0].job : "",
-    city:specialist && specialist[0]?.city ? specialist[0].city : "",
-    bio:specialist && specialist[0]?.bio ? specialist[0].bio : "",
-    phone: specialist && specialist[0]?.phone ? specialist[0].phone : "",
-    username: specialist && specialist[0]?.username ? specialist[0].username : "",
-    Specialization: specialist && specialist[0]?.Specialization ? specialist[0].Specialization : "",
+    price:  specialist?.price ? specialist.price : "",
+    job: specialist?.job ? specialist.job : "",
+    city: specialist?.city ? specialist.city : "",
+    bio: specialist?.bio ? specialist.bio : "",
+    phone:  specialist?.phone ? specialist.phone : "",
+    username:  specialist?.username ? specialist.username : "",
+    Specialization:  specialist?.Specialization ? specialist.Specialization : "",
   })
 
   const {  username, price, job,city, bio, phone , Specialization  } = formData;
