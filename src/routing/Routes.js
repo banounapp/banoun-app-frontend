@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Register from "../pages/Register";
@@ -14,13 +14,13 @@ import Postdoc from "./../pages/Postdoc";
 import DetailsPost from "./../pages/DetailsPost";
 import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
-import Confirmation from './../pages/confirmation';
-import DocProfile from './../pages/docprofile';
-import {InitializeData} from "./../services/auth"
-const Routes = ({dispatch}) => {
+import Confirmation from "./../pages/confirmation";
+import DocProfile from "./../pages/docprofile";
+import { InitializeData } from "./../services/auth";
+const Routes = ({ dispatch }) => {
   useEffect(() => {
     InitializeData(dispatch);
-  },[]);
+  }, []);
   return (
     <section>
       <Switch>
@@ -37,13 +37,11 @@ const Routes = ({dispatch}) => {
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
         <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
         <Route exact path="/confirmation" component={Confirmation} />
-        <Route  exact path="/docprofile" component ={DocProfile}/>
-
-
+        <Route exact path="/docprofile" component={DocProfile} />
       </Switch>
     </section>
   );
 };
 
-const mapDispatchToProps = (dispatch)=>dispatch;
+const mapDispatchToProps = (dispatch) => dispatch;
 export default connect(mapDispatchToProps)(Routes);
