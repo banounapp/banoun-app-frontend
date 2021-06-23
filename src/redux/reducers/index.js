@@ -5,6 +5,7 @@ import specialist from "./specialist";
 import userProfile from "./userProfile";
 import posts from "./posts";
 import confirm from "./confirm";
+
 export default combineReducers({
   errorAlert,
   infoAlert,

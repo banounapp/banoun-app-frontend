@@ -86,16 +86,16 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
               </div>
             )}
 
-            <div className="flex-shrink-0 flex items-center">
+            <div className="flex-shrink-0 flex  items-center">
               <Link
                 to="/"
-                className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                className="text-silver-tree text-4xl  px-2 py-2 rounded-md text-sm font-medium"
               >
                 بنون
               </Link>
             </div>
 
-            <div className="hidden my-auto sm:block sm:ml-6">
+            <div className="hidden px-2 my-auto sm:block sm:ml-6">
               <div className="flex space-x-4">
                 <Link
                   to="/"
@@ -198,7 +198,7 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
 };
 const mapStateToProps = (state) => ({
   categories: state.categories.categories,
-  user: state.userProfile.user
+  user: state.userProfile.user,
 });
 
 NavBar.propTypes = {

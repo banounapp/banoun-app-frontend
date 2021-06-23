@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from '../components/organism/NavBar';
+import NavBar from "../components/organism/NavBar";
 import {
   Header,
   Section1,
@@ -8,9 +8,8 @@ import {
   Section4,
   Section5,
   Section6,
-  // Footer
 } from "../components/organism";
-
+import Footer from "../components/organism/footer";
 
 const HomePage = () => {
   return (
@@ -23,7 +22,7 @@ const HomePage = () => {
       <Section4 />
       <Section5 />
       <Section6 />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

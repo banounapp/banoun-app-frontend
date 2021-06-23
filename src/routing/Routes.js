@@ -13,6 +13,9 @@ import Postdoc from "./../pages/Postdoc";
 import DetailsPost from "./../pages/DetailsPost";
 import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
+import Payment from "../pages/payment";
+import { PaymentTwo } from "../components/organism/Payment2";
+import { PaymentThree } from "../components/organism/Payment3";
 
 const Routes = (props) => {
   return (
@@ -30,7 +33,9 @@ const Routes = (props) => {
         <Route exact path="/posts" component={Postdoc} />
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
         <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
-
+        <Route exact path="/paymentone" component={Payment} />
+        <Route exact path="/paymenttwo" component={PaymentTwo} />
+        <Route exact path="/paymentthree" component={PaymentThree} />
       </Switch>
     </section>
   );

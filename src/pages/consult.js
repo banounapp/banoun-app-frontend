@@ -1,6 +1,7 @@
 import React from "react";
-import { Footer, HeaderConsult } from "../components/organism";
+import { HeaderConsult } from "../components/organism";
 import Doctors from "../components/organism/doctors";
+import Footer from "../components/organism/footer";
 import NavBar from "../components/organism/NavBar";
 
 import { Statics } from "../components/organism/statics";
@@ -13,9 +14,8 @@ const Consult = () => {
         <HeaderConsult />
         <Statics />
         <Doctors />
+        <Footer />
       </div>
-
-      {/* <Footer /> */}
     </>
   );
 };

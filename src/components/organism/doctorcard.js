@@ -36,9 +36,6 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
                 <p className="text-gray-700 md:text-lg mt-1">
                   {specialist && specialist[0].bio}
                 </p>
-                {/* <p className="text-gray-700 md:text-lg">
-                  متخصص في اطفال، حديثي الولادة و حساسية ومناعة اطفال
-                </p> */}
               </div>
               <div className="p-4 md:p-5">
                 <div className="sm:flex sm:justify-between sm:items-center">
@@ -48,11 +45,6 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
                         التقييم
                       </div>
                       <div className="flex inline-flex -mx-px">
-                        {/* <i className="fas fa-star  px-0 sm:px-1 text-tahuna-sands-800 fa-xs sm:text-lg"></i>
-                        <i className="fas fa-star  px-0 sm:px-1 text-gold fa-xs sm:text-lg"></i>
-                        <i className="fas fa-star  px-0 sm:px-1 text-gold fa-xs sm:text-lg"></i>
-                        <i className="fas fa-star  px-0 sm:px-1 fa-xs sm:text-lg"></i>
-                        <i className="fas fa-star  px-0 sm:px-1 fa-xs sm:text-lg"></i> */}
                         {specialist &&
                           _.times(specialist[0].rate, (i) => (
                             <i
@@ -82,11 +74,7 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
             {" "}
             <i className="fas fa-map-marker-alt"></i>&nbsp;عناوين العيادات
           </p>
-          <p>
-            {specialist && specialist[0].city}
-
-            {/* 27 شارع نجيب محفوظ، الحي المتميز، 6 أكتوبر */}
-          </p>
+          <p>{specialist && specialist[0].city}</p>
           <p>
             {specialist && specialist[0].address}
 
