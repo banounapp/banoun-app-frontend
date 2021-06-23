@@ -3,7 +3,7 @@ import { Btn } from '../atoms';
 import InputEdit from '../molecules/inputEdit';
 import { connect } from 'react-redux';
 import {   Get_Edit_Specialist } from './../../redux/actions/specialist';
-const FormEditDoctor = ({Get_Edit_Specialist, specialist}) => {
+const FormEditDoctor = ({Get_Edit_Specialist, specialist,togglePopup}) => {
 
   const [formData, setFormData] = useState({
 
@@ -25,6 +25,7 @@ const FormEditDoctor = ({Get_Edit_Specialist, specialist}) => {
     e.preventDefault();
     console.log(formData)
    await Get_Edit_Specialist(formData);
+   togglePopup()
 
   }
 
@@ -141,7 +142,7 @@ const FormEditDoctor = ({Get_Edit_Specialist, specialist}) => {
         </div>
         </div> */}
 
-        <Btn stylee='sm:px-11 sm:mr-10 py-1  bg-silver-tree text-white rounded md:text-lg md:mt-8 md:mr-28 lg:w-56 lg:p-2 lg:mr-32 lg:text-lg xl:text-xl xl:mr-60 lg:w-96 2xl:w-56 2xl:mr-72'>
+        <Btn stylee='sm:px-11 sm:mr-10 py-1  bg-silver-tree text-white rounded md:text-lg md:mt-8 md:mr-28 lg:w-56 lg:p-2 lg:mr-32 lg:text-lg xl:text-xl xl:mr-60 lg:w-96 2xl:w-56 2xl:mr-72' >
           {' '}
           حفظ التغيرات
 

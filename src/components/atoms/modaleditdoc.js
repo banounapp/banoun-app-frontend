@@ -23,7 +23,7 @@ export const ModalEditDoc = () => {
           <PopupD
             content={
               <>
-                <FormEditDoctor />
+                <FormEditDoctor togglePopup={togglePopup} />
               </>
             }
             handleClose={togglePopup}

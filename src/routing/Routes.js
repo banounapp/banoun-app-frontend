@@ -16,6 +16,7 @@ import DoctorBooking from "../pages/DoctorBooking";
 import Confirmation from './../pages/confirmation';
 import DocProfile from './../pages/docprofile';
 const Routes = (props) => {
+  
   return (
     <section>
       <Switch>

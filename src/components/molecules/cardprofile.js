@@ -6,11 +6,11 @@ const CardProfile = ({    Get_Profile_Specialist , specialist_auth}) => {
 
  const specialist = specialist_auth
   
-  useEffect(() => {
+  // useEffect(() => {
     
-        Get_Profile_Specialist()
+  //       Get_Profile_Specialist()
 
-  },[specialist_auth])
+  // },[specialist_auth])
   return (
    <>
 

@@ -7,13 +7,13 @@ import { connect } from "react-redux";
 import { GetAllCategories } from ".././../redux/actions/categories";
 import PropTypes from "prop-types";
 
-const NavBar = ({ GetAllCategories, categories, user }) => {
+const NavBar = ({ GetAllCategories, categories, user,specialist_auth }) => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
   useEffect(() => {
     GetAllCategories();
   }, []);
   console.log(categories);
-  console.table(user, sessionStorage)
+  console.table(user, sessionStorage,specialist_auth)
 
   return (
     <nav>
@@ -77,16 +77,16 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
             </button>
           </div>
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
-            {user && sessionStorage.getItem("token") && (
+            {(user ||specialist_auth)  ? sessionStorage.getItem("token") && (
               <div className="flex-shrink-0 flex items-center">
                 <Link
-                  to="/profile"
+                  to={user ?"/profile":(specialist_auth&&"/docprofile")}
                   className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </Link>
               </div>
-            )}
+            ):""}
 
             <div className="flex-shrink-0 flex items-center">
               <Link
@@ -200,7 +200,8 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
 };
 const mapStateToProps = (state) => ({
   categories: state.categories.categories,
-  user: state.userProfile.user
+  user: state.userProfile.user,
+  specialist_auth : state.specialist.specialist_auth
 });
 
 NavBar.propTypes = {
