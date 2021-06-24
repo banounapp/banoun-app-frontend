@@ -16,7 +16,7 @@ import Error from "./../../pages/Error"
 const Application = () => {
   return (
     <>
-      <NavBar />
+        <NavBar />
 
       <>
         <Switch>

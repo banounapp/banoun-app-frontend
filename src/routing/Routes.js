@@ -12,6 +12,7 @@ import Confirmation from "./../pages/confirmation";
 
 import Application from "./../components/organism/Application"
 import { InitializeData } from "./../services/auth";
+import NavBar from "../components/organism/NavBar";
 
 const Routes = ({ dispatch }) => {
   useEffect(() => {
@@ -20,11 +21,11 @@ const Routes = ({ dispatch }) => {
   return (
     <>
       <Switch>
-        <Route exact path ="/NotFound" component={Error}/>
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/confirmation" component={Confirmation} />
+        <Route exact path ="/NotFound" component={Error}/>
         <Route  path="/" component={Application} />
 
       </Switch>

@@ -17,7 +17,6 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
     GetAllCategories(dispatch);
   }, []);
 
-
   console.log(categories);
   console.table(user, sessionStorage, specialist_auth);
 
@@ -27,13 +26,12 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
     logout(history, dispatch);
   };
   const getProfileImage = () => {
-    if (user?.image?.filename)  return `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`
+    if (user?.image?.filename) return `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`;
     else if (specialist_auth?.image?.filename)
-        return `https://banoun-app.herokuapp.com/api/upload/show/${specialist_auth.image.filename}`;
+      return `https://banoun-app.herokuapp.com/api/upload/show/${specialist_auth.image.filename}`;
     return "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
-    
   };
-  
+
   return (
     <nav>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-4">
@@ -85,7 +83,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                         >
                           <img
                             className="inline-block object-cover w-12 h-12 rounded-full"
-                            src={ getProfileImage()}
+                            src={getProfileImage()}
                             alt="Profile "
                           />
                         </button>
@@ -126,8 +124,8 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                               id="menu-item-0"
                               onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                             >
-                    اعدادات الحساب
-                              </Link>
+                              اعدادات الحساب
+                            </Link>
 
                             <button
                               type="submit"
@@ -229,12 +227,12 @@ const mapStateToProps = (state) => ({
   specialist_auth: state.specialist.specialist_auth,
 });
 
-const mapDispatchToProps = (dispatch) => {return {dispatch,GetAllCategories: GetAllCategories}};
+const mapDispatchToProps = (dispatch) => {
+  return { dispatch, GetAllCategories: GetAllCategories };
+};
 
 NavBar.propTypes = {
   GetAllCategories: PropTypes.func.isRequired,
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(NavBar)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
