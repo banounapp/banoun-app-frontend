@@ -17,6 +17,10 @@ export const LeftSideLogin = () => {
             <Button stylee=" border-solid border-2  
           border-light-white-500 text-gray-50 ">  انشاء حساب </Button>
           </Link>
+          <Link to='/registerConsulter'>
+            <Button stylee=" border-solid border-2  
+          border-light-white-500 text-gray-50 mr-4">  انشاء حساب كمتخصص </Button>
+          </Link>
           <img src="images/baby.png" className="relative right-20" alt="" />
         </div>
       </div>
