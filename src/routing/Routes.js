@@ -12,7 +12,6 @@ import Profile from "./../pages/profile";
 // import PrivateRoute from "./privateRoute";
 import Postdoc from "./../pages/Postdoc";
 import DetailsPost from "./../pages/DetailsPost";
-import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
 import Confirmation from "./../pages/confirmation";
 import DocProfile from "./../pages/docprofile";
@@ -24,14 +23,13 @@ const Routes = ({ dispatch }) => {
   return (
     <section>
       <Switch>
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/" component={HomePage} />
         <Route exact path="/pregnacy/:id" component={Category} />
         <Route exact path="/sub/:catId/:subId" component={BooksArticles} />
         <Route exact path="/consult" component={Consult} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
         <Route exact path="/RegisterCousulter" component={RegisterConsulter} />
-        <Route exact path="/loginConsulter" component={LoginConsulter} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/posts" component={Postdoc} />
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
