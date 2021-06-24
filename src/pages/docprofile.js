@@ -8,7 +8,7 @@ import NavBar from '../components/organism/NavBar';
 const DocProfile = () => {
   return (
     <div>
-      <NavBar className="bg-pale-leaf-300" />
+      {/* <NavBar className="bg-pale-leaf-300" /> */}
       <div className=" lg:flex ">
       <RightDocProfile />
       <Tabs />
