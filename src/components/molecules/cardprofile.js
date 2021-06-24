@@ -3,13 +3,7 @@ import { ModalEditDoc } from "../atoms";
 import { connect } from 'react-redux';
 const CardProfile = ({ specialist }) => {
 
-  //  const specialist = specialist_auth
 
-  // useEffect(() => {
-
-  //       Get_Profile_Specialist()
-
-  // },[specialist_auth])
   return (
     <>
 
@@ -51,6 +45,7 @@ const CardProfile = ({ specialist }) => {
 const mapStateToProps = (state) => ({
 
   specialist: state.specialist.specialist_auth
+  
 });
 
 export default connect(mapStateToProps)(CardProfile);
