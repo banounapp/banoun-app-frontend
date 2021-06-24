@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Register from "../pages/Register";
+import Error from "../pages/Error";
 import Login from "../pages/Login";
 import RegisterConsulter from "../pages/registerConsulter";
 
@@ -19,11 +20,13 @@ const Routes = ({ dispatch }) => {
   return (
     <>
       <Switch>
+        <Route exact path ="/NotFound" component={Error}/>
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route  path="/" component={Application} />
+
       </Switch>
     </>
   );

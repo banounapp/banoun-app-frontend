@@ -12,6 +12,7 @@ import DetailsPost from "./../../pages/DetailsPost";
 import DoctorBooking from "../../pages/DoctorBooking";
 import DocProfile from "./../../pages/docprofile";
 import NavBar from "./NavBar";
+import Error from "./../../pages/Error"
 const Application = () => {
   return (
     <>
@@ -28,6 +29,7 @@ const Application = () => {
           <Route exact path="/DetailsPost/:id" component={DetailsPost} />
           <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
           <Route exact path="/docprofile" component={DocProfile} />
+          <Redirect to="/NotFound"></Redirect>
         </Switch>
       </>
     </>

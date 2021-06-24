@@ -126,7 +126,7 @@ const FormFieldLogin = ({ history, dispatch }) => {
             انشاء حساب
           </Link>
           <span style={{display:"inline-block", width:"10px"}}> ,</span>
-          <Link to="/RegisterCousulter" className="text-silver-tree  inline-block  lg:hidden">
+          <Link to="/registerCousulter" className="text-silver-tree  inline-block  lg:hidden">
            انشاء حساب كمتخصص
           </Link>
         </Form>
