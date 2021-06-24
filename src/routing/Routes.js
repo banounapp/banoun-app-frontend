@@ -31,7 +31,6 @@ const Routes = ({ dispatch }) => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/RegisterCousulter" component={RegisterConsulter} />
-        <Route exact path="/loginConsulter" component={LoginConsulter} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/posts" component={Postdoc} />
         <Route exact path="/DetailsPost/:id" component={DetailsPost} />
