@@ -80,7 +80,7 @@ const FormFieldLogin = ({ history, dispatch }) => {
           )}
           <InputField
 
-            SpecificStyle="flex mb-6 md:relative md:right-20"
+            SpecificStyle="flex mb-6  md:relative md:right-20"
             iconsProps={{ icon: "text-gray-500 fas fa-user " }}
             textFieldProps={{
               name: "username",
@@ -121,9 +121,13 @@ const FormFieldLogin = ({ history, dispatch }) => {
           </Button>
           <br></br>
 
-          <p className=" mx-2 my-5  inline-block lg:hidden ">ليس لديك جساب؟ </p>
-          <Link to="/" className="text-silver-tree  inline-block  lg:hidden">
+          <p className=" mx-2 my-5  inline-block lg:hidden ">ليس لديك حساب؟ </p>
+          <Link to="/register" className="text-silver-tree  inline-block  lg:hidden" >
             انشاء حساب
+          </Link>
+          <span style={{display:"inline-block", width:"10px"}}> ,</span>
+          <Link to="/RegisterCousulter" className="text-silver-tree  inline-block  lg:hidden">
+           انشاء حساب كمتخصص
           </Link>
         </Form>
       )}

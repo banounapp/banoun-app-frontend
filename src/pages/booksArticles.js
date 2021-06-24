@@ -16,7 +16,6 @@ const BooksArticles = ({ subCategory, GetSubCategory, match, props }) => {
     <>
       <div className="bg-white ">
         {/* {} */}
-        <NavBar />
         <HeaderArtcles />
       </div>
       <CardsBook />

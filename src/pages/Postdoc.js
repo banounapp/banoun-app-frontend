@@ -12,7 +12,6 @@ const Postdoc = ({ GetPosts, posts }) => {
 
   return (
     <div className="bg-alabaster-500 space-y-8">
-      <NavBar />
       {sessionStorage.getItem("token") && <PostForm />}
 
       <div className="lg:flex">

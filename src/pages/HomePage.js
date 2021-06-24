@@ -15,7 +15,6 @@ import {
 const HomePage = () => {
   return (
     <>
-      <NavBar />
       <Header />
       <Section1 />
       <Section2 />
