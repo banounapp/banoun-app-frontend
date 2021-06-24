@@ -14,11 +14,11 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   useEffect(() => {
-    GetAllCategories(dispatch);
-  }, []);
+    GetAllCategories()(dispatch);
+  },[]);
 
-  console.log(categories);
-  console.table(user, sessionStorage, specialist_auth);
+  console.log(categories,toggleBurgerIcon);
+  // console.table(user, sessionStorage, specialist_auth);
 
   const LogOut = async (e) => {
     e.preventDefault();
@@ -161,7 +161,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
 
                 {/* DROP DOWN */}
 
-                <div>
+                <div style={{zIndex:1}}>
                   <DropDownList parent="المحتوي" category={categories} />
                 </div>
                 <a href="#banoun" className="  px-3 py-2 rounded-md text-sm font-medium">
@@ -228,7 +228,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return { dispatch, GetAllCategories: GetAllCategories };
+  return { dispatch,  GetAllCategories };
 };
 
 NavBar.propTypes = {
