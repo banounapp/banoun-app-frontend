@@ -1,9 +1,12 @@
-import React from "react";
+import React ,{useState}from "react";
 import Calender from "react-calendar";
 import { Btn } from "./btn";
 import "./calender.css";
-
+import PaymentModal from "../organism/PaymentModal";
 const CalenderSystem = () => {
+
+  const [isModalOpened, setisModalOpened] = useState(false)
+
   return (
     <div className=" mt-52   ">
       <div className="  my-14  mt-10  ">
@@ -79,12 +82,14 @@ const CalenderSystem = () => {
                   children="
                   متابعة 
                   "
+                  onClick={()=>setisModalOpened(!isModalOpened)}
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
+     {isModalOpened&& <PaymentModal></PaymentModal>}
     </div>
   );
 };
