@@ -89,3 +89,19 @@ export const Get_Edit_Specialist = (data) => async (dispatch) => {
     });
   }
 };
+
+
+///////////////////////////////// get doctor appointments /////////////////////////////
+
+export const getDoctorAppointments = (id) => async (dispatch) => {
+  try {
+    const appointment = await client.get(`/appointment/specialist/${id}`);
+    console.log(appointment);
+    dispatch({ type: Get_specialist_appointments, payload: appointment.data });
+  } catch (err) {
+    dispatch({
+      type: Error_specialist,
+      payload: { msg: err },
+    });
+  }
+};
