@@ -22,3 +22,8 @@ export const confirm_code = "confirm_code";
 export const confirm_Error = "confirm_Error";
 
 export const Get_One_specialist = "Get_One_specialist";
+export const Post_Review = "Post_Review";
+export const Get_Review = "Get_Review";
+export const Error_Review = "Error_Review";
+
+export const Get_Profile_Spec = "Get_Profile_Spec";

@@ -12,7 +12,7 @@ export const PaymentTwo = () => {
       <div className="w-2/5 mx-96 mt-10 space-y-4 mx-8">
         <h1 className="text-xl"> طريقة الدفع</h1>
         <div className="text-lg">
-          <input type="checkbox" name="cash" value="cash" checked /> &nbsp;
+          <input type="radio" name="cash" value="cash" /> &nbsp;
           <label for="cash"> الدفع نقدا</label>
         </div>
 

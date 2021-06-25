@@ -14,7 +14,6 @@ import Footer from "../components/organism/footer";
 const HomePage = () => {
   return (
     <>
-      <NavBar />
       <Header />
       <Section1 />
       <Section2 />

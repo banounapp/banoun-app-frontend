@@ -6,9 +6,10 @@ const initialState = {
     user: null,
     loading: true,
     error: {},
-    isAuthenticated:false,
+    isAuthenticated: false,
 }
-export default function (state = initialState, action) {
+export default function userProfile(state = initialState, action) {
+    console.log(state);
     const { type, payload } = action;
     switch (type) {
         case Get_User:
@@ -16,7 +17,7 @@ export default function (state = initialState, action) {
                 ...state,
                 user: payload,
                 loading: false,
-                isAuthenticated:true,
+                isAuthenticated: true,
 
             }
         case Error_User:
@@ -24,8 +25,8 @@ export default function (state = initialState, action) {
                 ...state,
                 error: payload,
                 loading: false,
-                isAuthenticated:false,
-
+                isAuthenticated: false,
+                user:null
             };
         default:
             return state;

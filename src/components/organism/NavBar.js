@@ -6,13 +6,39 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { GetAllCategories } from ".././../redux/actions/categories";
 import PropTypes from "prop-types";
+import { logout } from "../../services/auth";
+import { withRouter } from "react-router-dom";
 
-const NavBar = ({ GetAllCategories, categories, user }) => {
+const NavBar = ({
+  GetAllCategories,
+  categories,
+  user,
+  specialist_auth,
+  history,
+  dispatch,
+}) => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+
   useEffect(() => {
-    GetAllCategories();
+    GetAllCategories()(dispatch);
   }, []);
-  console.log(categories);
+
+  console.log(categories, toggleBurgerIcon);
+  // console.table(user, sessionStorage, specialist_auth);
+
+  const LogOut = async (e) => {
+    e.preventDefault();
+    await setIsProfileMenuOpen(!isProfileMenuOpen);
+    logout(history, dispatch);
+  };
+  const getProfileImage = () => {
+    if (user?.image?.filename)
+      return `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`;
+    else if (specialist_auth?.image?.filename)
+      return `https://banoun-app.herokuapp.com/api/upload/show/${specialist_auth.image.filename}`;
+    return "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
+  };
 
   return (
     <nav>
@@ -29,12 +55,6 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
             >
               <span className="sr-only">Open main menu</span>
 
-              {/* Icon when menu is closed.
-  
-              Heroicon name: outline/menu
-  
-              Menu open: "hidden", Menu closed: "block" */}
-
               <svg
                 className="block h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,12 +70,6 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
-              {/*      
-              Icon when menu is open.
-  
-              Heroicon name: outline/x
-  
-              Menu open: "block", Menu closed: "hidden" */}
 
               <svg
                 className="hidden h-6 w-6"
@@ -75,21 +89,114 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
             </button>
           </div>
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
-            {user && sessionStorage.getItem("token") && (
-              <div className="flex-shrink-0 flex items-center">
-                <Link
-                  to="/profile"
-                  className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                </Link>
-              </div>
-            )}
+            {user || specialist_auth
+              ? sessionStorage.getItem("token") && (
+                  <div className="flex-shrink-0 flex items-center">
+                    <div class="relative inline-block text-left">
+                      <div>
+                        <button
+                          className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                          type="button"
+                          style={{ outline: "none" }}
+                          onClick={() =>
+                            setIsProfileMenuOpen(!isProfileMenuOpen)
+                          }
+                        >
+                          <img
+                            className="inline-block object-cover w-12 h-12 rounded-full"
+                            src={getProfileImage()}
+                            alt="Profile "
+                          />
+                        </button>
+                      </div>
+                      {isProfileMenuOpen ? (
+                        <div
+                          class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          role="menu"
+                          style={{ zIndex: 1 }}
+                        >
+                          <div
+                            class="py-1"
+                            role="none"
+                            onMouseLeave={() =>
+                              setIsProfileMenuOpen(!isProfileMenuOpen)
+                            }
+                          >
+                            <Link
+                              to={
+                                user
+                                  ? "/profile"
+                                  : specialist_auth && "/docprofile"
+                              }
+                              className="text-gray-700 block px-4 py-2 text-sm"
+                              role="menuitem"
+                              tabindex="-1"
+                              id="menu-item-0"
+                              onClick={() =>
+                                setIsProfileMenuOpen(!isProfileMenuOpen)
+                              }
+                            >
+                              <div
+                                class="relative inline-block flex items-center "
+                                style={{ justifyContent: "start" }}
+                              >
+                                <div
+                                  className="p-4 w-12 h-12 justify-self-center"
+                                  style={{ width: "75%" }}
+                                >
+                                  {user?.username || specialist_auth?.username}
+                                </div>
+                                <div style={{ width: "25%" }}>
+                                  <img
+                                    className="inline-block object-cover w-12 h-12 rounded-full"
+                                    src={getProfileImage()}
+                                    alt="Profile "
+                                  />
+                                </div>
+                              </div>
+                            </Link>
+                            <Link
+                              to={
+                                user
+                                  ? "/profile"
+                                  : specialist_auth && "/docprofile"
+                              }
+                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                              role="menuitem"
+                              tabindex="-1"
+                              id="menu-item-0"
+                              onClick={() =>
+                                setIsProfileMenuOpen(!isProfileMenuOpen)
+                              }
+                            >
+                              اعدادات الحساب
+                            </Link>
 
-            <div className="flex-shrink-0 flex  items-center">
+                            <button
+                              type="submit"
+                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
+                              role="menuitem"
+                              tabindex="-1"
+                              id="menu-item-3"
+                              style={{ outline: "none" }}
+                              onClick={LogOut}
+                            >
+                              تسجيل الخروج
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                )
+              : ""}
+
+            <div className="flex-shrink-0 flex items-center">
               <Link
                 to="/"
-                className="text-silver-tree text-4xl  px-2 py-2 rounded-md text-sm font-medium"
+                className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
               >
                 بنون
               </Link>
@@ -107,7 +214,7 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
 
                 {/* DROP DOWN */}
 
-                <div>
+                <div style={{ zIndex: 1 }}>
                   <DropDownList parent="المحتوي" category={categories} />
                 </div>
                 <a
@@ -199,12 +306,15 @@ const NavBar = ({ GetAllCategories, categories, user }) => {
 const mapStateToProps = (state) => ({
   categories: state.categories.categories,
   user: state.userProfile.user,
+  specialist_auth: state.specialist.specialist_auth,
 });
+
+const mapDispatchToProps = (dispatch) => {
+  return { dispatch, GetAllCategories };
+};
 
 NavBar.propTypes = {
   GetAllCategories: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, {
-  GetAllCategories,
-})(NavBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

@@ -4,10 +4,13 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {withRouter} from "react-router-dom"
 import { loginSpecialist } from "../../services/formSpecialist";
+import { connect } from 'react-redux';
+import {Get_Profile_Spec} from "../../redux/actions/types"
 
 
-export const FormFieldLogin1 = () => {
+ const FormFieldLogin1 = ({dispatch,history}) => {
     const [alertMessage, setAlertMessage] = useState("");
     const validate = Yup.object({
         username: Yup.string()
@@ -27,7 +30,13 @@ export const FormFieldLogin1 = () => {
                 setAlertMessage("");
             }, 2000);
         } else {
-            sessionStorage.setItem('token', res.data.data)
+            await     dispatch({
+                type: Get_Profile_Spec,
+                payload: res.data,
+              });
+            
+            sessionStorage.setItem('token', res.data.data);
+            history.push("/")
         }
 
     };
@@ -103,3 +112,7 @@ export const FormFieldLogin1 = () => {
         </Formik>
     );
 };
+
+const mapDispatchToProps = (dispatch) => dispatch;
+const FormFieldLoginContainer =withRouter(connect(mapDispatchToProps)(FormFieldLogin1));
+export { FormFieldLoginContainer as FormFieldLogin1}

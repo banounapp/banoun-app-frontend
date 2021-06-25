@@ -1,13 +1,19 @@
-import InputField from "./../molecules/inputField";
-import { Button, Icons } from "./../atoms";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import { login } from "../../services/auth";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { withRouter } from "react-router-dom";
 
+import InputField from "./../molecules/inputField";
+import { Button, Icons } from "./../atoms";
+import * as Yup from "yup";
+import { login } from "../../services/auth";
+import { connect } from 'react-redux';
+import {
+  Get_User,
+  
+} from '../../redux/actions/types';
 
-export const FormFieldLogin = () => {
+const FormFieldLogin = ({ history, dispatch }) => {
   const [alertMessage, setAlertMessage] = useState("");
   const validate = Yup.object({
     username: Yup.string()
@@ -27,7 +33,25 @@ export const FormFieldLogin = () => {
         setAlertMessage("");
       }, 2000);
     } else {
-      sessionStorage.setItem('token', res.data.data)
+
+
+      sessionStorage.setItem('token', res.data.token);
+
+      if(res.data.type == "User"){
+
+        await dispatch({
+          type: Get_User,
+          payload: res.data.data
+        });
+      }
+      else{
+        await dispatch({
+          type: "Get_Profile_Spec",
+          payload: res.data.data
+        });
+      }
+      history.push("/");
+
     }
 
   };
@@ -55,6 +79,8 @@ export const FormFieldLogin = () => {
             </div>
           )}
           <InputField
+
+            SpecificStyle="flex mb-6  md:relative md:right-20"
             iconsProps={{ icon: "text-gray-500 fas fa-user " }}
             textFieldProps={{
               name: "username",
@@ -64,6 +90,7 @@ export const FormFieldLogin = () => {
           />
 
           <InputField
+            SpecificStyle="flex  md:relative md:right-20"
             iconsProps={{ icon: "text-gray-500 fas fa-lock " }}
             textFieldProps={{
               name: "password",
@@ -94,12 +121,20 @@ export const FormFieldLogin = () => {
           </Button>
           <br></br>
 
-          <p className=" mx-2 my-5  inline-block lg:hidden ">ليس لديك جساب؟ </p>
-          <Link to="/" className="text-silver-tree  inline-block  lg:hidden">
+          <p className=" mx-2 my-5  inline-block lg:hidden ">ليس لديك حساب؟ </p>
+          <Link to="/register" className="text-silver-tree  inline-block  lg:hidden" >
             انشاء حساب
+          </Link>
+          <span style={{display:"inline-block", width:"10px"}}> ,</span>
+          <Link to="/registerCousulter" className="text-silver-tree  inline-block  lg:hidden">
+           انشاء حساب كمتخصص
           </Link>
         </Form>
       )}
     </Formik>
   );
 };
+
+const mapDispatchToProps = (dispatch) => dispatch;
+
+export default withRouter(connect(mapDispatchToProps)(FormFieldLogin))

@@ -9,7 +9,7 @@ export const PaymentThree = () => {
         icon2={<i class="fas fa-check text-silver-tree"></i>}
         icon1={<i class="fas fa-check text-silver-tree"></i>}
       />
-      <div className="w-2/5 mx-96 mt-10 space-y-4  px-8 ">
+      <div className="w-2/5 mx-4 sm:mx-96 mt-10 space-y-4  px-8 ">
         <h1 className="text-xl">
           سيتم أرسال رسالة أليك بالميعاد المحدد مع طبيبط
         </h1>

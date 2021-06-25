@@ -9,7 +9,6 @@ import Reviews from "../components/organism/reviews";
 const DoctorBooking = () => {
   return (
     <div className="bg-silver-tree-100">
-      <NavBar />
       <Wave stylee="mt-12 left-0" />
       <DoctorCard />
       <Wave />
