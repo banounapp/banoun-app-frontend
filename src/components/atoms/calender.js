@@ -7,7 +7,11 @@ const CalenderSystem = () => {
 
   const [isModalOpened, setisModalOpened] = useState(false)
 
+  const toggleOpened = ()=>{
+    setisModalOpened(!isModalOpened)
+  }
   return (
+    <>
     <div className=" mt-52   ">
       <div className="  my-14  mt-10  ">
         <h1 className="text-3xl text-center md:text-4xl mb-4">
@@ -76,21 +80,22 @@ const CalenderSystem = () => {
               <div className="bg-beryl-green-300 mt-4 w-2/3 py-1 text-red  rounded-md mt-1 flex   justify-around">
                 غير متاح الحجز
               </div>
-              <div className="text-center w-1/3 ">
+              <div className="text-center w-1/3 "onClick={()=>setisModalOpened(true)}
+>
                 <Btn
                   stylee="bg-silver-tree-50 sm:px-1 align-center w-2/3 h-2/3"
                   children="
                   متابعة 
                   "
-                  onClick={()=>setisModalOpened(!isModalOpened)}
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-     {isModalOpened&& <PaymentModal></PaymentModal>}
+    {isModalOpened && <PaymentModal setisModalOpened={toggleOpened}/>}
     </div>
+    </>
   );
 };
 

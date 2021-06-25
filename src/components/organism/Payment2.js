@@ -1,6 +1,6 @@
 import React from "react";
 import { PaymentSteps } from "../molecules/paymentSteps";
-import visa from "../../assets/";
+import visa from "../../assets/visa.png";
 
 export const PaymentTwo = () => {
   return (
