@@ -1,34 +1,36 @@
-import React, { useEffect } from "react";
-import { Post } from "../components/molecules";
-import PostForm from "../components/molecules/PostForm";
-import NavBar from "../components/organism/NavBar";
-import { connect } from "react-redux";
-import { GetPosts } from "../redux/actions/posts";
+import React, { useEffect } from 'react';
+import { Post } from '../components/molecules';
+import PostForm from '../components/molecules/PostForm';
+import NavBar from '../components/organism/NavBar';
+import { connect } from 'react-redux';
+import { GetPosts, DeletePost } from '../redux/actions/posts';
 
-const Postdoc = ({ GetPosts, posts }) => {
+const Postdoc = ({ GetPosts, posts, specialist, DeletePost }) => {
   useEffect(() => {
     GetPosts();
   }, [GetPosts]);
 
   return (
-    <div className="bg-alabaster-500 space-y-8">
-      {sessionStorage.getItem("token") && <PostForm />}
-
-      <div className="lg:flex">
+    <div className=' space-y-8'>
+      {sessionStorage.getItem('token') && specialist && <PostForm />}
+      <div className='lg:flex'>
         {posts &&
           posts.map((item) => (
             <Post
               title={item.title}
               name={item.Specialist?.username}
+              specID={item.Specialist?._id}
               text={item.text}
               id={item._id}
+              auth={specialist?._id}
               imgsrc={
                 item.Specialist?.imagepost
                   ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
-                  : item.Specialist?.gender == "female"
-                  ? "images/docgirl.png"
-                  : "images/docboy.png"
+                  : item.Specialist?.gender == 'female'
+                  ? 'images/docgirl.png'
+                  : 'images/docboy.png'
               }
+              DeletePost={DeletePost}
             />
           ))}
       </div>
@@ -39,8 +41,10 @@ const Postdoc = ({ GetPosts, posts }) => {
 
 const mapStateToProps = (state) => ({
   posts: state.posts.posts,
+  specialist: state.specialist.specialist_auth,
 });
 
 export default connect(mapStateToProps, {
   GetPosts,
+  DeletePost,
 })(Postdoc);

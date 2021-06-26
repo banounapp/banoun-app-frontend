@@ -7,15 +7,15 @@ import {
   AddComment,
   RemoveComment,
   Get_One_post,
-} from "./types";
+} from './types';
 
-import { client } from "../../services/client";
+import { client } from '../../services/client';
 
 //get posts
 
 export const GetPosts = () => async (dispatch) => {
   try {
-    const res = await client.get("/posts");
+    const res = await client.get('/posts');
 
     dispatch({
       type: Get_Post,
@@ -64,24 +64,24 @@ export const AddPost = (text, title, img_upload) => async (dispatch) => {
     let img = img_upload.target.files[0];
     console.log(img);
 
-    formData.append("image", img);
+    formData.append('image', img);
     console.log(formData);
   }
   // text=  JSON.stringify(text);
   console.log(text);
-  formData.append("title", title);
+  formData.append('title', title);
 
-  formData.append("text", text);
+  formData.append('text', text);
 
   const config = {
     headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
+      'Content-Type': 'application/json',
+      Authorizarion: sessionStorage.getItem('token'),
     },
   };
 
   try {
-    const res = await client.post("/posts", formData, config);
+    const res = await client.post('/posts', formData, config);
 
     dispatch({
       type: Add_post,
@@ -94,6 +94,28 @@ export const AddPost = (text, title, img_upload) => async (dispatch) => {
       type: Post_Error,
 
       payload: { msg: err },
+    });
+  }
+};
+
+/*****************************************************************************************/
+
+//Delete post
+
+export const DeletePost = (postId) => async (dispatch) => {
+  try {
+    const res = await client.delete(`/posts/${postId}`);
+
+    dispatch({
+      type: Delete_Post,
+      payload: postId,
+    });
+
+    // dispatch({ type: profile_clear });
+  } catch (err) {
+    dispatch({
+      type: Post_Error,
+      payload: { msg: err.message, status: err.status },
     });
   }
 };

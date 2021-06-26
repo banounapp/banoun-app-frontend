@@ -6,13 +6,18 @@ import Error from "../pages/Error";
 import Login from "../pages/Login";
 import RegisterConsulter from "../pages/registerConsulter";
 
+
 // import PrivateRoute from "./privateRoute";
 
 import Confirmation from "./../pages/confirmation";
 
+import Loading from "../pages/loading";
+
 import Application from "./../components/organism/Application"
 import { InitializeData } from "./../services/auth";
 import NavBar from "../components/organism/NavBar";
+import Postdoc from "../pages/Postdoc.js";
+
 
 const Routes = ({ dispatch }) => {
   useEffect(() => {
@@ -26,7 +31,11 @@ const Routes = ({ dispatch }) => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path ="/NotFound" component={Error}/>
-        <Route  path="/" component={Application} />
+        <Route exact  path="/loading" component={Loading} />
+        <Route exact  path="/postsDoctor" component={Postdoc} />
+        <Route exact  path="/" component={Application} />
+       
+      
 
       </Switch>
     </>

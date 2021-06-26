@@ -1,9 +1,8 @@
 import React from 'react'
-
-
-
+import Err from './../components/molecules/err';
 const  Error = ()=>(
-    <h1>ERROR 404</h1>
+    <Err />
+    
 )
 
 
