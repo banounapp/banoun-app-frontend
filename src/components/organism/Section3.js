@@ -69,6 +69,7 @@ export const Section3 = () => {
                   aria-label="Email"
                   rows="5"
                   cols="10"
+                  style={{resize:"none"}}
                 ></textarea>
               </div>
               <div className="text-center">

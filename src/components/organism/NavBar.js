@@ -9,21 +9,29 @@ import PropTypes from "prop-types";
 import { logout } from "../../services/auth";
 import { withRouter } from "react-router-dom";
 
-const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history }) => {
+const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, dispatch }) => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   useEffect(() => {
-    GetAllCategories();
-  }, []);
-  console.log(categories);
-  console.table(user, sessionStorage, specialist_auth);
+    GetAllCategories()(dispatch);
+  },[]);
+
+  console.log(categories,toggleBurgerIcon);
+  // console.table(user, sessionStorage, specialist_auth);
 
   const LogOut = async (e) => {
     e.preventDefault();
     await setIsProfileMenuOpen(!isProfileMenuOpen);
-    logout(history);
+    logout(history, dispatch);
   };
+  const getProfileImage = () => {
+    if (user?.image?.filename) return `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`;
+    else if (specialist_auth?.image?.filename)
+      return `https://banoun-app.herokuapp.com/api/upload/show/${specialist_auth.image.filename}`;
+    return "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
+  };
+
   return (
     <nav>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-4">
@@ -71,26 +79,23 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history }
                         <button
                           className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
                           type="button"
+                          style={{outline:"none"}}
                           onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                         >
                           <img
                             className="inline-block object-cover w-12 h-12 rounded-full"
-                            src={
-                              user?.image ||
-                              specialist_auth?.image ||
-                              "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            }
+                            src={getProfileImage()}
                             alt="Profile "
                           />
                         </button>
                       </div>
                       {isProfileMenuOpen ? (
                         <div
-                          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                           role="menu"
                           style={{ zIndex: 1 }}
                         >
-                          <div class="py-1" role="none">
+                          <div class="py-1" role="none" onMouseLeave={()=>setIsProfileMenuOpen(!isProfileMenuOpen)}>
                             <Link
                               to={user ? "/profile" : specialist_auth && "/docprofile"}
                               className="text-gray-700 block px-4 py-2 text-sm"
@@ -106,11 +111,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history }
                                 <div style={{ width: "25%" }}>
                                   <img
                                     className="inline-block object-cover w-12 h-12 rounded-full"
-                                    src={
-                                      user?.image ||
-                                      specialist_auth?.image ||
-                                      "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                    }
+                                    src={getProfileImage()}
                                     alt="Profile "
                                   />
                                 </div>
@@ -118,24 +119,25 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history }
                             </Link>
                             <Link
                               to={user ? "/profile" : specialist_auth && "/docprofile"}
-                              className="text-gray-700 block px-4 py-2 text-sm"
+                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
                               onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                             >
-                              Account settings
+                              اعدادات الحساب
                             </Link>
 
                             <button
                               type="submit"
-                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm"
+                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-3"
+                              style={{outline:"none"}}
                               onClick={LogOut}
                             >
-                              Sign out
+                              تسجيل الخروج
                             </button>
                           </div>
                         </div>
@@ -161,7 +163,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history }
 
                 {/* DROP DOWN */}
 
-                <div>
+                <div style={{zIndex:1}}>
                   <DropDownList parent="المحتوي" category={categories} />
                 </div>
                 <a href="#banoun" className="  px-3 py-2 rounded-md text-sm font-medium">
@@ -227,12 +229,12 @@ const mapStateToProps = (state) => ({
   specialist_auth: state.specialist.specialist_auth,
 });
 
+const mapDispatchToProps = (dispatch) => {
+  return { dispatch,  GetAllCategories };
+};
+
 NavBar.propTypes = {
   GetAllCategories: PropTypes.func.isRequired,
 };
 
-export default withRouter(
-  connect(mapStateToProps, {
-    GetAllCategories,
-  })(NavBar)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
