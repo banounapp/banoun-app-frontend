@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Register from "../pages/Register";
 import Error from "../pages/Error";
@@ -13,18 +13,22 @@ import Confirmation from "./../pages/confirmation";
 
 import Loading from "../pages/loading";
 
-import Application from "./../components/organism/Application"
+// import Application from "./../components/organism/Application"
+
+import Application from "./../components/organism/Application";
 import { InitializeData } from "./../services/auth";
 import NavBar from "../components/organism/NavBar";
 import Postdoc from "../pages/Postdoc.js";
 
 
 const Routes = ({ dispatch }) => {
+
   useEffect(() => {
-    InitializeData(dispatch);
+     InitializeData(dispatch);
   }, []);
   return (
     <>
+
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />
@@ -37,6 +41,8 @@ const Routes = ({ dispatch }) => {
        
       
 
+//<Route exact path="/NotFound" component={Error} />
+//         <Route path="/" component={Application} />
       </Switch>
     </>
   );

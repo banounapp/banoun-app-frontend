@@ -98,6 +98,7 @@ export async function InitializeData(dispatch) {
         type: "Get_Profile_Spec",
         payload: result.data.specialist,
       });
+      return true
     } else if (res?.data.user) {
       result = { data: res.data, isError: false, errorMessage: "" };
 
@@ -105,8 +106,13 @@ export async function InitializeData(dispatch) {
         type: "Get_User",
         payload: result.data.user,
       });
+      return true
+    }
+    else{
+      return false
     }
   } catch (e) {
     console.log(e.message);
+    return false;
   }
 }

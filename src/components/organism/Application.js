@@ -12,12 +12,11 @@ import DetailsPost from "./../../pages/DetailsPost";
 import DoctorBooking from "../../pages/DoctorBooking";
 import DocProfile from "./../../pages/docprofile";
 import NavBar from "./NavBar";
-import Error from "./../../pages/Error"
+import Error from "./../../pages/Error";
 const Application = () => {
   return (
     <>
-        <NavBar />
-
+      <NavBar />
       <>
         <Switch>
           <Route exact path="/" component={HomePage} />

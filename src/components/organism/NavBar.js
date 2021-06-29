@@ -95,11 +95,11 @@ const NavBar = ({
                     <div class='relative inline-block text-left'>
                       <div>
                         <button
-                          className='text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium'
-                          type='button'
-                          onClick={() =>
-                            setIsProfileMenuOpen(!isProfileMenuOpen)
-                          }
+
+                          className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                          type="button"
+                          style={{outline:"none"}}
+                          onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                         >
                           <img
                             className='inline-block object-cover w-12 h-12 rounded-full'
@@ -115,6 +115,12 @@ const NavBar = ({
                           style={{ zIndex: 1 }}
                         >
                           <div class='py-1' role='none'>
+
+                          class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          role="menu"
+                          style={{ zIndex: 1 }}
+                        >
+                          <div class="py-1" role="none" onMouseLeave={()=>setIsProfileMenuOpen(!isProfileMenuOpen)}>
                             <Link
                               to={
                                 user
@@ -149,28 +155,25 @@ const NavBar = ({
                               </div>
                             </Link>
                             <Link
-                              to={
-                                user
-                                  ? '/profile'
-                                  : specialist_auth && '/docprofile'
-                              }
-                              className='text-gray-700 block px-4 py-2 text-sm'
-                              role='menuitem'
-                              tabindex='-1'
-                              id='menu-item-0'
-                              onClick={() =>
-                                setIsProfileMenuOpen(!isProfileMenuOpen)
-                              }
+
+                              to={user ? "/profile" : specialist_auth && "/docprofile"}
+                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                              role="menuitem"
+                              tabindex="-1"
+                              id="menu-item-0"
+                              onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                             >
                               اعدادات الحساب
                             </Link>
 
                             <button
-                              type='submit'
-                              className='text-gray-700 block w-full text-left px-4 py-2 text-sm'
-                              role='menuitem'
-                              tabindex='-1'
-                              id='menu-item-3'
+
+                              type="submit"
+                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
+                              role="menuitem"
+                              tabindex="-1"
+                              id="menu-item-3"
+                              style={{outline:"none"}}
                               onClick={LogOut}
                             >
                               تسجيل الخروج
