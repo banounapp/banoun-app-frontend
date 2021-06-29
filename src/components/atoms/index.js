@@ -13,9 +13,13 @@ export * from './card'
 export * from './cardAppoin'
 export * from './popup';
 export * from './popD';
-export *  from './modalclient'
-export *  from './modaleditdoc'
+export * from './clientArchive'
+export *  from './modalClient'
+export *  from './modalEditDoc'
 export * from './videoevent'
-export * from './dateofline'
+export * from './dateoffline'
 export * from './dateonline'
 export * from './calenderdoc'
+
+
+

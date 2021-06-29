@@ -12,6 +12,7 @@ const Postdoc = ({ GetPosts, posts }) => {
 
   return (
     <div className="bg-alabaster-500 space-y-8">
+      <NavBar />
       {sessionStorage.getItem("token") && <PostForm />}
 
       <div className="lg:flex">
@@ -19,13 +20,13 @@ const Postdoc = ({ GetPosts, posts }) => {
           posts.map((item) => (
             <Post
               title={item.title}
-              name={item.Specialist?.username}
+              name={item.Specialist.username}
               text={item.text}
               id={item._id}
               imgsrc={
-                item.Specialist?.imagepost
+                item.Specialist.image
                   ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
-                  : item.Specialist?.gender == "female"
+                  : item.Specialist.gender == "female"
                   ? "images/docgirl.png"
                   : "images/docboy.png"
               }

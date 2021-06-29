@@ -1,6 +1,5 @@
 import React from 'react';
-import { DateOfline, DateOnline,Calender, CalenderDoc} from '../atoms'
-// import Calender from "../components/atoms/calender";
+import { DateOffline, DateOnline,Calender, CalenderDoc} from '../atoms'
 
 
 export const DatesEvents = () => {
@@ -9,7 +8,7 @@ export const DatesEvents = () => {
    <div>
    <CalenderDoc />
    <h1 className=" lg:text-2xl">حجوزات قادمه</h1>
-   <DateOfline
+   <DateOffline
     clientname="حنان مصطفي"
     caseattend="الحضور بالعياده"
     date="الأحد، ١٤ مارس ٢٠٢١ ٠٥:٣٢ ص"

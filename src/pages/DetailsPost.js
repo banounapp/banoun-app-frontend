@@ -11,6 +11,7 @@ const DetailsPost = ({ GetOnePost, post, match }) => {
 
   return (
     <div className="bg-alabaster-500 space-y-8">
+      <NavBar />
       <div className="lg:flex">
         {post && (
           <DetailsPostdoc

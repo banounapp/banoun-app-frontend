@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export const RightSideRegister = () => {
   return (
-    <div className="bg-silver-tree lg:h-screen hidden md:hidden lg:inline-block lg:rounded-bl-full  lg:w-3/4  " >
+    <div className="bg-silver-tree lg:h-screen hidden md:hidden lg:inline-block lg:rounded-bl-full  lg:w-full  " >
       <div className="panel right-panel ">
         <div className="text-white text-center  lg:my-40 ">
           <h3 className=" lg:text-3xl mt-5 "> لديك حساب ؟</h3>
@@ -17,7 +17,7 @@ export const RightSideRegister = () => {
           border-light-white-500 text-gray-50 "> تسجيل دخول </Button>
           </Link>
 
-          <img src="images/g-baby.svg" className=" relative right-60" alt="" />
+          <img src="images/boy.png" className=" relative right-80 top-16 w-56 h-56" alt="" />
         </div>
       </div>
     </div>

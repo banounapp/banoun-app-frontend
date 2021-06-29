@@ -1,5 +1,5 @@
 import React from 'react';
-import  VideoEvent  from '../atoms/videoevent';
+import { VideoEvent } from '../atoms';
 
 export const LastEvent = () => {
   return (

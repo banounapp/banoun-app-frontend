@@ -86,17 +86,10 @@ export  const Tabs = ({ color }) => {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </>
   );
 };
 
-// export default  function TabsRender() {
-//   return (
-//     <>
-//       return <Tabs color="pink" />;
-//     </>
-//   );
-// }
+

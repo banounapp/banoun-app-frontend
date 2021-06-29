@@ -10,7 +10,7 @@ const Category = ({match}) => {
     return (
         <>
             <div className='bg-pale-leaf pb-5'>
-                
+                <NavBar />
                 <HeaderCategory id={match.params.id}/>
             </div>
             <CardsCategory id={match.params.id} />

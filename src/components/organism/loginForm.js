@@ -8,10 +8,7 @@ import { Button, Icons } from "./../atoms";
 import * as Yup from "yup";
 import { login } from "../../services/auth";
 import { connect } from 'react-redux';
-import {
-  Get_User,
-  
-} from '../../redux/actions/types';
+
 
 const FormFieldLogin = ({ history, dispatch }) => {
   const [alertMessage, setAlertMessage] = useState("");
@@ -34,22 +31,11 @@ const FormFieldLogin = ({ history, dispatch }) => {
       }, 2000);
     } else {
 
-
-      sessionStorage.setItem('token', res.data.token);
-
-      if(res.data.type == "User"){
-
-        await dispatch({
-          type: Get_User,
-          payload: res.data.data
-        });
-      }
-      else{
-        await dispatch({
-          type: "Get_Profile_Spec",
-          payload: res.data.data
-        });
-      }
+      sessionStorage.setItem('token', res.data.data);
+      await dispatch({
+        type: "Get_User",
+        payload: res.data
+      });
       history.push("/");
 
     }
@@ -68,7 +54,7 @@ const FormFieldLogin = ({ history, dispatch }) => {
       {(formik) => (
         <Form
           action="#"
-          className="text-center content-center justify-center md:mx-10 "
+          className="text-center  m-auto md:m-auto justify-center "
         >
           <h2 className="my-10 lg:my-7 text-lg md:text-xl lg:text-2xl">
             تسجيل الدخول
@@ -80,7 +66,7 @@ const FormFieldLogin = ({ history, dispatch }) => {
           )}
           <InputField
 
-            SpecificStyle="flex mb-6  md:relative md:right-20"
+            SpecificStyle="flex mb-6  lg:right-32"
             iconsProps={{ icon: "text-gray-500 fas fa-user " }}
             textFieldProps={{
               name: "username",
@@ -90,7 +76,7 @@ const FormFieldLogin = ({ history, dispatch }) => {
           />
 
           <InputField
-            SpecificStyle="flex  md:relative md:right-20"
+            SpecificStyle="flex  lg:right-32"
             iconsProps={{ icon: "text-gray-500 fas fa-lock " }}
             textFieldProps={{
               name: "password",
@@ -122,12 +108,8 @@ const FormFieldLogin = ({ history, dispatch }) => {
           <br></br>
 
           <p className=" mx-2 my-5  inline-block lg:hidden ">ليس لديك حساب؟ </p>
-          <Link to="/register" className="text-silver-tree  inline-block  lg:hidden" >
-            انشاء حساب
-          </Link>
-          <span style={{display:"inline-block", width:"10px"}}> ,</span>
-          <Link to="/registerCousulter" className="text-silver-tree  inline-block  lg:hidden">
-           انشاء حساب كمتخصص
+          <Link to="/" className="text-silver-tree  inline-block  lg:hidden">
+            إنشاء حساب
           </Link>
         </Form>
       )}

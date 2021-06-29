@@ -8,8 +8,7 @@ const initialState = {
     error: {},
     isAuthenticated: false,
 }
-export default function userProfile(state = initialState, action) {
-    console.log(state);
+export default function (state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
         case Get_User:
@@ -26,7 +25,7 @@ export default function userProfile(state = initialState, action) {
                 error: payload,
                 loading: false,
                 isAuthenticated: false,
-                user:null
+
             };
         default:
             return state;

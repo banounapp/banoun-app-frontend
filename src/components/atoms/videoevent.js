@@ -1,18 +1,8 @@
-import React ,{useEffect,useState}from 'react';
-
-import { connect } from 'react-redux';
-// import {  Get_Profile_Specialist } from './../../redux/actions/specialist';
+import React from 'react';
 
 
-const VideoEvent = ({   specialist_auth}) => {
 
-  const specialist = specialist_auth
-  
-  // useEffect(() => {
-    
-  //       Get_Profile_Specialist()
-
-  // },[specialist_auth])
+export const VideoEvent = () => {
   return (
    <>
   <div >
@@ -23,7 +13,7 @@ const VideoEvent = ({   specialist_auth}) => {
        <img src="images/1-business-woman-removebg-preview 2.png" alt="profile pic" className=" w-7 h:9 lg:w-8 lg:h-10 mr-1 mt-1  rounded-full"/>
        </div>
        <div className=" mr-5 mt-4 text-white">
-           <p className=" text-xs md:text-lg lg:text-lg">{specialist && specialist[0]?.username}</p>
+           <p className=" text-xs md:text-lg lg:text-lg">ليلي سمير</p>
            <p className=" text-xs md:text-lg lg:text-lg">14 يونيو الساعه12:20 م</p>
        </div>
   </div>
@@ -46,11 +36,3 @@ const VideoEvent = ({   specialist_auth}) => {
    </>
   );
 };
-
-
-const mapStateToProps = (state) => ({
-
-  specialist_auth: state.specialist.specialist_auth
- });
- 
- export default connect(mapStateToProps)(VideoEvent);

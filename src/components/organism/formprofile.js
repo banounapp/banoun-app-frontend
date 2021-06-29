@@ -26,7 +26,6 @@ const FormEdit = ({ GetEditUer, user, togglePopup }) => {
 
     IS_DATA_CHANGED && togglePopup()
   }
-  
 
 
   return (
@@ -35,7 +34,7 @@ const FormEdit = ({ GetEditUer, user, togglePopup }) => {
 
       <div className=' bg-gunsmoke-100 border border-silver-tree rounded-full w-28 h-28 py-1 py-3  mt-2 m-auto flex  flex-row-reverse  md:w-40 md:h-40'>
         <img
-          src={(user?.image?.filename)? `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`:"https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"}
+          src='./images/pro.png'
           className='w-20 m-auto rounded-full mr-2 md:w-28 md:mr-3 md:mt-2'
         />
         <i className='  fas fa-edit cursor-pointer absolute top-24 mt-14 ml-2 rounded-lg w-10 text-xs text-silver-tree md:text-lg md:mt-28 md:px-12 lg:text-xl xl:mt-28 xl:ml-1 md:top-20 lg:top-20 xl:top-20 xl:text-md' />

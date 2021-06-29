@@ -8,8 +8,8 @@ export const TextField = ({ ...props }) => {
         <div>
             <input type='text'
                 className=
-                {`bg-gray-100 text-gray-500  outline-none rounded content-center
-                 inline-block w-60 md:w-72 lg:w-80  h-10 px-10
+                {`bg-gray-100 text-gray-500  outline-none rounded justify-center flex
+                 inline-block w-64 md:w-72 lg:w-80  h-10 px-10
             ${meta.touched && meta.error && 'is-invalid'}
             `}
                 {...field} {...props}

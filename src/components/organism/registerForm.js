@@ -50,13 +50,17 @@ export const FormField = () => {
 
       {formik => (
         <Form action="#"
-          className="text-center content-center justify-center md:mx-10 " >
+          className="text-center m-auto  justify-center md:m-auto " >
           <h2 className="my-10 lg:my-7 text-lg md:text-xl lg:text-2xl " >انشاء الحساب</h2>
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-            textFieldProps={{ name: 'firstName', placeholder: "الاسم الاول", type: "text" }} />
+            textFieldProps={{ name: 'firstName', placeholder: "الاسم الاول", type: "text" }}
+            SpecificStyle="flex mx-20  lg:mx-20"
+           
+            />
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+    
             textFieldProps={{ name: 'lastName', placeholder: "الاسم التانى", type: "text" }} />
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}

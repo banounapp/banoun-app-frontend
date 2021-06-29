@@ -28,7 +28,6 @@ export async function FormSpecialist(dataform) {
 //API Login
 export async function loginSpecialist(dataform) {
   let result = { data: null, isError: true, errorMessage: "" };
-  
   const res = await client.post("/specialist/login", dataform);
   if (res.data.code === 0) {
     result = { data: res.data, isError: false, errorMessage: "" };

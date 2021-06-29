@@ -9,6 +9,7 @@ const Consult = () => {
   return (
     <>
       <div className="bg-alabaster-500 ">
+        <NavBar />
         <HeaderConsult />
         <Statics />
         <Doctors />

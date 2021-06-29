@@ -12,15 +12,12 @@ export const LeftSideLogin = () => {
         <div className="text-white text-center lg:my-40 ">
           <h3 className=" lg:text-3xl mt-5 ">   ليس لديك حساب؟</h3>
           <p className="  lg:text-xl mt-5 mb-5">
-            اذا كان ليس لديك حساب تفضل بانشاء حساب وانضم لعائله بنون   </p>
-          <Link to='/Register'>
+            اذا كان ليس لديك حساب تفضل بانشاء حساب<br></br> وانضم لعائله بنون   </p>
+          <Link to='/register'>
             <Button stylee=" border-solid border-2  
           border-light-white-500 text-gray-50 ">  انشاء حساب </Button>
           </Link>
-          <Link to='/registerCousulter' style={{display:"block" }}>
-            <Button style={{ textDecoration: 'underline  solid black', }}>  انشاء حساب كمتخصص </Button>
-          </Link>
-          <img src="images/baby.png" className="relative right-20" alt="" />
+          <img src="images/baby.png" className="relative right-20 w-44 h-44" alt="" />
         </div>
       </div>
     </div>

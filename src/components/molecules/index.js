@@ -6,10 +6,9 @@ export * from "./searchdoc";
 export * from "./Post";
 export * from "./DetailsPostdoc";
 export * from './inputEdit'
-export * from './carddoctor'
-export * from './searchInput'
+export * from './cardprofile'
+export * from './cardclient'
 export * from './lastevent'
 export * from './createevent'
 export * from './datesevents'
-export * from './cardbroadcast'
-export * from './cardprofile'
+// export * from './simpleslider'
