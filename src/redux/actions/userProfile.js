@@ -38,9 +38,9 @@ export const GetEditUer = (data) => async dispatch => {
         }
     }
     try {
-        console.log(data);
+        // console.log(data);
         const res = await client.post('/users/edit', data, config);
-        console.log(res);
+        // console.log(res);
         dispatch({
             type: Get_User,
             payload: res.data
