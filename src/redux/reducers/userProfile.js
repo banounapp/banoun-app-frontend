@@ -26,7 +26,7 @@ export default function userProfile(state = initialState, action) {
                 error: payload,
                 loading: false,
                 isAuthenticated: false,
-
+                user:null
             };
         default:
             return state;
