@@ -24,7 +24,8 @@ const NavBar = ({
     GetAllCategories()(dispatch);
   }, []);
 
-  console.log(categories, toggleBurgerIcon);
+
+  console.log(categories, toggleBurgerIcon)
   // console.table(user, sessionStorage, specialist_auth);
 
   const LogOut = async (e) => {
@@ -90,103 +91,188 @@ const NavBar = ({
           </div>
           <div className=' flex items-center justify-center sm:items-stretch sm:justify-start'>
             {user || specialist_auth
-              ? sessionStorage.getItem('token') && (
-                  <div className='flex-shrink-0 flex items-center'>
-                    <div class='relative inline-block text-left'>
-                      <div>
-                        <button
 
-                          className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
-                          type="button"
-                          style={{outline:"none"}}
-                          onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                        >
-                          <img
-                            className='inline-block object-cover w-12 h-12 rounded-full'
-                            src={getProfileImage()}
-                            alt='Profile '
-                          />
-                        </button>
-                      </div>
-                      {isProfileMenuOpen ? (
-                        <div
-                          class='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
-                          role='menu'
-                          style={{ zIndex: 1 }}
-                        >
-                          <div class='py-1' role='none'>
-
-                          class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                          role="menu"
-                          style={{ zIndex: 1 }}
-                        >
-                          <div class="py-1" role="none" onMouseLeave={()=>setIsProfileMenuOpen(!isProfileMenuOpen)}>
-                            <Link
-                              to={
-                                user
-                                  ? '/profile'
-                                  : specialist_auth && '/docprofile'
-                              }
-                              className='text-gray-700 block px-4 py-2 text-sm'
-                              role='menuitem'
-                              tabindex='-1'
-                              id='menu-item-0'
-                              onClick={() =>
-                                setIsProfileMenuOpen(!isProfileMenuOpen)
-                              }
-                            >
-                              <div
-                                class='relative inline-block flex items-center '
-                                style={{ justifyContent: 'start' }}
-                              >
-                                <div
-                                  className='p-4 w-12 h-12 justify-self-center'
-                                  style={{ width: '75%' }}
-                                >
-                                  {user?.username || specialist_auth?.username}
-                                </div>
-                                <div style={{ width: '25%' }}>
-                                  <img
-                                    className='inline-block object-cover w-12 h-12 rounded-full'
-                                    src={getProfileImage()}
-                                    alt='Profile '
-                                  />
-                                </div>
-                              </div>
-                            </Link>
-                            <Link
-
-                              to={user ? "/profile" : specialist_auth && "/docprofile"}
-                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
-                              role="menuitem"
-                              tabindex="-1"
-                              id="menu-item-0"
-                              onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                            >
-                              اعدادات الحساب
-                            </Link>
-
-                            <button
-
-                              type="submit"
-                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
-                              role="menuitem"
-                              tabindex="-1"
-                              id="menu-item-3"
-                              style={{outline:"none"}}
-                              onClick={LogOut}
-                            >
-                              تسجيل الخروج
-                            </button>
-                          </div>
-                        </div>
-                      ) : (
-                        ''
-                      )}
+              ? sessionStorage.getItem("token") && (
+                <div className="flex-shrink-0 flex items-center">
+                  <div class="relative inline-block text-left">
+                    <div>
+                      <button
+                        className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                        type="button"
+                        onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                      >
+                        <img
+                          className="inline-block object-cover w-12 h-12 rounded-full"
+                          src={
+                            user?.image ||
+                            specialist_auth?.image ||
+                            "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                          }
+                          alt="Profile "
+                        />
+                      </button>
                     </div>
+                    {isProfileMenuOpen ? (
+                      <div
+                        class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu"
+                        style={{ zIndex: 1 }}
+                      >
+                        <div class="py-1" role="none">
+                          <Link
+                            to={user ? "/profile" : specialist_auth && "/docprofile"}
+                            className="text-gray-700 block px-4 py-2 text-sm"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-0"
+                            onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                          >
+                            <div class="relative inline-block flex items-center " style={{ justifyContent: "start" }}>
+                              <div className="p-4 w-12 h-12 justify-self-center" style={{ width: "75%" }}>
+                                {user?.username || specialist_auth?.username}
+                              </div>
+                              <div style={{ width: "25%" }}>
+                                <img
+                                  className="inline-block object-cover w-12 h-12 rounded-full"
+                                  src={
+                                    user?.image ||
+                                    specialist_auth?.image ||
+                                    "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                  }
+                                  alt="Profile "
+                                />
+                              </div>
+                            </div>
+                          </Link>
+                          <Link
+                            to={user ? "/profile" : specialist_auth && "/docprofile"}
+                            className="text-gray-700 block px-4 py-2 text-sm"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-0"
+                            onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                          >
+                            Account settings
+                          </Link>
+
+                          <button
+                            type="submit"
+                            className="text-gray-700 block w-full text-left px-4 py-2 text-sm"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-3"
+                            onClick={LogOut}
+                          >
+                            Sign out
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                )
-              : ''}
+                </div>
+              )
+              : ""}
+
+//               ? sessionStorage.getItem('token') && (
+//                   <div className='flex-shrink-0 flex items-center'>
+//                     <div class='relative inline-block text-left'>
+//                       <div>
+//                         <button
+
+//                           className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+//                           type="button"
+//                           style={{outline:"none"}}
+//                           onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+//                         >
+//                           <img
+//                             className='inline-block object-cover w-12 h-12 rounded-full'
+//                             src={getProfileImage()}
+//                             alt='Profile '
+//                           />
+//                         </button>
+//                       </div>
+//                       {isProfileMenuOpen ? (
+//                         <div
+//                           class='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
+//                           role='menu'
+//                           style={{ zIndex: 1 }}
+//                         >
+//                           <div class='py-1' role='none'>
+
+//                           class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+//                           role="menu"
+//                           style={{ zIndex: 1 }}
+//                         >
+//                           <div class="py-1" role="none" onMouseLeave={()=>setIsProfileMenuOpen(!isProfileMenuOpen)}>
+//                             <Link
+//                               to={
+//                                 user
+//                                   ? '/profile'
+//                                   : specialist_auth && '/docprofile'
+//                               }
+//                               className='text-gray-700 block px-4 py-2 text-sm'
+//                               role='menuitem'
+//                               tabindex='-1'
+//                               id='menu-item-0'
+//                               onClick={() =>
+//                                 setIsProfileMenuOpen(!isProfileMenuOpen)
+//                               }
+//                             >
+//                               <div
+//                                 class='relative inline-block flex items-center '
+//                                 style={{ justifyContent: 'start' }}
+//                               >
+//                                 <div
+//                                   className='p-4 w-12 h-12 justify-self-center'
+//                                   style={{ width: '75%' }}
+//                                 >
+//                                   {user?.username || specialist_auth?.username}
+//                                 </div>
+//                                 <div style={{ width: '25%' }}>
+//                                   <img
+//                                     className='inline-block object-cover w-12 h-12 rounded-full'
+//                                     src={getProfileImage()}
+//                                     alt='Profile '
+//                                   />
+//                                 </div>
+//                               </div>
+//                             </Link>
+//                             <Link
+
+//                               to={user ? "/profile" : specialist_auth && "/docprofile"}
+//                               className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+//                               role="menuitem"
+//                               tabindex="-1"
+//                               id="menu-item-0"
+//                               onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+//                             >
+//                               اعدادات الحساب
+//                             </Link>
+
+//                             <button
+
+//                               type="submit"
+//                               className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
+//                               role="menuitem"
+//                               tabindex="-1"
+//                               id="menu-item-3"
+//                               style={{outline:"none"}}
+//                               onClick={LogOut}
+//                             >
+//                               تسجيل الخروج
+//                             </button>
+//                           </div>
+//                         </div>
+//                       ) : (
+//                         ''
+//                       )}
+//                     </div>
+//                   </div>
+//                 )
+//               : ''}
+
 
             <div className='flex-shrink-0 flex items-center'>
               <Link

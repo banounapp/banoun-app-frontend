@@ -1,9 +1,9 @@
 
 import React from "react";
-import {CreateEvent, DatesEvents, LastEvent} from '../molecules'
+import { DatesEvents, LastEvent } from '../molecules'
+import CreateEvent from '../molecules/createevent'
 
-
-export  const Tabs = ({ color }) => {
+export const Tabs = ({ color }) => {
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
@@ -18,7 +18,7 @@ export  const Tabs = ({ color }) => {
                 className={
                   "text-lg   px-5 py-3  block leading-normal " +
                   (openTab === 1
-                    ?"text-spring-rain bg-" + color + "-300"
+                    ? "text-spring-rain bg-" + color + "-300"
                     : "text-" + color + "-600 bg-white")
                 }
                 onClick={e => {
@@ -48,7 +48,7 @@ export  const Tabs = ({ color }) => {
                 href="#link2"
                 role="tablist"
               >
-                 انشاء حدث
+                انشاء حدث
               </a>
             </li>
             <li className=" flex-auto text-center">
@@ -67,7 +67,7 @@ export  const Tabs = ({ color }) => {
                 href="#link3"
                 role="tablist"
               >
-                 مواعيك
+                مواعيك
               </a>
             </li>
           </ul>
@@ -75,28 +75,22 @@ export  const Tabs = ({ color }) => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                 <LastEvent/>
+                  <LastEvent />
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <CreateEvent/>
+                  <CreateEvent />
                 </div>
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <DatesEvents/>
+                  <DatesEvents />
                 </div>
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </>
   );
 };
 
-// export default  function TabsRender() {
-//   return (
-//     <>
-//       return <Tabs color="pink" />;
-//     </>
-//   );
-// }
+
