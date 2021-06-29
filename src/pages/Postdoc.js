@@ -4,8 +4,9 @@ import PostForm from '../components/molecules/PostForm';
 import NavBar from '../components/organism/NavBar';
 import { connect } from 'react-redux';
 import { GetPosts, DeletePost } from '../redux/actions/posts';
+import { Add_Like, Remove_Like } from './../redux/actions/posts';
 
-const Postdoc = ({ GetPosts, posts, specialist, DeletePost }) => {
+const Postdoc = ({ GetPosts, posts, specialist, Add_Like, DeletePost, Remove_Like }) => {
   useEffect(() => {
     GetPosts();
   }, [GetPosts]);
@@ -22,17 +23,22 @@ const Postdoc = ({ GetPosts, posts, specialist, DeletePost }) => {
               specID={item.Specialist?._id}
               text={item.text}
               id={item._id}
+              likes={item?.likes?.length}
+              AddLike={Add_Like}
+              RemoveLike={Remove_Like}
               auth={specialist?._id}
               imgsrc={
                 item.Specialist?.imagepost
                   ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
                   : item.Specialist?.gender == 'female'
-                  ? 'images/docgirl.png'
-                  : 'images/docboy.png'
+                    ? 'images/docgirl.png'
+                    : 'images/docboy.png'
               }
               DeletePost={DeletePost}
             />
           ))}
+
+
       </div>
       {/* <Footer/> */}
     </div>
@@ -46,5 +52,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   GetPosts,
+  Add_Like,
   DeletePost,
+  Remove_Like
 })(Postdoc);

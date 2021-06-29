@@ -13,8 +13,8 @@ export const Comments = ({ name, email, comment }) => {
             ></img>
           </div>
           <div className="text-xs md:text-xl">
-            <h2>Shery Shawki</h2>
-            <span className="text-gray-400"> Shery Shawki@</span>
+            <h2>{name}</h2>
+            <span className="text-gray-400"> {email}</span>
           </div>
         </div>
         <div className="text-gray mt-2 sm:mt-0  md:ml-10 ">
@@ -27,9 +27,7 @@ export const Comments = ({ name, email, comment }) => {
       </div>
       <div className="text-xs px-2 md:text-xl mt-6">
         <p>
-          الطبيب الخاص بك من هنا الانالطبيب الخاص بك من هنا الان اشترك مع الطبيب
-          الخاص بك من هنا الان اشترك مع الطبيب الخاص بك من هنا الان اشترك مع
-          الطبيب الخاص بك من هنا الان
+          {comment}
         </p>
       </div>
     </div>

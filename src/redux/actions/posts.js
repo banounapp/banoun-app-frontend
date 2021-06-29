@@ -119,3 +119,43 @@ export const DeletePost = (postId) => async (dispatch) => {
     });
   }
 };
+
+
+/*****************************************************************************************/
+
+//Add like 
+
+export const Add_Like = id => async dispatch => {
+  try {
+    const res = await client.post(`/posts/like/${id}`);
+    dispatch({
+      type: Update_like,
+      payload: { id, likes: res.data }
+    });
+  } catch (err) {
+    dispatch({
+      type: Post_Error,
+      payload: { msg: err }
+    });
+  }
+};
+
+/*****************************************************************************************/
+//remove like 
+
+export const Remove_Like = id => async dispatch => {
+  try {
+    const res = await client.post(`/posts/unlike/${id}`);
+    dispatch({
+      type: Update_like,
+      payload: { id, likes: res.data }
+    });
+  } catch (err) {
+    dispatch({
+      type: Post_Error,
+      payload: { msg: err }
+    });
+
+  }
+};
+

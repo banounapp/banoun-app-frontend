@@ -5,6 +5,7 @@ import specialist from "./specialist";
 import userProfile from "./userProfile";
 import posts from "./posts";
 import Reviews from "./Reviews";
+import reviewerComments from './reviewerComments'
 export default combineReducers({
   errorAlert,
   infoAlert,
@@ -13,5 +14,6 @@ export default combineReducers({
   specialist,
   userProfile,
   posts,
-  Reviews
+  Reviews,
+  reviewerComments
 });
