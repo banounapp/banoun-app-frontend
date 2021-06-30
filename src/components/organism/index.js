@@ -26,3 +26,7 @@ export * from './formprofile'
 export * from './formdoctor'
 export * from './rightDocProfile'
 export * from'./tabs'
+export * from './HeaderCommunity'
+export * from './CardsBlog'
+export * from './CardsBlogImg'
+

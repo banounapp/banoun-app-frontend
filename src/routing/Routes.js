@@ -15,7 +15,7 @@ import LoginConsulter from "./../pages/LoginConsulter";
 import DoctorBooking from "../pages/DoctorBooking";
 import Confirmation from './../pages/confirmation';
 import DocProfile from './../pages/docprofile';
-
+import Community from "../pages/Community";
 
 
 const Routes = (props) => {
@@ -36,7 +36,7 @@ const Routes = (props) => {
         <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route  exact path="/docprofile" component ={DocProfile}/>
-
+        <Route  exact path="/Community" component ={Community}/>
 
 
 
