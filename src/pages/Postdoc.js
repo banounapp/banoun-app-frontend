@@ -1,20 +1,27 @@
-import React, { useEffect } from 'react';
-import { Post } from '../components/molecules';
-import PostForm from '../components/molecules/PostForm';
-import NavBar from '../components/organism/NavBar';
-import { connect } from 'react-redux';
-import { GetPosts, DeletePost } from '../redux/actions/posts';
-import { Add_Like, Remove_Like } from './../redux/actions/posts';
+import React, { useEffect } from "react";
+import { Post } from "../components/molecules";
+import PostForm from "../components/molecules/PostForm";
+import { connect } from "react-redux";
+import { GetPosts, DeletePost } from "../redux/actions/posts";
+import { Add_Like, Remove_Like } from "./../redux/actions/posts";
 
-const Postdoc = ({ GetPosts, posts, specialist, Add_Like, DeletePost, Remove_Like }) => {
+const Postdoc = ({
+  GetPosts,
+  posts,
+  specialist,
+  Add_Like,
+  DeletePost,
+  Remove_Like,
+  userauth,
+}) => {
   useEffect(() => {
     GetPosts();
   }, [GetPosts]);
 
   return (
-    <div className=' space-y-8'>
-      {sessionStorage.getItem('token') && specialist && <PostForm />}
-      <div className='lg:flex'>
+    <div className=" space-y-8">
+      {sessionStorage.getItem("token") && specialist && <PostForm />}
+      <div className="lg:flex">
         {posts &&
           posts.map((item) => (
             <Post
@@ -27,18 +34,17 @@ const Postdoc = ({ GetPosts, posts, specialist, Add_Like, DeletePost, Remove_Lik
               AddLike={Add_Like}
               RemoveLike={Remove_Like}
               auth={specialist?._id}
+              userauth={userauth}
               imgsrc={
                 item.Specialist?.imagepost
                   ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
-                  : item.Specialist?.gender == 'female'
-                    ? 'images/docgirl.png'
-                    : 'images/docboy.png'
+                  : item.Specialist?.gender == "female"
+                  ? "images/docgirl.png"
+                  : "images/docboy.png"
               }
               DeletePost={DeletePost}
             />
           ))}
-
-
       </div>
       {/* <Footer/> */}
     </div>
@@ -48,11 +54,12 @@ const Postdoc = ({ GetPosts, posts, specialist, Add_Like, DeletePost, Remove_Lik
 const mapStateToProps = (state) => ({
   posts: state.posts.posts,
   specialist: state.specialist.specialist_auth,
+  userauth: state.userProfile.user,
 });
 
 export default connect(mapStateToProps, {
   GetPosts,
   Add_Like,
   DeletePost,
-  Remove_Like
+  Remove_Like,
 })(Postdoc);
