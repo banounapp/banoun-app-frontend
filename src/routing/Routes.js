@@ -10,6 +10,8 @@ import Consult from "../pages/consult";
 import Profile from './../pages/profile';
 import DocProfile from './../pages/docprofile';
 import Events from "../pages/events";
+import ConfirmMsg from "../pages/confirmMsg";
+
 
 import PrivateRoute from './privateRoute';
 const Routes = (props) => {
@@ -29,6 +31,8 @@ const Routes = (props) => {
         <Route exact path="/events" component={Events}/>
 
         <Route  exact path="/docprofile" component ={DocProfile}/>
+        <Route  exact path="/confirmMsg" component ={ConfirmMsg}/>
+
 
       </Switch>
     </section>

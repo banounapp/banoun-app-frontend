@@ -7,7 +7,7 @@ export * from "./input";
 export * from "./btn";
 export * from './cardb'
 export * from './btndoc'
-
+export * from './clientArchive'
 export * from './dropdowndoc'
 export * from './card'
 export * from './cardAppoin'
