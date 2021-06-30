@@ -4,6 +4,7 @@ export const Get_category = "Get_category";
 export const sub_category = "sub_category";
 export const Get_specialist = "Get_specialist";
 export const Get_specialist_reviews = "Get_specialist_reviews";
+export const Add_docotor_review = "Add_Doctor_Review";
 export const Get_specialist_appointments = "Get_specialist_appointments";
 export const Error_specialist = "Error_specialist";
 export const Get_User = "Get_User";

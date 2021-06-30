@@ -13,6 +13,7 @@ import Confirmation from "./../pages/confirmation";
 import Application from "./../components/organism/Application";
 import { InitializeData } from "./../services/auth";
 import NavBar from "../components/organism/NavBar";
+import ReviwingDoctor from "../components/organism/ReviewingDoctor";
 
 const Routes = ({ dispatch }) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Routes = ({ dispatch }) => {
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />
+        <Route exact path="/ReviwingDoctor/:id" component={ReviwingDoctor} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path="/NotFound" component={Error} />

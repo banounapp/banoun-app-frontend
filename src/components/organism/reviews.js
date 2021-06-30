@@ -4,7 +4,8 @@ import { Btn } from "../atoms/btn";
 
 import { getDoctorReview } from "../../redux/actions/specialist";
 import { connect } from "react-redux";
-import { useParams } from "react-router";
+import { Route, useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const Reviews = ({ getDoctorReview, reviews }) => {
   const { id } = useParams();
@@ -32,9 +33,11 @@ const Reviews = ({ getDoctorReview, reviews }) => {
           />
         ))}
       <div className="text-center   ">
-        <Btn stylee="mt-12  md:py-1 md:px-5 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
-          أرسل تقييم
-        </Btn>
+        <Link to={`/ReviwingDoctor/${id}`}>
+          <Btn stylee="mt-12  md:py-1 md:px-5 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
+            أرسل تقييم
+          </Btn>
+        </Link>
       </div>
     </div>
   );

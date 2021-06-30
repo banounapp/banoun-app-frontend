@@ -3,6 +3,8 @@ import {
   Get_specialist,
   Get_One_specialist,
   Get_Profile_Spec,
+  Get_specialist_reviews,
+  Get_specialist_appointments,
 } from "../actions/types";
 const initialState = {
   specialists: [],
