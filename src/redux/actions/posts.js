@@ -157,3 +157,60 @@ export const Remove_Like = (id) => async (dispatch) => {
     });
   }
 };
+
+/******************************************************************/
+
+//Add Comment
+
+export const Add_Comment = (postID, formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await client.post(
+      `/api/posts/comment/${postID}`,
+      formData,
+      config
+    );
+
+    dispatch({
+      type: AddComment,
+      payload: res.data,
+    });
+
+    //alert
+  } catch (err) {
+    dispatch({
+      type: Post_Error,
+
+      payload: { msg: err },
+    });
+  }
+};
+
+//delete Comment
+
+export const Delete_Comment = (postID, CommentID) => async (dispatch) => {
+  try {
+    const res = await client.delete(
+      `/api/posts/comment/${postID}/${CommentID}`
+    );
+
+    dispatch({
+      type: RemoveComment,
+      payload: CommentID,
+    });
+
+    //alert
+    // dispatch(SetAlert('Comment Removed'));
+  } catch (err) {
+    dispatch({
+      type: Post_Error,
+
+      payload: { msg: err },
+    });
+  }
+};

@@ -20,6 +20,11 @@ const Postdoc = ({
 
   return (
     <div className=" space-y-8">
+      <h1 style={{ color: "red" }}>
+        تنويه : لن نعلن عن شخصيتك في اي تعليق للخصوصية يرجي الالتزام بحسن
+        التعليق الا سوف يتم حذفه
+      </h1>
+
       {sessionStorage.getItem("token") && specialist && <PostForm />}
       <div className="lg:flex">
         {posts &&
