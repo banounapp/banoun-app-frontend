@@ -25,7 +25,9 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
               <img
                 style={{ minHeight: "100px", maxHeight: "300px" }}
                 className="w-full z-20 bottom-0  absolute "
-                src={specialist && specialist[0]?.image?.filename}
+                src={`https://banoun-app.herokuapp.com/api/upload/show/${
+                  specialist && specialist[0]?.image?.filename
+                }`}
               ></img>
             </div>
             <div>
@@ -52,6 +54,9 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
                               className="fas fa-star text-amber-500 fa-xs "
                             ></i>
                           ))}
+                        {specialist && specialist[0].rate == 0 && (
+                          <span>لم يتم تقييم الدكتور بعد</span>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -29,11 +29,6 @@ export const Comments = ({ name, email, comment, date }) => {
       </div>
       <div className="text-xs px-2 sm:px-28 md:text-xl mt-2">
         <p>{comment}</p>
-//       <div className="text-xs px-2 md:text-xl mt-6">
-//         <p>
-//           {comment}
-//         </p>
-// >>>>>>> DEV/12
       </div>
     </div>
   );

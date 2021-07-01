@@ -9,7 +9,6 @@ import {
   Get_specialist_appointments,
 } from "./types";
 
-
 export const GetAllSpecialist = () => async (dispatch) => {
   try {
     const res = await client.get("/specialist");
@@ -31,14 +30,11 @@ export const GetOneSpecialist = (id) => async (dispatch) => {
   try {
     const res = await client.get(`/specialist/${id}`);
     if (res) {
-
-
-      console.log(res, res.data)
+      console.log(res, res.data);
       await dispatch({
         type: Get_One_specialist,
         payload: res.data,
       });
-
     }
   } catch (err) {
     await dispatch({
@@ -56,9 +52,6 @@ export const Get_Profile_Specialist = () => async (dispatch) => {
       Authorizarion: sessionStorage.getItem("token"),
     },
   };
-
-    }
-  }
 
   try {
     const res = await client.get(`/specialist`, config);
@@ -126,35 +119,42 @@ export const getDoctorAppointments = (id) => async (dispatch) => {
     dispatch({
       type: Error_specialist,
       payload: { msg: err },
-=======
-//createEvent
-export const CreateEventSpecialist = (Specialization, Topic, description, value) => async (dispatch) => {
-  // const formData = new FormData();
-  console.log(Specialization, Topic)
-  // formData.append('Specialization', Specialization);
-  // console.log(Object.enteriesformData)
-
-  // formData.append('Topic', Topic);
-  // formData.append('description', description);
-  // formData.append('Date', value);
-  const body = {
-    Specialization: Specialization, Topic: Topic, description: description, Date: value
-  }
-
-  try {
-    const res = await client.post('/event', body);
-    console.log(res)
-    dispatch({
-      type: Get_One_specialist,
-      payload: res.data,
-    });
-  } catch (err) {
-    console.log(err.response.data.message)
-    dispatch({
-      type: Error_specialist,
-      payload: {
-        msg: err.response.data.message
-      },
     });
   }
 };
+//createEvent
+
+export const CreateEventSpecialist =
+  (Specialization, Topic, description, value) => async (dispatch) => {
+    // const formData = new FormData();
+    console.log(Specialization, Topic);
+    // formData.append('Specialization', Specialization);
+    // console.log(Object.enteriesformData)
+
+    // formData.append('Topic', Topic);
+    // formData.append('description', description);
+    // formData.append('Date', value);
+    const body = {
+      Specialization: Specialization,
+      Topic: Topic,
+      description: description,
+      Date: value,
+    };
+
+    try {
+      const res = await client.post("/event", body);
+      console.log(res);
+      dispatch({
+        type: Get_One_specialist,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err.response.data.message);
+      dispatch({
+        type: Error_specialist,
+        payload: {
+          msg: err.response.data.message,
+        },
+      });
+    }
+  };

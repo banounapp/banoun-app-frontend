@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 export const CardBlog = ({
   blogtitle,
@@ -14,8 +14,13 @@ export const CardBlog = ({
   userauth,
   specid,
 }) => {
+  console.log(content.length);
+  const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
   return (
-    <div className=" md:w-11/12 lg:w-9/12	 h-auto	  border-2 border-gray-300 rounded-lg mt-5">
+    <div
+      className="  h-auto	  border-2 border-gray-300 rounded-lg mt-5 "
+      style={{ width: "51%" }}
+    >
       <div className=" mt-3">
         <div className=" flex justify-between">
           <div className="  text-gray-500">
@@ -28,14 +33,14 @@ export const CardBlog = ({
                 class="fas fa-trash-alt px-2"
                 style={{ color: "red", fontSize: "18px" }}
               ></i>
-            )}{" "}
+            )}
           </div>
         </div>
         <div className=" flex">
           <div>
             <img
               src={imageURL}
-              className=" rounded-full w-10 h-12 mr-10 mt-5"
+              className=" rounded-full w-10 h-12  mr-10 mt-5"
             />
           </div>
           <div className=" mt-5 mr-2">
@@ -43,13 +48,38 @@ export const CardBlog = ({
             <p className=" text-gray-500">{time} </p>
           </div>
         </div>
-        <p className="mr-10 mt-5">{content}</p>
-        <div
-          className="mt-16 border-t-2 border-gray-300 flex justify-between text-gray-500
+        <p className="mr-10 mt-5" style={{ width: "90%" }}>
+          {content.length >= 200 && !isFullContentOrdered ? (
+            <>
+              {" "}
+              {content.substr(0, 200)}
+              <button
+                onClick={() => setisFullContentOrdered(true)}
+                style={{ color: "blue" }}
+              >
+                see more
+              </button>
+            </>
+          ) : (
+            <>
+              <span>{content}</span>
+              {content.length >= 200 && (
+                <button
+                  onClick={() => setisFullContentOrdered(false)}
+                  style={{ color: "blue" }}
+                >
+                  collapse
+                </button>
+              )}
+            </>
+          )}
+        </p>
+        {userauth && (
+          <div
+            className="mt-16 border-t-2 border-gray-300 flex justify-between text-gray-500
         text-sm md:text-base lg:text-lg
         "
-        >
-          {userauth && (
+          >
             <Fragment>
               <button
                 className=" px-5 py-3 cursor-pointer	"
@@ -67,9 +97,10 @@ export const CardBlog = ({
                 لا يعجبني
               </button>
             </Fragment>
-          )}
-          <div className=" px-5 py-3 cursor-pointer	"></div>
-        </div>
+
+            <div className=" px-5 py-3 cursor-pointer	"></div>
+          </div>
+        )}
       </div>
     </div>
   );

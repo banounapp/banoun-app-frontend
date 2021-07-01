@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 export const CardBlogImg = ({
   blogtitle,
@@ -16,8 +16,13 @@ export const CardBlogImg = ({
   specid,
 }) => {
   console.log(auth, specid);
+  const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
+
   return (
-    <div className=" md:w-11/12 lg:w-9/12	 h-auto	  border-2 border-gray-300 rounded-lg mt-5">
+    <div
+      className=" 	 h-auto	  border-2 border-gray-300 rounded-lg mt-5   "
+      style={{ width: "51%" }}
+    >
       <div className=" mt-3">
         <div className=" flex justify-between">
           <div className="  text-gray-500">
@@ -46,20 +51,47 @@ export const CardBlogImg = ({
             <p className=" text-gray-500">{time} </p>
           </div>
         </div>
-        <p className="mr-10 mt-5">
-          {content}
+        <p className="mr-10 mt-5" style={{ width: "90%" }}>
+          {content.length >= 200 && !isFullContentOrdered ? (
+            <>
+              {" "}
+              {content.substr(0, 200)}
+              <button
+                onClick={() => setisFullContentOrdered(true)}
+                style={{ color: "blue" }}
+              >
+                see more
+              </button>
+            </>
+          ) : (
+            <>
+              <span>{content}</span>
+              {content.length >= 200 && (
+                <button
+                  onClick={() => setisFullContentOrdered(false)}
+                  style={{ color: "blue" }}
+                >
+                  collapse
+                </button>
+              )}
+            </>
+          )}
           <br></br>
           {/* <a href="#" className=" text-silver-tree">قراءه المزيد</a> */}
         </p>
         <div>
-          <img src={imageSrc} className="h-40 m-auto  mt-5" />
+          <img
+            src={imageSrc}
+            className=" m-auto  mt-5"
+            style={{ width: "90%", height: "500px" }}
+          />
         </div>
-        <div
-          className="mt-16 border-t-2 border-gray-300 flex justify-between text-gray-500
+        {userauth && (
+          <div
+            className="mt-16 border-t-2 border-gray-300 flex justify-between text-gray-500
         text-sm md:text-base lg:text-lg
         "
-        >
-          {userauth && (
+          >
             <Fragment>
               <button
                 className=" px-5 py-3 cursor-pointer	"
@@ -77,10 +109,10 @@ export const CardBlogImg = ({
                 لا يعجبني
               </button>
             </Fragment>
-          )}
 
-          <div className=" px-5 py-3 cursor-pointer	"></div>
-        </div>
+            <div className=" px-5 py-3 cursor-pointer	"></div>
+          </div>
+        )}
       </div>
     </div>
   );

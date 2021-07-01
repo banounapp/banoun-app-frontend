@@ -25,59 +25,58 @@ const CardsBlogImg = ({
   console.log(specialist);
   return (
     <>
-      <div className="mr-0 md:mr-10 lg:mr-36 mt-12 mb-10">
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
+      <div className=" mt-12 mb-10 m-0  flex flex-wrap justify-center">
+        <div
+          className="flex flex-wrap justify-center "
+          style={{ margin: "0px" }}
+        >
           {posts &&
             posts.map((item) =>
               item?.imagepost ? (
-                <div>
-                  <CardBlogImg
-                    blogtitle={item.title}
-                    Name={item.Specialist?.username}
-                    specID={item.Specialist?._id}
-                    content={item.text}
-                    id={item._id}
-                    likes={item?.likes?.length}
-                    AddLike={Add_Like}
-                    RemoveLike={Remove_Like}
-                    specid={item.Specialist._id}
-                    auth={specialist?._id}
-                    userauth={userauth}
-                    imageURL={
-                      item.Specialist?.image
-                        ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
-                        : item.Specialist?.gender == "female"
-                        ? "images/docgirl.png"
-                        : "images/docboy.png"
-                    }
-                    imageSrc={`https://banoun-app.herokuapp.com/api/upload/show/${item?.imagepost?.filename}`}
-                    DeletePost={DeletePost}
-                    time={item.data}
-                  />
-                </div>
+                <CardBlogImg
+                  blogtitle={item.title}
+                  Name={item.Specialist?.username}
+                  specID={item.Specialist?._id}
+                  content={item.text}
+                  id={item._id}
+                  likes={item?.likes?.length}
+                  AddLike={Add_Like}
+                  RemoveLike={Remove_Like}
+                  specid={item.Specialist._id}
+                  auth={specialist?._id}
+                  userauth={userauth}
+                  imageURL={
+                    item.Specialist?.image
+                      ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
+                      : item.Specialist?.gender == "female"
+                      ? "images/docgirl.png"
+                      : "images/docboy.png"
+                  }
+                  imageSrc={`https://banoun-app.herokuapp.com/api/upload/show/${item?.imagepost?.filename}`}
+                  DeletePost={DeletePost}
+                  time={item.data}
+                />
               ) : (
-                <div>
-                  <CardBlog
-                    blogtitle={item.title}
-                    imageURL={
-                      item.Specialist?.image
-                        ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
-                        : item.Specialist?.gender == "female"
-                        ? "images/docgirl.png"
-                        : "images/docboy.png"
-                    }
-                    Name={item.Specialist?.username}
-                    time={item.data}
-                    content={item.text}
-                    id={item._id}
-                    likes={item?.likes?.length}
-                    AddLike={Add_Like}
-                    RemoveLike={Remove_Like}
-                    auth={specialist?._id}
-                    userauth={userauth}
-                    specid={item.Specialist._id}
-                  />
-                </div>
+                <CardBlog
+                  blogtitle={item.title}
+                  imageURL={
+                    item.Specialist?.image
+                      ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
+                      : item.Specialist?.gender == "female"
+                      ? "images/docgirl.png"
+                      : "images/docboy.png"
+                  }
+                  Name={item.Specialist?.username}
+                  time={item.data}
+                  content={item.text}
+                  id={item._id}
+                  likes={item?.likes?.length}
+                  AddLike={Add_Like}
+                  RemoveLike={Remove_Like}
+                  auth={specialist?._id}
+                  userauth={userauth}
+                  specid={item.Specialist._id}
+                />
               )
             )}
           {/* <div>

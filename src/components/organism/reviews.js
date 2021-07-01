@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Comments } from "../molecules";
 import { Btn } from "../atoms/btn";
 
@@ -12,6 +12,7 @@ const Reviews = ({ getDoctorReview, reviews }) => {
   useEffect(() => {
     getDoctorReview(id);
   }, []);
+  const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
 
   console.log(reviews);
   return (
@@ -22,16 +23,48 @@ const Reviews = ({ getDoctorReview, reviews }) => {
 
       {/* 1 */}
 
-      {reviews &&
-        reviews.map((review) => (
-          <Comments
-            key={review._id}
-            name={`${review.user.firstName} ${review.user.lastName}`}
-            date={review.date}
-            stylee="bg-white"
-            comment={review.text}
-          />
-        ))}
+      {reviews && (reviews.length <= 3 || isFullContentOrdered) ? (
+        <>
+          {reviews.map((review) => (
+            <Comments
+              key={review._id}
+              name={`${review.user.firstName} ${review.user.lastName}`}
+              date={review.date}
+              stylee="bg-white"
+              comment={review.text}
+            />
+          ))}
+          {reviews && reviews.length >= 3 && (
+            <button onClick={() => setisFullContentOrdered(false)}>
+              اعرض أقل
+            </button>
+          )}
+        </>
+      ) : (
+        <>
+          {" "}
+          <>
+            {reviews &&
+              !isFullContentOrdered &&
+              [...reviews]
+                .slice(0, 3)
+                .map((review) => (
+                  <Comments
+                    key={review._id}
+                    name={`${review.user.firstName} ${review.user.lastName}`}
+                    date={review.date}
+                    stylee="bg-white"
+                    comment={review.text}
+                  />
+                ))}
+          </>{" "}
+          {reviews && reviews.length >= 3 && (
+            <button onClick={() => setisFullContentOrdered(true)}>
+              اعرض المزيد
+            </button>
+          )}
+        </>
+      )}
       <div className="text-center   ">
         <Link to={`/ReviwingDoctor/${id}`}>
           <Btn stylee="mt-12  md:py-1 md:px-5 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
