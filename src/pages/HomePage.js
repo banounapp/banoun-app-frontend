@@ -5,11 +5,11 @@ import {
   Section1,
   Section2,
   Section3,
-  Section4,
   Section5,
   Section6,
 } from "../components/organism";
-import Footer from "../components/organism/footer";
+
+import Section4 from "../components/organism/Section4";
 
 const HomePage = () => {
   return (
@@ -21,7 +21,7 @@ const HomePage = () => {
       <Section4 />
       <Section5 />
       <Section6 />
-      <Footer />
+//       <Footer />
     </>
   );
 };

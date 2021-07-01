@@ -16,6 +16,7 @@ export const Comments = ({ name, email, comment, date }) => {
             <h2>{name}</h2>
             <h3>{date}</h3>
             {/* <span className="text-gray-400"> Shery Shawki@</span> */}
+            <span className="text-gray-400"> {email}</span>
           </div>
         </div>
         <div className="text-gray mt-2 sm:mt-0  md:ml-10 ">
@@ -28,6 +29,11 @@ export const Comments = ({ name, email, comment, date }) => {
       </div>
       <div className="text-xs px-2 sm:px-28 md:text-xl mt-2">
         <p>{comment}</p>
+//       <div className="text-xs px-2 md:text-xl mt-6">
+//         <p>
+//           {comment}
+//         </p>
+// >>>>>>> DEV/12
       </div>
     </div>
   );

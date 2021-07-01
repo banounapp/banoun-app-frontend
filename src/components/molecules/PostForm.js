@@ -43,19 +43,19 @@ const PostForm = ({ AddPost }) => {
         />
 
         <input
-          placeholder="title"
+          placeholder="العنوان"
           value={title}
           onChange={(e) => settitle(e.target.value)}
         />
         <textarea
           cols="30"
           rows="5"
-          placeholder="Create a post"
+          placeholder="ادخل المقال"
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
 
-        <input type="submit" value="Submit" class="btn btn-dark my-1" />
+        <input type="submit" value="نشر" class="btn btn-dark my-1" />
       </form>
     </div>
   );

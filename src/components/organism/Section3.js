@@ -1,6 +1,16 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { Connectus } from "../../services/Connectus";
 export const Section3 = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    text: "",
+  });
+  const { text, email, name } = formData;
+  const onChangeMethod = (e) => {
+    // console.dir(e.target);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   return (
     // bg-silver-tree-500
     <div className=" pb-5 ">
@@ -17,7 +27,14 @@ export const Section3 = () => {
 
         <div className="space-y-6 lg:w-1/3  md:mx-20 text-center  md:text-right   ">
           <div className="leading-loose">
-            <form className="max-w-xl  p-5 bg-white rounded shadow-xl">
+            <form
+              className="max-w-xl  p-5 bg-white rounded shadow-xl"
+              onSubmit={(e) => {
+                e.preventDefault();
+
+                Connectus(formData);
+              }}
+            >
               <div className="">
                 <label
                   className="block text-sm text-gray-00"
@@ -27,53 +44,56 @@ export const Section3 = () => {
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="cus_name"
-                  name="cus_name"
+                  id="name"
+                  name="name"
                   type="text"
                   required=""
                   placeholder="الأسم"
                   aria-label="Name"
+                  defaultValue={name}
+                  onChange={(e) => onChangeMethod(e)}
                 />
               </div>
               <div className="mt-2">
-                <label
-                  className="block text-sm text-gray-600"
-                  htmlFor="cus_email"
-                >
+                <label className="block text-sm text-gray-600" htmlFor="email">
                   البريد الألكتروني
                 </label>
                 <input
                   className="w-full px-2   text-gray-700 bg-gray-200 rounded"
-                  id="cuss_email"
-                  name="cuss_email"
+                  id="email"
+                  name="email"
                   type="text"
                   required=""
                   placeholder="البريد الألكتروني"
                   aria-label="Email"
+                  defaultValue={email}
+                  onChange={(e) => onChangeMethod(e)}
                 />
               </div>
               <div className="mt-2 ">
-                <label
-                  className=" block text-sm text-gray-600"
-                  htmlFor="cus_email"
-                >
+                <label className=" block text-sm text-gray-600" htmlFor="tesx">
                   مشكلتك
                 </label>
                 <textarea
                   className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-                  id="cus_email"
-                  name="cus_email"
+                  id="text"
+                  name="text"
                   type="text"
                   required=""
                   placeholder="مشكلتك"
-                  aria-label="Email"
+                  aria-label="text"
                   rows="5"
                   cols="10"
-                  style={{resize:"none"}}
+                  style={{ resize: "none" }}
+                  onChange={(e) => onChangeMethod(e)}
+                  defaultValue={text}
                 ></textarea>
               </div>
               <div className="text-center">
-                <button className="px-2 py-1 md:px-6 mt-6       text-white  rounded bg-gray-800">
+                <button
+                  className="px-2 py-1 md:px-6 mt-6 text-white rounded bg-gray-800"
+                  type="submit"
+                >
                   ارسال
                 </button>
               </div>
@@ -84,5 +104,3 @@ export const Section3 = () => {
     </div>
   );
 };
-
-

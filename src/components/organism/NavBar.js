@@ -98,20 +98,25 @@ const NavBar = ({
                           className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
                           type="button"
                           style={{ outline: "none" }}
+
                           onClick={() =>
                             setIsProfileMenuOpen(!isProfileMenuOpen)
                           }
                         >
                           <img
                             className="inline-block object-cover w-12 h-12 rounded-full"
-                            src={getProfileImage()}
+                            src={
+                              user?.image ||
+                              specialist_auth?.image ||
+                              "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            }
                             alt="Profile "
                           />
                         </button>
                       </div>
                       {isProfileMenuOpen ? (
                         <div
-                          class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                           role="menu"
                           style={{ zIndex: 1 }}
                         >
@@ -122,6 +127,8 @@ const NavBar = ({
                               setIsProfileMenuOpen(!isProfileMenuOpen)
                             }
                           >
+=======
+//                           <div class="py-1" role="none">
                             <Link
                               to={
                                 user
@@ -149,7 +156,11 @@ const NavBar = ({
                                 <div style={{ width: "25%" }}>
                                   <img
                                     className="inline-block object-cover w-12 h-12 rounded-full"
-                                    src={getProfileImage()}
+                                    src={
+                                      user?.image ||
+                                      specialist_auth?.image ||
+                                      "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                    }
                                     alt="Profile "
                                   />
                                 </div>
@@ -162,6 +173,7 @@ const NavBar = ({
                                   : specialist_auth && "/docprofile"
                               }
                               className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
@@ -169,19 +181,19 @@ const NavBar = ({
                                 setIsProfileMenuOpen(!isProfileMenuOpen)
                               }
                             >
-                              اعدادات الحساب
+                              Account settings
                             </Link>
 
                             <button
                               type="submit"
-                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
+                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-3"
                               style={{ outline: "none" }}
                               onClick={LogOut}
                             >
-                              تسجيل الخروج
+                              Sign out
                             </button>
                           </div>
                         </div>
@@ -197,8 +209,9 @@ const NavBar = ({
               <Link
                 to="/"
                 className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
-              >
-                بنون
+
+                <img src="images/logo.png" className="w-32" />{" "}
+
               </Link>
             </div>
 
@@ -237,7 +250,8 @@ const NavBar = ({
                   أستشير!
                 </a>
                 <Link
-                  to="/posts"
+
+                  to="/Community"
                   className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
                   aria-current="page"
                 >
