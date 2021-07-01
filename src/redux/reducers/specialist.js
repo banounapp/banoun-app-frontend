@@ -1,4 +1,11 @@
-import { Error_specialist, Get_specialist, Get_One_specialist, Get_Profile_Spec } from "../actions/types";
+import {
+  Error_specialist,
+  Get_specialist,
+  Get_One_specialist,
+  Get_Profile_Spec,
+  Get_specialist_reviews,
+  Get_specialist_appointments,
+} from "../actions/types";
 const initialState = {
   specialists: [],
   specialist: null,
@@ -9,10 +16,31 @@ const initialState = {
 export default function specialist(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
+    ////////////////////////// /// Get Specialist
+
     case Get_specialist:
       return {
         ...state,
         specialists: payload,
+        loading: false,
+      };
+
+    ////////////////////////// /// Get Specialist Reviews
+
+    case Get_specialist_reviews:
+      console.log(payload);
+      return {
+        ...state,
+        reviews: payload,
+        loading: false,
+      };
+    ////////////////////////// /// Get Specialist appointments
+
+    case Get_specialist_appointments:
+      console.log(payload);
+      return {
+        ...state,
+        appointments: payload,
         loading: false,
       };
     case Error_specialist:

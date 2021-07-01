@@ -97,6 +97,8 @@ const NavBar = ({
                         <button
                           className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
                           type="button"
+                          style={{ outline: "none" }}
+
                           onClick={() =>
                             setIsProfileMenuOpen(!isProfileMenuOpen)
                           }
@@ -118,7 +120,15 @@ const NavBar = ({
                           role="menu"
                           style={{ zIndex: 1 }}
                         >
-                          <div class="py-1" role="none">
+                          <div
+                            class="py-1"
+                            role="none"
+                            onMouseLeave={() =>
+                              setIsProfileMenuOpen(!isProfileMenuOpen)
+                            }
+                          >
+=======
+//                           <div class="py-1" role="none">
                             <Link
                               to={
                                 user
@@ -162,7 +172,8 @@ const NavBar = ({
                                   ? "/profile"
                                   : specialist_auth && "/docprofile"
                               }
-                              className="text-gray-700 block px-4 py-2 text-sm"
+                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
@@ -179,6 +190,7 @@ const NavBar = ({
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-3"
+                              style={{ outline: "none" }}
                               onClick={LogOut}
                             >
                               Sign out
@@ -197,12 +209,13 @@ const NavBar = ({
               <Link
                 to="/"
                 className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
-              >
+
                 <img src="images/logo.png" className="w-32" />{" "}
+
               </Link>
             </div>
 
-            <div className="hidden my-auto sm:block sm:ml-6">
+            <div className="hidden px-2 my-auto sm:block sm:ml-6">
               <div className="flex space-x-4">
                 <Link
                   to="/"
@@ -237,6 +250,7 @@ const NavBar = ({
                   أستشير!
                 </a>
                 <Link
+
                   to="/Community"
                   className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
                   aria-current="page"

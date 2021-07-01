@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Comments } from "../molecules";
 import { Btn } from "../atoms/btn";
 
-const Reviews = () => {
+import { getDoctorReview } from "../../redux/actions/specialist";
+import { connect } from "react-redux";
+import { Route, useParams } from "react-router";
+import { Link } from "react-router-dom";
+
+const Reviews = ({ getDoctorReview, reviews }) => {
+  const { id } = useParams();
+  useEffect(() => {
+    getDoctorReview(id);
+  }, []);
+
+  console.log(reviews);
   return (
     <div className="mt-40 pb-5 px-6 lg:px-32">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
@@ -11,29 +22,31 @@ const Reviews = () => {
 
       {/* 1 */}
 
-      <Comments
-        name="Donia Mahran"
-        date="الأحد، ١٤ مارس ٢٠٢١ ٠٥:٣٢ ص"
-        stylee="bg-white"
-        comment="دكتور فاهم كويس قوي وعنده سعة صدر وبيتكلم كويس جدا مهذب ومتواضع و خبرة كبيرة"
-      />
-      {/* 2 */}
-
-      <Comments
-        name="Ali rami"
-        date="الأحد، ١٤ مارس ٢٠٢١ ٠٥:٣٢ ص"
-        stylee="bg-white"
-        comment=" الطبيب الخاص بك من هنا الانالطبيب الخاص بك من هنا الان اشترك مع الطبيب
-    الخاص بك من هنا الان اشترك مع الطبيب الخاص بك من هنا الان اشترك مع
-    الطبيب الخاص بك من هنا الان"
-      />
+      {reviews &&
+        reviews.map((review) => (
+          <Comments
+            key={review._id}
+            name={`${review.user.firstName} ${review.user.lastName}`}
+            date={review.date}
+            stylee="bg-white"
+            comment={review.text}
+          />
+        ))}
       <div className="text-center   ">
-        <Btn stylee="mt-12  md:py-1 md:px-5 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
-          أرسل تقييم
-        </Btn>
+        <Link to={`/ReviwingDoctor/${id}`}>
+          <Btn stylee="mt-12  md:py-1 md:px-5 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
+            أرسل تقييم
+          </Btn>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Reviews;
+const mapStateToProps = (state) => {
+  return {
+    reviews: state.specialist.reviews,
+  };
+};
+
+export default connect(mapStateToProps, { getDoctorReview })(Reviews);
