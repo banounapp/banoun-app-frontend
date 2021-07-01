@@ -1,6 +1,7 @@
 import React from "react";
+import _ from "lodash";
 
-export const Comments = ({ name, email, comment, date }) => {
+export const Comments = ({ name, email, comment, date, rate }) => {
   return (
     <div className="mt-5 border-2 py-4 px-2 md:p-4 shadow">
       <div className="block  sm:flex justify-between">
@@ -20,11 +21,13 @@ export const Comments = ({ name, email, comment, date }) => {
           </div>
         </div>
         <div className="text-gray mt-2 sm:mt-0  md:ml-10 ">
-          <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
-          {/* <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
-          <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
-          <i className="fas fa-star hover:text-tahuna-sands-800 px-1 fa-xs sm:text-lg"></i>
-          <i className="fas fa-star hover:text-tahuna-sands-800 px-1 fa-xs sm:text-lg"></i> */}
+          {
+            _.times(rate, (i) => (
+              <i
+                key={i}
+                className="fas fa-star text-amber-500 fa-xs "
+              ></i>
+            ))}
         </div>
       </div>
       <div className="text-xs px-2 sm:px-28 md:text-xl mt-2">

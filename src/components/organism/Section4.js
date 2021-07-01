@@ -19,6 +19,7 @@ const Section4 = ({ reviwes, GetCommentReview }) => {
           name={item?.user?.username}
           email={item?.user?.email}
           comment={item?.text}
+          rate={item?.rate}
         />
       )
       }

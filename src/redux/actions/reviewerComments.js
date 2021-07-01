@@ -22,11 +22,12 @@ export const GetCommentReview = () => async (dispatch) => {
 };
 
 export const PostCommentReview = (data) => async (dispatch) => {
+    console.log(data);
     try {
         const res = await client.post("/SiteReviews", data);
         dispatch({
             type: Post_Comment_Review,
-            payload: res.data,
+            payload: res.data
         });
     } catch (err) {
         dispatch({
