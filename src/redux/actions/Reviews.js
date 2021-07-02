@@ -48,7 +48,6 @@ export const PostReview = (data) => async (dispatch) => {
 export const AddDoctorReview =
   ({ data }) =>
   async (dispatch) => {
-    console.log(data);
     const config = {
       headers: {
         "Content-Type": "application/json",
