@@ -60,3 +60,28 @@ export const GetAuth =
       });
     }
   };
+
+///////////////////////////////// update image /////////////////////////////
+
+export const uploadImg = (img_upload, id) => async (dispatch) => {
+  const formData = new FormData();
+  console.log(img_upload);
+  if (img_upload) {
+    let img = img_upload.target.files[0];
+    console.log(img);
+
+    formData.append("image", img);
+  }
+  try {
+    const res = await client.post(`/specialist/img/${id}`, formData);
+    dispatch({
+      type: Get_auth_Specialist,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: Error_auth_specialist,
+      payload: { msg: err },
+    });
+  }
+};

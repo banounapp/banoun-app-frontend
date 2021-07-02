@@ -1,11 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Post = ({ text, imgsrc, name, title, id }) => {
+export const Post = ({
+  text,
+  imgsrc,
+  name,
+  title,
+  id,
+  DeletePost,
+  specID,
+  auth,
+  AddLike,
+  likes,
+  RemoveLike,
+  userauth,
+}) => {
+  console.log(specID);
+  console.log(auth);
   return (
     <div className="mt-5 border-2 py-4 px-2 md:p-4 shadow">
       <div className="block  sm:flex justify-between">
         <div className="flex">
+          {specID == auth && <button onClick={() => DeletePost(id)}>X</button>}
           <div>
             <img
               className="w-14 h-18 sm:w-28 sm:h-20 rounded-circle"
@@ -22,6 +38,20 @@ export const Post = ({ text, imgsrc, name, title, id }) => {
       <div className="text-xs px-2 md:text-xl mt-6">
         <p>{text}</p>
       </div>
+      {sessionStorage.getItem("token") && userauth && (
+        <>
+          <button class="btn btn-primary" onClick={(e) => AddLike(id)}>
+            اعجبني
+            <i class="fas fa-thumbs-up"></i>
+            {likes > 0 && <span>{likes}</span>}
+          </button>
+          <button class="btn btn-primary" onClick={(e) => RemoveLike(id)}>
+            لم يعجبنى
+            <i class="fas fa-thumbs-down"></i>
+          </button>
+        </>
+      )}
+      <br />
       <Link to={`/DetailsPost/${id}`}>
         <button class=" text-sm  rounded   mt-4 px-3 sm:px-4  md:px-10 md:py-1 bg-black text-white">
           المزيد

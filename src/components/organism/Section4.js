@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Comments } from "../molecules";
-
-export const Section4 = () => {
+import { connect } from 'react-redux';
+import { GetCommentReview } from './../../redux/actions/reviewerComments';
+const Section4 = ({ reviwes, GetCommentReview }) => {
+  useEffect(() => {
+    GetCommentReview();
+  }, [])
+  console.log(reviwes);
   return (
     <div className=" pb-5 px-6 md:px-32" id="visitors">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
@@ -9,23 +14,23 @@ export const Section4 = () => {
       </div>
 
       {/* 1 */}
+      {reviwes?.map(item =>
+        <Comments
+          name={item?.user?.username}
+          email={item?.user?.email}
+          comment={item?.text}
+          rate={item?.rate}
+        />
+      )
+      }
 
-      <Comments
-        name="Shery Shawky"
-        email="@shery Shawky"
-        comment=" الطبيب الخاص بك من هنا الانالطبيب الخاص بك من هنا الان اشترك مع الطبيب
-    الخاص بك من هنا الان اشترك مع الطبيب الخاص بك من هنا الان اشترك مع
-    الطبيب الخاص بك من هنا الان"
-      />
-      {/* 2 */}
 
-      <Comments
-        name="Shery Shawky"
-        email="@shery Shawky"
-        comment=" الطبيب الخاص بك من هنا الانالطبيب الخاص بك من هنا الان اشترك مع الطبيب
-    الخاص بك من هنا الان اشترك مع الطبيب الخاص بك من هنا الان اشترك مع
-    الطبيب الخاص بك من هنا الان"
-      />
+
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  reviwes: state.reviewerComments.Reviews
+});
+
+export default connect(mapStateToProps, { GetCommentReview })(Section4);

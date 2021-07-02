@@ -3,6 +3,9 @@ export const Error_categories = "Error_categories";
 export const Get_category = "Get_category";
 export const sub_category = "sub_category";
 export const Get_specialist = "Get_specialist";
+export const Get_specialist_reviews = "Get_specialist_reviews";
+export const Add_docotor_review = "Add_Doctor_Review";
+export const Get_specialist_appointments = "Get_specialist_appointments";
 export const Error_specialist = "Error_specialist";
 export const Get_User = "Get_User";
 export const Error_User = "Error_User";
@@ -18,10 +21,14 @@ export const Get_auth_Specialist = "Get_auth_Specialist";
 export const Error_auth_specialist = "Error_auth_specialist";
 export const confirm_code = "confirm_code";
 export const confirm_Error = "confirm_Error";
-
 export const Get_One_specialist = "Get_One_specialist";
 export const Post_Review = "Post_Review";
 export const Get_Review = "Get_Review";
 export const Error_Review = "Error_Review";
-
 export const Get_Profile_Spec = "Get_Profile_Spec";
+
+export const Get_Comment_Review = "Get_Comment_Review";
+export const Post_Comment_Review = "Post_Comment_Review";
+
+export const Get_Event_accepted = "Get_Event_accepted";
+export const Error_Event = "Error_Event";

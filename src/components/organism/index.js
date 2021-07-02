@@ -21,7 +21,10 @@ export * from "./headerconsult";
 export * from "./doctors";
 export * from "./statics";
 export * from "./LeftSideLogindoc";
-export * from './formprofile'
-export * from './formdoctor'
-export * from './rightdocprofile'
-export * from './tabs'
+export * from "./formprofile";
+export * from "./formdoctor";
+export * from "./rightdocprofile";
+export * from "./tabs";
+export * from "./HeaderCommunity";
+export * from "./CardsBlog";
+export * from "./CardsBlogImg";

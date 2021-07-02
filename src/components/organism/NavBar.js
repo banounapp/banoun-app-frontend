@@ -9,15 +9,22 @@ import PropTypes from "prop-types";
 import { logout } from "../../services/auth";
 import { withRouter } from "react-router-dom";
 
-const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, dispatch }) => {
+const NavBar = ({
+  GetAllCategories,
+  categories,
+  user,
+  specialist_auth,
+  history,
+  dispatch,
+}) => {
   const [toggleBurgerIcon, settoggleBurgerIcon] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   useEffect(() => {
     GetAllCategories()(dispatch);
-  },[]);
+  }, []);
 
-  console.log(categories,toggleBurgerIcon);
+  console.log(categories, toggleBurgerIcon);
   // console.table(user, sessionStorage, specialist_auth);
 
   const LogOut = async (e) => {
@@ -26,7 +33,8 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
     logout(history, dispatch);
   };
   const getProfileImage = () => {
-    if (user?.image?.filename) return `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`;
+    if (user?.image?.filename)
+      return `https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`;
     else if (specialist_auth?.image?.filename)
       return `https://banoun-app.herokuapp.com/api/upload/show/${specialist_auth.image.filename}`;
     return "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
@@ -55,7 +63,12 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
 
               <svg
@@ -66,7 +79,12 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -79,65 +97,91 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                         <button
                           className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
                           type="button"
-                          style={{outline:"none"}}
-                          onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                          onClick={() =>
+                            setIsProfileMenuOpen(!isProfileMenuOpen)
+                          }
                         >
                           <img
                             className="inline-block object-cover w-12 h-12 rounded-full"
-                            src={getProfileImage()}
+                            src={
+                              user?.image ||
+                              specialist_auth?.image ||
+                              "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            }
                             alt="Profile "
                           />
                         </button>
                       </div>
                       {isProfileMenuOpen ? (
                         <div
-                          class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                           role="menu"
                           style={{ zIndex: 1 }}
                         >
-                          <div class="py-1" role="none" onMouseLeave={()=>setIsProfileMenuOpen(!isProfileMenuOpen)}>
+                          <div class="py-1" role="none">
                             <Link
-                              to={user ? "/profile" : specialist_auth && "/docprofile"}
+                              to={
+                                user
+                                  ? "/profile"
+                                  : specialist_auth && "/docprofile"
+                              }
                               className="text-gray-700 block px-4 py-2 text-sm"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
-                              onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                              onClick={() =>
+                                setIsProfileMenuOpen(!isProfileMenuOpen)
+                              }
                             >
-                              <div class="relative inline-block flex items-center " style={{ justifyContent: "start" }}>
-                                <div className="p-4 w-12 h-12 justify-self-center" style={{ width: "75%" }}>
+                              <div
+                                class="relative inline-block flex items-center "
+                                style={{ justifyContent: "start" }}
+                              >
+                                <div
+                                  className="p-4 w-12 h-12 justify-self-center"
+                                  style={{ width: "75%" }}
+                                >
                                   {user?.username || specialist_auth?.username}
                                 </div>
                                 <div style={{ width: "25%" }}>
                                   <img
                                     className="inline-block object-cover w-12 h-12 rounded-full"
-                                    src={getProfileImage()}
+                                    src={
+                                      user?.image ||
+                                      specialist_auth?.image ||
+                                      "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                    }
                                     alt="Profile "
                                   />
                                 </div>
                               </div>
                             </Link>
                             <Link
-                              to={user ? "/profile" : specialist_auth && "/docprofile"}
-                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200"
+                              to={
+                                user
+                                  ? "/profile"
+                                  : specialist_auth && "/docprofile"
+                              }
+                              className="text-gray-700 block px-4 py-2 text-sm"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
-                              onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                              onClick={() =>
+                                setIsProfileMenuOpen(!isProfileMenuOpen)
+                              }
                             >
-                              اعدادات الحساب
+                              Account settings
                             </Link>
 
                             <button
                               type="submit"
-                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200"
+                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-3"
-                              style={{outline:"none"}}
                               onClick={LogOut}
                             >
-                              تسجيل الخروج
+                              Sign out
                             </button>
                           </div>
                         </div>
@@ -150,33 +194,53 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
               : ""}
 
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium">
-                بنون
+              <Link
+                to="/"
+                className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+              >
+                <img src="images/logo.png" className="w-32" />{" "}
               </Link>
             </div>
 
             <div className="hidden my-auto sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link to="/" className=" px-3 py-2 my-auto rounded-md text-sm font-medium" aria-current="page">
+                <Link
+                  to="/"
+                  className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
+                  aria-current="page"
+                >
                   الصفحة الرئيسية
                 </Link>
 
                 {/* DROP DOWN */}
 
-                <div style={{zIndex:1}}>
+                <div style={{ zIndex: 1 }}>
                   <DropDownList parent="المحتوي" category={categories} />
                 </div>
-                <a href="#banoun" className="  px-3 py-2 rounded-md text-sm font-medium">
+                <a
+                  href="#banoun"
+                  className="  px-3 py-2 rounded-md text-sm font-medium"
+                >
                   عن بنون
                 </a>
 
-                <a href="#visitors" className="  px-3 py-2 rounded-md text-sm font-medium">
+                <a
+                  href="#visitors"
+                  className="  px-3 py-2 rounded-md text-sm font-medium"
+                >
                   اراء الزوار
                 </a>
-                <a href="#consult" className="  px-3 py-2 rounded-md text-sm font-medium">
+                <a
+                  href="#consult"
+                  className="  px-3 py-2 rounded-md text-sm font-medium"
+                >
                   أستشير!
                 </a>
-                <Link to="/posts" className=" px-3 py-2 my-auto rounded-md text-sm font-medium" aria-current="page">
+                <Link
+                  to="/Community"
+                  className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
+                  aria-current="page"
+                >
                   مقا لا ت
                 </Link>
               </div>
@@ -197,8 +261,15 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
       {/* TOGGLE MENU */}
       {toggleBurgerIcon ? (
         <div className="md:hidden relative" id="mobile-menu">
-          <div className="px-2 pt-2 absolute w-full bg-white pb-3 space-y-1" style={{ zIndex: 1 }}>
-            <Link to="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+          <div
+            className="px-2 pt-2 absolute w-full bg-white pb-3 space-y-1"
+            style={{ zIndex: 1 }}
+          >
+            <Link
+              to="#"
+              className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+              aria-current="page"
+            >
               الرئيسية
             </Link>
 
@@ -206,14 +277,23 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
               <DropDownList parent="المحتوي" category={categories} />
             </div>
 
-            <a href="#banoun" className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <a
+              href="#banoun"
+              className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               عن بنون
             </a>
 
-            <a href="#visitors" className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <a
+              href="#visitors"
+              className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               اراء الزوار
             </a>
-            <a href="#consult" className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <a
+              href="#consult"
+              className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               استشر!
             </a>
             <hr></hr>
@@ -230,7 +310,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return { dispatch,  GetAllCategories };
+  return { dispatch, GetAllCategories };
 };
 
 NavBar.propTypes = {
