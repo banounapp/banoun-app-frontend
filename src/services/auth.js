@@ -27,7 +27,7 @@ export async function login(dataform) {
 
 //logout
 
-export async function logout(history,dispatch) {
+export async function logout(history, dispatch) {
   sessionStorage.removeItem("token");
   await dispatch({
     type: "Error_User",
@@ -65,9 +65,9 @@ export async function signup(dataform) {
   }
 }
 
-export async function confirmationCodeuser(Code) {
+export async function confirmationCode(Code) {
   let result = { data: null, isError: true, errorMessage: "" };
-  const res = await client.get(`auth/confirm/${Code}`);
+  const res = await client.patch(`auth/confirm/${Code?.text}`);
   if (res.data.code === 0) {
     result = { data: res.data, isError: false, errorMessage: "" };
     return result;
@@ -98,7 +98,7 @@ export async function InitializeData(dispatch) {
         type: "Get_Profile_Spec",
         payload: result.data.specialist,
       });
-      return true
+      return true;
     } else if (res?.data.user) {
       result = { data: res.data, isError: false, errorMessage: "" };
 
@@ -106,10 +106,9 @@ export async function InitializeData(dispatch) {
         type: "Get_User",
         payload: result.data.user,
       });
-      return true
-    }
-    else{
-      return false
+      return true;
+    } else {
+      return false;
     }
   } catch (e) {
     console.log(e.message);

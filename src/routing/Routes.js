@@ -22,7 +22,7 @@ import NavBar from "../components/organism/NavBar";
 import ReviwingDoctor from "../components/organism/ReviewingDoctor";
 
 import Postdoc from "../pages/Postdoc.js";
-
+import ConfirmMsg from "../pages/confirmMsg";
 
 const Routes = ({ dispatch }) => {
   useEffect(() => {
@@ -41,9 +41,9 @@ const Routes = ({ dispatch }) => {
         <Route exact path="/postsDoctor" component={Postdoc} />
         <Route exact path="/" component={Application} />
         <Route exact path="/Community" component={Community} />
-        //
+        <Route exact path="/confirmMsg" component={ConfirmMsg} />
         <Route exact path="/NotFound" component={Error} />
-        // <Route path="/" component={Application} />
+        <Route path="/" component={Application} />
       </Switch>
     </>
   );
