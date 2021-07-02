@@ -30,7 +30,7 @@ const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, g
       body.appointmentPrice = appointmentPrice;
 
       console.log(body)
-      const response = await client.patch(`http://localhost:5000/api/appointment/${_id}`, body);
+      const response = await client.patch(`https://banoun-app.herokuapp.com/api/appointment/${_id}`, body);
       console.log("Res", response);
       confirm();
       setresponseData(response.data)
@@ -46,7 +46,7 @@ const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, g
 //       _id,
 //       //   paymentId from stripe
 //     };
-//     //call api and update redux
+//     //call api and update redux  
 //   };
 
   const confirm = () => {
