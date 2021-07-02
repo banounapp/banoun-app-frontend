@@ -11,6 +11,7 @@ const CardsCategory = ({ GetCategory, sub_category, id }) => {
   }, [id]);
   return (
     <Fragment>
+
       {!sub_category ? (
         <Spinner />
       ) : (
