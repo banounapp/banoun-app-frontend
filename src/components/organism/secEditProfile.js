@@ -21,7 +21,7 @@ const EditProfile = ({ GetUer, user, history,dispatch }) => {
  
   return (
     <div className='bg-white w-60 pt-4 pb-4 md:w-96 m-auto pt-5 lg:w-1/4 lg:mt-14 lg:sticky lg:top-0 '>
-      <div className=''>
+      
       
           <img
             src={user?.image?`https://banoun-app.herokuapp.com/api/upload/show/${user.image.filename}`:"https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"}
@@ -48,7 +48,7 @@ const EditProfile = ({ GetUer, user, history,dispatch }) => {
             handleClose={togglePopup}
           />
         )}
-      </div>
+      
       <div className='text-center mt-3 sm:w-56 md:text-lg m-auto lg:text-xl'>
         {user && (
           <>

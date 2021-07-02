@@ -14,8 +14,8 @@ export const CardAppoinment = ({
         <p className={` text-xs ${color} md:text-lg lg:text-xl`}>{status}</p>
       </div>
       <div className='mr-2 sm:mr-1 sm:text-sm md:mr-32'>
-        <p className='text-sm md:text-lg lg:text-xl lg:mr-8'> {appoinemnt}</p>
-        <p className='text-xs text-gunsmoke-500 md:text-sm lg:text-lg'>
+        <p className='text-sm md:text-lg lg:text-xl lg:mr-8' style={{fontFamily:"Arial"}}> {appoinemnt}</p>
+        <p className='text-xs text-gunsmoke-500 md:text-sm lg:text-lg '>
           {meeting}
         </p>
       </div>

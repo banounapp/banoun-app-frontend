@@ -1,5 +1,5 @@
 import React from "react";
-import Calender from "../components/atoms/calender";
+import CalenderConsult from "../components/atoms/calenderConsult";
 import Wave from "../components/atoms/waves";
 import DoctorCard from "../components/organism/doctorcard";
 import Footer from "../components/organism/footer";
@@ -14,9 +14,8 @@ const DoctorBooking = () => {
       <Wave />
       <Reviews />
       <Wave stylee="mt-12 left-0" />
-      <Calender />
-      <Wave stylee="left-0" />
-      <Footer />
+      <CalenderConsult />
+      <Wave stylee="mt-12" />
     </div>
   );
 };

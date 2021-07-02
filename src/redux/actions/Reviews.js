@@ -23,14 +23,9 @@ export const GetReview = () => async (dispatch) => {
 };
 
 export const PostReview = (data) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
-    },
-  };
+ 
   try {
-    const res = await client.post("/SiteReviews", data, config);
+    const res = await client.post("/SiteReviews", data);
     dispatch({
       type: Post_Review,
       payload: res.data,
@@ -48,20 +43,13 @@ export const PostReview = (data) => async (dispatch) => {
 export const AddDoctorReview =
   ({ data }) =>
   async (dispatch) => {
-    console.log(data);
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorizarion: sessionStorage.getItem("token"),
-      },
-    };
+   
     try {
       const res = await client.post(
         `/specialistReviews/${data.id}`,
-        data,
-        config
+        data
+        
       );
-      console.log(res);
       dispatch({
         type: Add_docotor_review,
         payload: res.data,

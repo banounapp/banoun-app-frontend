@@ -3,64 +3,31 @@ import { Card } from "../molecules";
 
 export const Section1 = () => {
   return (
-    <div className="relative z-10 px-8 md:px-32  bg-spring-rain-500 pb-5">
-      <div className="pt-5 mb-10 px-6 text-center">
-        <h1 className="text-4xl mb-4">المحتوي</h1>
-        <p className="text-md md:text-2xl mb-4">
-          هنا نقدم لك أفضل الارشادات للتربية الصحيحة
-        </p>
-      </div>
-
-      {/*  */}
-      <div className="absolute z-0 w-1 mb-10 hidden lg:block bg-black h-5/6 right-1/2">
-        <div className="absolute z-0 transform translate-x-96 top-24 w-96   h-1 bg-black"></div>
-        <div className="absolute z-0  top-72 w-96   h-1 bg-black"></div>
-        <div className="absolute z-0  transform translate-x-96 top-96 w-96   h-1 bg-black">
-          <div className="relative right-30 w-1 h-20 bg-black"></div>
+    <div style={{backgroundColor:"#D6EAD4"}}>
+      <div className="pt-5 px-6 md:px-32  md:mb-20 mt-20  ">
+        <div className="flex  ">
+          <div class="w-9  overflow-hidden inline-block">
+            <div class=" h-12  bg-silver-tree-500 -rotate-45 transform origin-top-right"></div>
+          </div>
+          <h1 className="text-3xl md:text-4xl mb-4"> المحتوي </h1>
         </div>
-        <div className="absolute z-0  bottom-64 w-96  h-1 bg-black"></div>
-        <div className="absolute z-0 transform  translate-x-96 bottom-12 w-96   h-1 bg-black"></div>
+        <p className="text-sm md:text-2xl mb-4">هنا نقدم لك أفضل الارشادات للتربية الصحيحة</p>
       </div>
 
-      {/* DIV 1 */}
-      <Card
-        stylee="lg:w-1/3"
-        category="الحمل"
-        imageSource="
-    https://media.istockphoto.com/vectors/pregnant-woman-concept-vector-illustration-in-cute-cartoon-style-vector-id1132530882?k=6&m=1132530882&s=612x612&w=0&h=DQIj_g5M6N1jIJgnk7DGxPBEEOLt1itmIMnnzbgxK5U="
-      />
-
-      {/* DIV 2 */}
-      <Card
-        stylee="right-0 lg:w-1/3 lg:right-2/3"
-        category="الحمل"
-        imageSource="https://media.istockphoto.com/vectors/pregnant-woman-concept-vector-illustration-in-cute-cartoon-style-vector-id1132530882?k=6&m=1132530882&s=612x612&w=0&h=DQIj_g5M6N1jIJgnk7DGxPBEEOLt1itmIMnnzbgxK5U="
-      />
-
-      {/* DIV 3 */}
-      <Card
-        stylee="lg:w-1/3"
-        category="الحمل"
-        imageSource="
-    https://media.istockphoto.com/vectors/pregnant-woman-concept-vector-illustration-in-cute-cartoon-style-vector-id1132530882?k=6&m=1132530882&s=612x612&w=0&h=DQIj_g5M6N1jIJgnk7DGxPBEEOLt1itmIMnnzbgxK5U="
-      />
-      {/* DIV 4 */}
-
-      <Card
-        stylee="right-0 lg:w-1/3 lg:right-2/3"
-        category="الحمل"
-        imageSource="https://media.istockphoto.com/vectors/pregnant-woman-concept-vector-illustration-in-cute-cartoon-style-vector-id1132530882?k=6&m=1132530882&s=612x612&w=0&h=DQIj_g5M6N1jIJgnk7DGxPBEEOLt1itmIMnnzbgxK5U="
-      />
-
-      {/* DIV 5*/}
-      <Card
-        stylee="lg:w-1/3"
-        category="الحمل"
-        imageSource="
-    https://media.istockphoto.com/vectors/pregnant-woman-concept-vector-illustration-in-cute-cartoon-style-vector-id1132530882?k=6&m=1132530882&s=612x612&w=0&h=DQIj_g5M6N1jIJgnk7DGxPBEEOLt1itmIMnnzbgxK5U="
-      />
+      <div className=" grid lg:grid-cols-3 mr-24  h-4/5">
+        <div className="ml-10">
+          <Card stylee="lg:w-full -mt-1 lg:mt-20 -mr-7 lg:mr-12" category="الحمل" imageSource="images/card1.png" />
+          <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="الطفوله" imageSource="images/card2.png" />
+          <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="حالات خاصه" imageSource="images/card3.png" />
+        </div>
+        <div className=" hidden lg:block z-10">
+          <img src="images/tree.png" className="" />
+        </div>
+        <div className="ml-10">
+          <Card stylee="lg:w-full -mt-1 -mr-7 lg:mt-80 lg:-mr-2 " category="ما بعد الولاده" imageSource="images/card4.png" />
+          <Card stylee="lg:w-full -mt-1 -mr-7 lg:mt-72 lg:-mr-2" category="المراهقه" imageSource="images/card5.png" />
+        </div>
+      </div>
     </div>
   );
 };
-
-

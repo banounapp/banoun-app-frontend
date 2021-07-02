@@ -41,19 +41,25 @@ const NavBar = ({
   };
 
   return (
-    <nav>
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-4">
-        <div className="text-bl relative flex items-center justify-content-around h-16">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+    <nav  >
+      <div className="max-w-7xl mx-auto px-2  lg:px-8 pt-4 nav" style={{paddingRight:"5%",paddingLeft:"0px" ,minWidth :"100%" }}>
+        <div className="text-bl  flex items-center justify-content-around h-16" style={{width:"100%"}}>
+          <div className="absolute inset-y-0 left-10  flex items-center nav" style={{top:"-86%"}}>
             {/* Mobile menu button */}
             <button
               type="button"
               onClick={() => settoggleBurgerIcon(!toggleBurgerIcon)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md sm:hidden text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
+
+              {/* Icon when menu is closed.
+  
+              Heroicon name: outline/menu
+  
+              Menu open: "hidden", Menu closed: "block" */}
 
               <svg
                 className="block h-6 w-6"
@@ -70,6 +76,12 @@ const NavBar = ({
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
+              {/*      
+              Icon when menu is open.
+  
+              Heroicon name: outline/x
+  
+              Menu open: "block", Menu closed: "hidden" */}
 
               <svg
                 className="hidden h-6 w-6"
@@ -88,18 +100,55 @@ const NavBar = ({
               </svg>
             </button>
           </div>
-          <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div className=" flex items-center justify-center sm:items-stretch sm:justify-start" >
+            <div className="flex-shrink-0 flex items-center "  >
+              <Link to="/" className="text-silver-tree text-4xl  px-3 py-2 rounded-md logo ">
+                <img src="images/logo.png" alt="logo" className="w-32 lg:w-44 " />
+              </Link>
+            </div>
+
+            <div className="hidden my-auto sm:block sm:ml-6 nav-items" style={{minWidth:"50%",fontSize:"19px",marginLeft:"4%"}}>
+              <div className="flex flex-between align-center space-x-4 nav-items-wrapper " style={{minWidth:"100%"}} >
+                <Link to="/" className="main" aria-current="page" style={{minWidth:"30%",marginLeft:"8%" }}>
+                  الصفحة الرئيسية
+                </Link>
+
+                {/* DROP DOWN */}
+
+                <div style={{padding:"0px", minWidth:"16%" ,marginLeft:"8%"}}>
+                  <DropDownList parent="المحتوي" category={categories} />
+                </div>
+                <a href="/#banoun" style={{minWidth:"16%",marginLeft:"8%" }}>
+                  عن بنون
+                </a>
+
+                <a href="/#visitors" style={{minWidth:"16%",marginLeft:"8%"}}>
+                  اراء الزوار
+                </a>
+                <a href="/#consult" style={{minWidth:"16%",marginLeft:"8%"}}>
+                  أستشير!
+                </a>
+                <Link to="/posts" className=" " aria-current="page" style={{minWidth:"16%",marginLeft:"8%"}}>
+                  مقا لا ت
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* SEARCH  */}
+          <div className=" inset-y-0   lg:block flex items-center pr-2 profile "  style={{position:"absolute",top:"18px",left:"100px" }}>
             {user || specialist_auth
-              ? sessionStorage.getItem("token") && (
-                  <div className="flex-shrink-0 flex items-center">
+              ? localStorage.getItem("token") && (
+                  <div className="flex-shrink-0 flex items-center ">
+                  <span className="Name" >{user?.username || specialist_auth?.username}</span>
+
                     <div class="relative inline-block text-left">
                       <div>
                         <button
-                          className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-silver-tree text-4xl  px-3 py-2 rounded-md "
                           type="button"
-                          onClick={() =>
-                            setIsProfileMenuOpen(!isProfileMenuOpen)
-                          }
+                          style={{ outline: "none" }}
+                          onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                         >
                           <img
                             className="inline-block object-cover w-12 h-12 rounded-full"
@@ -114,18 +163,15 @@ const NavBar = ({
                       </div>
                       {isProfileMenuOpen ? (
                         <div
-                          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          class="dropdown-menu origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+
                           role="menu"
-                          style={{ zIndex: 1 }}
+                          style={{ zIndex: 1 ,border:"1px solid #77bfa3"}}
                         >
-                          <div class="py-1" role="none">
+                          <div class="py-1" role="none" onMouseLeave={() => setIsProfileMenuOpen(!isProfileMenuOpen)}>
                             <Link
-                              to={
-                                user
-                                  ? "/profile"
-                                  : specialist_auth && "/docprofile"
-                              }
-                              className="text-gray-700 block px-4 py-2 text-sm"
+                              to={user ? "/profile" : specialist_auth && "/docprofile"}
+                              className="text-gray-700 block px-4 py-2 text-sm "
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
@@ -157,12 +203,8 @@ const NavBar = ({
                               </div>
                             </Link>
                             <Link
-                              to={
-                                user
-                                  ? "/profile"
-                                  : specialist_auth && "/docprofile"
-                              }
-                              className="text-gray-700 block px-4 py-2 text-sm"
+                              to={user ? "/profile" : specialist_auth && "/docprofile"}
+                              className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 listItem"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-0"
@@ -175,10 +217,11 @@ const NavBar = ({
 
                             <button
                               type="submit"
-                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm"
+                              className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-200 listItem"
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-3"
+                              style={{ outline: "none" }}
                               onClick={LogOut}
                             >
                               Sign out
@@ -191,74 +234,14 @@ const NavBar = ({
                     </div>
                   </div>
                 )
-              : ""}
-
-            <div className="flex-shrink-0 flex items-center">
-              <Link
-                to="/"
-                className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
-              >
-                <img src="images/logo.png" className="w-32" />{" "}
-              </Link>
-            </div>
-
-            <div className="hidden my-auto sm:block sm:ml-6">
-              <div className="flex space-x-4">
-                <Link
-                  to="/"
-                  className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
-                  aria-current="page"
-                >
-                  الصفحة الرئيسية
-                </Link>
-
-                {/* DROP DOWN */}
-
-                <div style={{ zIndex: 1 }}>
-                  <DropDownList parent="المحتوي" category={categories} />
-                </div>
-                <a
-                  href="#banoun"
-                  className="  px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  عن بنون
-                </a>
-
-                <a
-                  href="#visitors"
-                  className="  px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  اراء الزوار
-                </a>
-                <a
-                  href="#consult"
-                  className="  px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  أستشير!
-                </a>
-                <Link
-                  to="/Community"
-                  className=" px-3 py-2 my-auto rounded-md text-sm font-medium"
-                  aria-current="page"
-                >
-                  مقا لا ت
-                </Link>
-              </div>
-            </div>
+              : ""}{" "}
           </div>
-          <div className=" inset-y-0 lg:mr-40 sm:mr-20  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            {/* SEARCH  */}
-            <SearchInput placeholder="  البحث...      " />
-          </div>
-          {/*  */}
         </div>
-        <div className="   lg:hidden md:hidden    flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          {/* SEARCH  */}
+        {/* <div className="   lg:hidden md:hidden    flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <SearchInput placeholder="  البحث...      " />
-        </div>
+        </div> */}
       </div>
 
-      {/* TOGGLE MENU */}
       {toggleBurgerIcon ? (
         <div className="md:hidden relative" id="mobile-menu">
           <div
@@ -273,7 +256,7 @@ const NavBar = ({
               الرئيسية
             </Link>
 
-            <div>
+            <div style={{height:"100%"}}>
               <DropDownList parent="المحتوي" category={categories} />
             </div>
 
@@ -295,6 +278,9 @@ const NavBar = ({
               className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               استشر!
+            </a>
+            <a href={user?"/profile":specialist_auth && "/docprofile"} className=" hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+              اعدادات الحساب
             </a>
             <hr></hr>
           </div>

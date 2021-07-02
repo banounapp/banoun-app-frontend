@@ -3,9 +3,14 @@ import { Btn } from "../atoms";
 
 export const Section2 = () => {
   return (
-    <div className="px-4 md:px-32  pb-5 mt-5" id='banoun'>
+    <div className="px-4 md:px-32  pb-5 mt-5" id="banoun">
       <div className="pt-5  px-6 md:mb-20   ">
-        <h1 className="text-3xl md:text-4xl mb-4">عن بنون</h1>
+        <div className="flex">
+          <div class="w-9  overflow-hidden inline-block">
+            <div class=" h-12  bg-silver-tree-500 -rotate-45 transform origin-top-right"></div>
+          </div>
+          <h1 className="text-3xl md:text-4xl mb-4">عن بنون</h1>
+        </div>
         <p className="text-sm md:text-2xl mb-4">
           هنا نقدم لك أفضل الارشادات للتربية الصحيحة
         </p>
@@ -37,5 +42,3 @@ export const Section2 = () => {
     </div>
   );
 };
-
-

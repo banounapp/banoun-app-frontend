@@ -3,7 +3,7 @@ import { Input } from "../atoms";
 
 const SearchInput = ({ placeholder }) => {
     return (
-        <div className="relative rounded  shadow-md  text-gray-600 focus-within:text-gray-400 ">
+        <div className="relative rounded  border border-silver-tree  text-gray-600 focus-within:text-gray-400  m-auto">
             <span className="absolute  inset-y-0 right-0 flex items-center pl-2">
                 <button
                     type="submit"
