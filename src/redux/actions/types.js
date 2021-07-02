@@ -29,3 +29,6 @@ export const Get_Profile_Spec = "Get_Profile_Spec";
 
 export const Get_Comment_Review = "Get_Comment_Review";
 export const Post_Comment_Review = "Post_Comment_Review";
+
+export const Get_Event_accepted = "Get_Event_accepted";
+export const Error_Event = "Error_Event";
