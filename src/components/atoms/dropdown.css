@@ -1,0 +1,38 @@
+/* .showCategories::hover .dropDownSpecific {
+  display: block;
+}
+
+.dropDownSpecific::hover {
+  display: block;
+} */
+
+.dropdown-specific {
+  /* border : 2px solid #A0D2BF; */
+  border-radius: 28px;
+}
+
+.dropdown-s-item {
+  padding: 7px;
+}
+
+.listItem:hover {
+  background-color: #77bfa3 !important;
+  color: white !important;
+}
+.listItem {
+  background-color: white;
+  color: #143f62;
+  transition: all .4s;
+  
+}
+
+.content {
+  width: 75% !important;
+  /* padding-top: 7px; */
+  text-align: start;
+  /* font-family: 'Tajawal', sans-serif; */
+  
+  font-weight: 500;
+  font-size: 16.8 px;
+  /* line-height: 36px; */
+}

@@ -36,9 +36,9 @@ export const PaymentThree = ({ handleClose, setviewNum, attending, responseData 
         {attending == "online" && (
           <Button
             stylee="border-red-300 border-green-300 shadow 	 truncate"
-            enhancement={{ style: { border: "1px solid #77BFA3", width: "100%", color: "#858585",cursor: "pointer",zIndex:100 },onClick:(e) => copy(e) ,onmousedown :(e) => copy(e)  }}
+            enhancement={{ style: { border: "1px solid #77BFA3", width: "90%", color: "#858585",cursor: "pointer",zIndex:100 },onClick:(e) => copy(e) ,onmousedown :(e) => copy(e)  }}
           >
-            <i class="far fa-copy mx-3"  style={{ width :"25%"}}></i>
+            <i class="far fa-copy mx-3"  style={{ width :"5%"}}></i>
             <input
               type="text"
               style={{

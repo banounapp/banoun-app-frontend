@@ -28,7 +28,8 @@ export async function login(dataform) {
 //logout
 
 export async function logout(history,dispatch) {
-  sessionStorage.removeItem("token");
+  localStorage.removeItem("token");
+  localStorage.token = null;
   await dispatch({
     type: "Error_User",
     payload: { data: null, isError: true, errorMessage: "" },
@@ -92,27 +93,24 @@ export async function InitializeData(dispatch) {
   try {
     let result;
     const res = await client.get("/customRoutes/dataInitialization");
-    if (res?.data.specialist) {
+    console.log(res)
+    if (res.data.specialist) {
       result = { data: res.data, isError: false, errorMessage: "" };
       await dispatch({
         type: "Get_Profile_Spec",
         payload: result.data.specialist,
       });
-      return true
-    } else if (res?.data.user) {
+    } else if (res.data.user) {
       result = { data: res.data, isError: false, errorMessage: "" };
 
       await dispatch({
         type: "Get_User",
         payload: result.data.user,
       });
-      return true
+     
     }
-    else{
-      return false
-    }
+   
   } catch (e) {
     console.log(e.message);
-    return false;
   }
 }

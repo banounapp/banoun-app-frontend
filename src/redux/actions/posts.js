@@ -73,15 +73,10 @@ export const AddPost = (text, title, img_upload) => async (dispatch) => {
 
   formData.append("text", text);
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
-    },
-  };
+  
 
   try {
-    const res = await client.post("/posts", formData, config);
+    const res = await client.post("/posts", formData);
 
     dispatch({
       type: Add_post,

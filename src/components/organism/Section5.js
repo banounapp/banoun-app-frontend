@@ -5,42 +5,39 @@ export const Section5 = () => {
   return (
     <div className="mt-10 px-8 md:px-32 mb-20 mt-20">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">
-        <h1 className="text-3xl md:text-4xl mb-4"> اترك تعليقك </h1>
+      <div className="flex">
+          <div class="w-9  overflow-hidden inline-block">
+            <div class=" h-12  bg-silver-tree-500 -rotate-45 transform origin-top-right"></div>
+          </div>
+          <h1 className="text-3xl md:text-4xl "> اترك تعليقك </h1>
+        </div>
       </div>
 
       {/*  */}
-      <div className="relative border-2 pb-3 px-6 w-4/5 mx-auto md:w-2/3">
-        <div className="text-center mx-auto">
-          <div className="relative h-4 sm:h-10">
-            <img
-              className="absolute  rounded-full left-auto mx-auto  bottom-2 sm:bottom-4 left-6  w-12 h-12  sm:w-20 sm:h-20"
-              alt=""
-              src="https://pbs.twimg.com/media/Ea6FcyhXsAEAt8c.jpg"
-            ></img>
-          </div>
-          <div>
-            <p>عمر صابر</p>
-            <p className="text-sm sm:text-md text-gray-400">عمر صابر@</p>
-          </div>
-        </div>
-        <p className="text-gray text-sm sm:text-md mt-6">اترك تعليقك...</p>
-        <div className="h-14">
-          <div className="flex  justify-between mt-6">
-            <div className="text-gray mt-2 sm:mt-0  md:ml-10 ">
-              <i className="fas fa-star hover:text-tahuna-sands-800 px-0 sm:px-1 text-gold fa-xs sm:text-lg"></i>
-              <i className="fas fa-star hover:text-tahuna-sands-800 px-0 sm:px-1 text-gold fa-xs sm:text-lg"></i>
-              <i className="fas fa-star hover:text-tahuna-sands-800 px-0 sm:px-1 text-gold fa-xs sm:text-lg"></i>
-              <i className="fas fa-star hover:text-tahuna-sands-800 px-0 sm:px-1 fa-xs sm:text-lg"></i>
-              <i className="fas fa-star hover:text-tahuna-sands-800 px-0 sm:px-1 fa-xs sm:text-lg"></i>
-            </div>
-            <div>
-              <Btn stylee="px-2 md:px-6 mx-auto ml-0 sm:ml-10 py-1 bg-gray-800 text-white text-sm md:text-lg  mt-2 rounded ">
-                أرسال
-              </Btn>
-            </div>
-          </div>
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+      <div > <img src="images/Review.png" className=" w-12/12 h-96 -mt-10"/></div>
+      <div className="mt-16 border-2 py-4 px-4 md:p-4 shadow w-12/12 h-56 lg:h-44 m-5">
+      <div className=" w-16 h-16 bg-white rounded-full -mt-14 m-auto">
+        <img src="images/pro.png" className="rounded-full w-10 h-12 m-auto"/>
       </div>
+      <p className="mr-16 lg:mr-52">عمر صابر</p>
+      <p className="mr-12 lg:mr-44"> omar@gmail.com</p>
+      <input type=" text" placeholder=" اترك تعليقك..." className="mr-5"/>
+
+    <div className=" lg:flex">
+    <div className="text-gray mt-2 mt-5  md:ml-10 mr-5 lg:mt-4 flex">
+    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
+    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
+    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
+    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 fa-xs sm:text-lg"></i>
+    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 fa-xs sm:text-lg"></i>
+  </div>
+  <div ><Btn stylee="mt-10 mr-10 lg:mt-2 lg:mr-20 bg-black text-white rounded w-20 h-10">ارسال</Btn></div>
+    </div>
+     
+    </div>
+      
+    </div>
     </div>
   );
 };

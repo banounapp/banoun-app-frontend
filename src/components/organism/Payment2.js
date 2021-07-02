@@ -20,6 +20,12 @@ export const PaymentTwo = ({ handleClose, setpaymentMethod, setviewNum, setpayme
     } 
   }, [selectedOption]);
 
+  const handleConfirm = ()=>{
+    const body  = {}
+    success(body) ;
+    //  setviewNum(3);
+  }
+
   return (
     <div class="w-full py-6 mx-0">
       <PaymentSteps bg2="bg-silver-tree text-white  " icon1={<i class="fas fa-check text-silver-tree"></i>} />
@@ -88,7 +94,7 @@ export const PaymentTwo = ({ handleClose, setpaymentMethod, setviewNum, setpayme
           <Button
             stylee={`shadow text-red-400  `}
             enhancement={{
-              onClick: () => setviewNum(3),
+              onClick: () =>handleConfirm(),
               style: { background: isNextDisabled ? "#77BFA3" : "#C4C4C4", color: "white", width: "70px" },
               disabled: isNextDisabled ? false : true,
             }}

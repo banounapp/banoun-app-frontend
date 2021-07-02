@@ -35,7 +35,7 @@ import {Get_Profile_Spec} from "../../redux/actions/types"
                 payload: res.data,
               });
             
-            sessionStorage.setItem('token', res.data.data);
+            localStorage.setItem('token', res.data.data);
             history.push("/")
         }
 

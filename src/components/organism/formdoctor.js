@@ -41,7 +41,8 @@ const FormEditDoctor = ({ Get_Edit_Specialist, specialist, togglePopup }) => {
           <div className='border border-red bg-gunsmoke-100 border border-silver-tree rounded-full w-28 h-28 py-1 mt-8 py-3  m-auto flex  flex-row-reverse md:w-40 md:h-40 md:mt-10  '>
             <img
               src={`https://banoun-app.herokuapp.com/api/upload/show/${specialist?.image.filename}`}
-              className='w-20 m-auto rounded-full mr-2 md:w-28 md:mr-3 md:mt-2'
+              className=' m-auto rounded-full mr-2 md:w-28 md:mr-3 md:mt-2'
+              style={{ overflow: "hidden", minWidth: "100%", minHeight: "100%", margin: "0px" }}
             />
             <i className='  fas fa-edit cursor-pointer absolute my-20 rounded-lg w-10 text-md w-10 mt-20 ml-0  text-silver-tree md:w-14 md:my-32' />
           </div>

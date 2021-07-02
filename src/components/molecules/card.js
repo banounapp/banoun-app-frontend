@@ -4,12 +4,12 @@ import { Btn } from "../atoms";
 export const Card = ({ stylee, imageSource, category, des }) => {
   return (
     <div
-      className={` w-full relative z-10  h-28 md:h-36 border-2 mt-16 mb-6 rounded  flex sm:px-4 bg-white text-black ${stylee}`}
+      className={` w-full h-28 md:h-36 lg:h-44 border-2 mt-16 mb-6 rounded  flex sm:px-4 bg-white text-black ${stylee}`}
     >
       <div className="my-auto">
         <img
-          alt=""
-          className="h-30 w-44 md:h-24  md:w-30 "
+          alt="pic"
+          className="h-20 w-32 md:h-24  md:w-30 lg:w-36 lg:h-28"
           src={imageSource}
         ></img>
       </div>

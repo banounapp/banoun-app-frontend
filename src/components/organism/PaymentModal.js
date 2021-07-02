@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import Popup from "../atoms/popup";
 import { PaymentOne } from "./Payment1";
 import { PaymentTwo } from "./Payment2";
@@ -6,7 +7,7 @@ import { PaymentThree } from "./Payment3";
 import { client } from "../../services/client";
 import { useParams } from "react-router-dom";
 
-const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, getDoctorAppointments }) => {
+const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, getDoctorAppointments,userId }) => {
   const [viewNum, setviewNum] = useState(1);
 
   //configure all endpoint post data here and pass changers to children to modify them
@@ -25,6 +26,9 @@ const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, g
       body.paymentMethod = paymentMethod;
       body.attending = attending;
       body._id = _id;
+      body.userId = userId;
+      body.appointmentPrice = appointmentPrice;
+
       console.log(body)
       const response = await client.patch(`http://localhost:5000/api/appointment/${_id}`, body);
       console.log("Res", response);
@@ -77,8 +81,9 @@ const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, g
   );
 };
 
-const mapStateToProps = (state) => {
-  return { userProfile: state.userProfile };
-};
+// const mapStateToProps = (state) => {
+//   return { userProfile: state.userProfile };
+// };
 
+// PaymentModal = connect(mapStateToProps)(PaymentModal)
 export default PaymentModal;

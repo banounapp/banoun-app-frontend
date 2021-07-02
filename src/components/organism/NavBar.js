@@ -15,9 +15,9 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
 
   useEffect(() => {
     GetAllCategories()(dispatch);
-  },[]);
+  }, []);
 
-  console.log(categories,toggleBurgerIcon);
+  console.log(categories, toggleBurgerIcon);
   // console.table(user, sessionStorage, specialist_auth);
 
   const LogOut = async (e) => {
@@ -33,10 +33,10 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
   };
 
   return (
-    <nav>
+    <nav >
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-4">
         <div className="text-bl relative flex items-center justify-content-around h-16">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+      <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button */}
             <button
               type="button"
@@ -47,6 +47,12 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
             >
               <span className="sr-only">Open main menu</span>
 
+              {/* Icon when menu is closed.
+  
+              Heroicon name: outline/menu
+  
+              Menu open: "hidden", Menu closed: "block" */}
+
               <svg
                 className="block h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +61,19 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
+              {/*      
+              Icon when menu is open.
+  
+              Heroicon name: outline/x
+  
+              Menu open: "block", Menu closed: "hidden" */}
 
               <svg
                 className="hidden h-6 w-6"
@@ -66,20 +83,25 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start">
             {user || specialist_auth
-              ? sessionStorage.getItem("token") && (
+              ? localStorage.getItem("token") && (
                   <div className="flex-shrink-0 flex items-center">
                     <div class="relative inline-block text-left">
                       <div>
                         <button
                           className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium"
                           type="button"
-                          style={{outline:"none"}}
+                          style={{ outline: "none" }}
                           onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
                         >
                           <img
@@ -95,7 +117,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                           role="menu"
                           style={{ zIndex: 1 }}
                         >
-                          <div class="py-1" role="none" onMouseLeave={()=>setIsProfileMenuOpen(!isProfileMenuOpen)}>
+                          <div class="py-1" role="none" onMouseLeave={() => setIsProfileMenuOpen(!isProfileMenuOpen)}>
                             <Link
                               to={user ? "/profile" : specialist_auth && "/docprofile"}
                               className="text-gray-700 block px-4 py-2 text-sm"
@@ -134,7 +156,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                               role="menuitem"
                               tabindex="-1"
                               id="menu-item-3"
-                              style={{outline:"none"}}
+                              style={{ outline: "none" }}
                               onClick={LogOut}
                             >
                               تسجيل الخروج
@@ -148,10 +170,9 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
                   </div>
                 )
               : ""}
-
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="text-silver-tree text-4xl  px-3 py-2 rounded-md text-sm font-medium">
-                بنون
+                <img src="images/logo.png" alt="logo" className="w-32 lg:w-44" />
               </Link>
             </div>
 
@@ -163,17 +184,18 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
 
                 {/* DROP DOWN */}
 
-                <div style={{zIndex:1}}>
+
+                <div>
                   <DropDownList parent="المحتوي" category={categories} />
                 </div>
-                <a href="#banoun" className="  px-3 py-2 rounded-md text-sm font-medium">
+                <a href="/#banoun" className="  px-3 py-2 rounded-md text-sm font-medium">
                   عن بنون
                 </a>
 
-                <a href="#visitors" className="  px-3 py-2 rounded-md text-sm font-medium">
+                <a href="/#visitors" className="  px-3 py-2 rounded-md text-sm font-medium">
                   اراء الزوار
                 </a>
-                <a href="#consult" className="  px-3 py-2 rounded-md text-sm font-medium">
+                <a href="/#consult" className="  px-3 py-2 rounded-md text-sm font-medium">
                   أستشير!
                 </a>
                 <Link to="/posts" className=" px-3 py-2 my-auto rounded-md text-sm font-medium" aria-current="page">
@@ -182,6 +204,7 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
               </div>
             </div>
           </div>
+
           <div className=" inset-y-0 lg:mr-40 sm:mr-20  hidden  lg:block md:block flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* SEARCH  */}
             <SearchInput placeholder="  البحث...      " />
@@ -194,7 +217,6 @@ const NavBar = ({ GetAllCategories, categories, user, specialist_auth, history, 
         </div>
       </div>
 
-      {/* TOGGLE MENU */}
       {toggleBurgerIcon ? (
         <div className="md:hidden relative" id="mobile-menu">
           <div className="px-2 pt-2 absolute w-full bg-white pb-3 space-y-1" style={{ zIndex: 1 }}>
@@ -230,7 +252,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return { dispatch,  GetAllCategories };
+  return { dispatch, GetAllCategories };
 };
 
 NavBar.propTypes = {

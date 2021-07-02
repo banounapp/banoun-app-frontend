@@ -13,6 +13,8 @@ import DoctorBooking from "../../pages/DoctorBooking";
 import DocProfile from "./../../pages/docprofile";
 import NavBar from "./NavBar";
 import Error from "./../../pages/Error";
+import {Footer}  from '../../components/organism/footer'
+
 const Application = () => {
   return (
     <>
@@ -31,6 +33,8 @@ const Application = () => {
           <Redirect to="/NotFound"></Redirect>
         </Switch>
       </>
+      <Footer />
+
     </>
   );
 };

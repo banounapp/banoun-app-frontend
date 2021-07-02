@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from '../components/organism/NavBar';
+
 import {
   Header,
   Section1,
@@ -22,6 +22,7 @@ const HomePage = () => {
       <Section4 />
       <Section5 />
       <Section6 />
+
       {/* <Footer /> */}
     </>
   );

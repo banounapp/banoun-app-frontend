@@ -1,5 +1,7 @@
 import { client } from "../../services/client";
 
+import {locationsDescendingTimeOrder} from "../../utils/DateTime"
+
 import {
     Get_User,
     Error_User,
@@ -7,15 +9,9 @@ import {
 } from './types';
 
 export const GetUer = () => async dispatch => {
-    const config = {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorizarion": sessionStorage.getItem('token')
 
-        }
-    }
     try {
-        const res = await client.get('/users', config);
+        const res = await client.get('/users');
         dispatch({
             type: Get_User,
             payload: res.data
@@ -30,16 +26,10 @@ export const GetUer = () => async dispatch => {
 
 
 export const GetEditUer = (data) => async dispatch => {
-    const config = {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorizarion": sessionStorage.getItem('token')
-
-        }
-    }
+  
     try {
         console.log(data);
-        const res = await client.post('/users/edit', data, config);
+        const res = await client.post('/users/edit', data);
         console.log(res);
         dispatch({
             type: Get_User,
@@ -55,4 +45,23 @@ export const GetEditUer = (data) => async dispatch => {
         return false
     }
 }
+
+
+
+///////////////////////////////// get doctor CLients /////////////////////////////
+export const getUserAppointments = async (clientId)  => {
+    try {
+        
+      const appointments = await client.get(`/users/${clientId}/appointments`);
+    //   console.log(appointments.data.sort(locationsDescendingTimeOrder));
+
+      return appointments.data.sort(locationsDescendingTimeOrder)
+    } catch (err) {
+      console.log(err) ; 
+      return false
+    }
+  };
+
+ 
+
 

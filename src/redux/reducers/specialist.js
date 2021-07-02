@@ -5,6 +5,7 @@ const initialState = {
   specialist_auth: null,
   loading: true,
   error: {},
+  appointments:null
 };
 export default function specialist(state = initialState, action) {
   const { type, payload } = action;
@@ -42,13 +43,13 @@ export default function specialist(state = initialState, action) {
         error: payload,
         loading: false,
       };
-      case "Get_specialist_appointments":
-        console.log(payload);
-        return {
-          ...state,
-          appointments: payload,
-          loading: false,
-        };
+    case "Get_specialist_appointments":
+      console.log(payload);
+      return {
+        ...state,
+        appointments: payload,
+        loading: false,
+      };
 
     default:
       return state;

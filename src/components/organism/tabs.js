@@ -3,7 +3,7 @@ import React from "react";
 import {CreateEvent, DatesEvents, LastEvent} from '../molecules'
 
 
-export  const Tabs = ({ color }) => {
+export  const Tabs = ({ color ,setusersArr}) => {
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
@@ -71,7 +71,7 @@ export  const Tabs = ({ color }) => {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 ">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 " style={{zIndex: 1}}>
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
@@ -81,7 +81,7 @@ export  const Tabs = ({ color }) => {
                 <CreateEvent/>
                 </div>
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <DatesEvents/>
+                <DatesEvents  setusersArr={setusersArr}/>
                 </div>
               </div>
             </div>

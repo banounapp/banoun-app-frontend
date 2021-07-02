@@ -22,6 +22,7 @@ const Routes = ({ dispatch }) => {
   return (
     <>
 
+      {}
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />

@@ -12,7 +12,7 @@ const Postdoc = ({ GetPosts, posts }) => {
 
   return (
     <div className="bg-alabaster-500 space-y-8">
-      {sessionStorage.getItem("token") && <PostForm />}
+      {localStorage.getItem("token") && <PostForm />}
 
       <div className="lg:flex">
         {posts &&

@@ -22,14 +22,9 @@ export const GetReview = () => async (dispatch) => {
 };
 
 export const PostReview = (data) => async (dispatch) => {
-    const config = {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorizarion": sessionStorage.getItem('token')
-        }
-    }
+    
     try {
-        const res = await client.post("/SiteReviews", data, config);
+        const res = await client.post("/SiteReviews", data);
         dispatch({
             type: Post_Review,
             payload: res.data,

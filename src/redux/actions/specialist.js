@@ -40,16 +40,10 @@ export const GetOneSpecialist = (id) => async (dispatch) => {
 //wrong
 export const Get_Profile_Specialist = () => async (dispatch) => {
 
-  const config = {
-    headers: {
-        "Content-Type": "application/json",
-        "Authorizarion": sessionStorage.getItem('token')
 
-    }
-}
 
   try {
-    const res = await client.get(`/specialist`, config);
+    const res = await client.get(`/specialist`);
     
    await dispatch({
       type: Get_Profile_Spec,
@@ -66,15 +60,9 @@ export const Get_Profile_Specialist = () => async (dispatch) => {
 
 export const Get_Edit_Specialist = (data) => async (dispatch) => {
 
-  const config = {
-    headers: {
-        "Content-Type": "application/json",
-        "Authorizarion": sessionStorage.getItem('token')
-
-    }
-}
+  
   try {
-    const res = await client.post(`/specialist/edit`, data, config);
+    const res = await client.post(`/specialist/edit`, data);
     if(res){
       console.log(res.data)
   await     dispatch({
@@ -103,5 +91,19 @@ export const getDoctorAppointments = (id) => async (dispatch) => {
       type: Error_specialist,
       payload: { msg: err },
     });
+  }
+};
+
+
+
+///////////////////////////////// get doctor CLients /////////////////////////////
+export const getDoctorClients = async ()  => {
+  try {
+    const clients = await client.get(`/specialist/clients`);
+    console.log(clients.data);
+    return clients.data
+  } catch (err) {
+    console.log(err) ; 
+    return false
   }
 };
