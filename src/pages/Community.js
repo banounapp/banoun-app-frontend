@@ -10,7 +10,6 @@ const Community = ({ specialist }) => {
   return (
     <>
       <div>
-        <NavBar />
         {sessionStorage.getItem("token") && specialist && <HeaderCommunity />}
         <CardsBlogImg />
 

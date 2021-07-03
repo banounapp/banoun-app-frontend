@@ -1,8 +1,6 @@
 
-import React from "react";
-import { Link } from 'react-router-dom';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import "../atoms/dropdown.css";
 
 export const DropDownList = ({ parent, category }) => {
@@ -146,4 +144,3 @@ export const DropDownList = ({ parent, category }) => {
     </div>
   );
 };
->>>>>>> origin/Hakeem3

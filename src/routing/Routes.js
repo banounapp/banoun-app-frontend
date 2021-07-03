@@ -34,7 +34,6 @@ const Routes = ({ dispatch }) => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/confirmation" component={Confirmation} />
         <Route exact path="/NotFound" component={Error} />
         <Route exact path="/loading" component={Loading} />
         {/* <Route exact path="/postsDoctor" component={Postdoc} /> */}

@@ -76,7 +76,7 @@ export const AddPost = (text, title, img_upload) => async (dispatch) => {
   
 
   try {
-    await client.post("/posts", formData, config);
+    await client.post("/posts", formData);
     const res = await client.get("/posts");
 
     dispatch({
@@ -158,17 +158,13 @@ export const Remove_Like = (id) => async (dispatch) => {
 //Add Comment
 
 export const Add_Comment = (postID, formData) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+    
 
   try {
     const res = await client.post(
       `/api/posts/comment/${postID}`,
       formData,
-      config
+      
     );
 
     dispatch({

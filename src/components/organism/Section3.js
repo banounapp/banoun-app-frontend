@@ -26,12 +26,11 @@ export const Section3 = () => {
           هنا نقدم لك أفضل الارشادات للتربية الصحيحة
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  mt-10">
-        <div >
-          <img src="images/contact.png" className="m-auto w-56 h-44 lg:w-96 lg:h-80"/>
+      <div className="block items-center md:flex   px-20 my-14">
+        <div className="sm:w-30 lg:w-2/3 md:w-2/5 ">
+          <img src="/images/contact.png"></img>
         </div>
-
-        <div className="space-y-6   md:mx-20 text-center  md:text-right   ">
+        <div className="space-y-6 lg:w-1/3  md:mx-20 text-center  md:text-right   " >
           <div className="leading-loose">
             <form
               className="max-w-xl  p-5 bg-white rounded shadow-xl"
@@ -43,7 +42,7 @@ export const Section3 = () => {
             >
               <div className="">
                 <label
-                  className="block text-lg text-gray-700"
+                  className="block text-sm text-gray-600"
                   htmlFor="cus_name"
                 >
                   الأسم
@@ -51,7 +50,7 @@ export const Section3 = () => {
                 <input
                   id="name"
                   name="name"
-className="w-full px-5 py-1 text-gray-700 bg-white rounded"
+                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                  
 
                   type="text"
@@ -64,13 +63,13 @@ className="w-full px-5 py-1 text-gray-700 bg-white rounded"
               </div>
               <div className="mt-2">
                 <label
-                  className="block text-lg text-gray-600"
+                  className=" block text-sm text-gray-600"
                   htmlFor="email"
                 >
                   البريد الالكتروني
                 </label>
                 <input
-                  className="w-full px-2  py-1 text-gray-700 bg-white rounded"
+                  className="w-full px-2   text-gray-700 bg-gray-200 rounded"
                      id="email"
                   name="email"
                   type="text"
@@ -83,13 +82,13 @@ className="w-full px-5 py-1 text-gray-700 bg-white rounded"
               </div>
               <div className="mt-2 ">
                 <label
-                  className=" block text-lg text-gray-600"
+                  className=" block text-sm text-gray-600"
                   htmlFor="cus_email"
                 >
                   مشكلتك
                 </label>
                 <textarea
-                  className="w-full px-2 py-2 text-gray-700 bg-white rounded"
+                  className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
                   id="text"
                   name="text"
                   type="text"

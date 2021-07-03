@@ -6,21 +6,7 @@ import {
     Get_User,
     Error_User,} from "./types";
 
-export const GetUer = () => async (dispatch) => {
- 
-  try {
-    const res = await client.get("/users");
-    dispatch({
-      type: Get_User,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: Error_User,
-      payload: { msg: err },
-    });
-  }
-};
+
 
 export const GetUer = () => async dispatch => {
 

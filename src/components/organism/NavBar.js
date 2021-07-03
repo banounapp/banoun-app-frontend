@@ -103,7 +103,7 @@ const NavBar = ({
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start" >
             <div className="flex-shrink-0 flex items-center "  >
               <Link to="/" className="text-silver-tree text-4xl  px-3 py-2 rounded-md logo ">
-                <img src="images/logo.png" alt="logo" className="w-32 lg:w-44 " />
+                <img src="/images/logo.png" alt="logo" className="w-32 lg:w-44 " />
               </Link>
             </div>
 
@@ -128,7 +128,7 @@ const NavBar = ({
                 <a href="/#consult" style={{minWidth:"16%",marginLeft:"8%"}}>
                   أستشير!
                 </a>
-                <Link to="/posts" className=" " aria-current="page" style={{minWidth:"16%",marginLeft:"8%"}}>
+                <Link to="/community" className=" " aria-current="page" style={{minWidth:"16%",marginLeft:"8%"}}>
                   مقا لا ت
                 </Link>
               </div>
@@ -152,11 +152,7 @@ const NavBar = ({
                         >
                           <img
                             className="inline-block object-cover w-12 h-12 rounded-full"
-                            src={
-                              user?.image ||
-                              specialist_auth?.image ||
-                              "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            }
+                            src={getProfileImage()}
                             alt="Profile "
                           />
                         </button>
@@ -192,11 +188,7 @@ const NavBar = ({
                                 <div style={{ width: "25%" }}>
                                   <img
                                     className="inline-block object-cover w-12 h-12 rounded-full"
-                                    src={
-                                      user?.image ||
-                                      specialist_auth?.image ||
-                                      "https://images.pexels.com/photos/2955305/pexels-photo-2955305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                    }
+                                    src={getProfileImage()}
                                     alt="Profile "
                                   />
                                 </div>
@@ -212,7 +204,7 @@ const NavBar = ({
                                 setIsProfileMenuOpen(!isProfileMenuOpen)
                               }
                             >
-                              Account settings
+                              اعدادات الحساب
                             </Link>
 
                             <button
@@ -224,7 +216,7 @@ const NavBar = ({
                               style={{ outline: "none" }}
                               onClick={LogOut}
                             >
-                              Sign out
+                              تسجيل الخروج
                             </button>
                           </div>
                         </div>

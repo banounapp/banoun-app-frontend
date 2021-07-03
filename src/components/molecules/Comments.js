@@ -3,7 +3,7 @@ import _ from "lodash";
 
 export const Comments = ({ name, email, comment, date, rate }) => {
   return (
-    <div className="mt-5 border-2 py-4 px-2 md:p-4 shadow">
+    <div className="mt-10 border-2 py-4 px-2 md:p-4 shadow ml-10">
       <div className="block  sm:flex justify-between">
         <div className="flex">
           <div>
@@ -35,14 +35,7 @@ export const Comments = ({ name, email, comment, date, rate }) => {
       </div>
       <p className=" mr-16 lg:mr-52"> {name}</p>
       <p className="mr-14 lg:mr-48"> {email}</p>
-      <p className=" mr-5 mt-5"> {comment}</p>
-      <div className="text-gray mt-2 sm:mt-0  md:ml-10 mr-5 lg:mt-4">
-    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
-    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
-    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 text-gold fa-xs sm:text-lg"></i>
-    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 fa-xs sm:text-lg"></i>
-    <i className="fas fa-star hover:text-tahuna-sands-800 px-1 fa-xs sm:text-lg"></i>
-  </div>
+    
      
     </div>
 

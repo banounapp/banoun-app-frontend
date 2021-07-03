@@ -1,10 +1,11 @@
 import React from "react";
 import { Btn } from "../atoms";
-
-export const Card = ({ stylee, imageSource, category, des }) => {
+import {Link } from "react-router-dom"
+export const Card = ({ stylee, imageSource, category, des  , route }) => {
   return (
-    <div
+    <Link
       className={` w-full h-28 md:h-36 lg:h-44 border-2 mt-16 mb-6 rounded  flex sm:px-4 bg-white text-black ${stylee}`}
+      to = {route}
     >
       <div className="my-auto">
         <img
@@ -19,7 +20,7 @@ export const Card = ({ stylee, imageSource, category, des }) => {
 
         <Btn stylee=" md:px-10 md:py-1 bg-black text-white"> للمزيد</Btn>
       </div>
-    </div>
+    </Link>
   );
 };
 
