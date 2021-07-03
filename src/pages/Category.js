@@ -6,12 +6,12 @@ import CardsCategory from '../components/organism/cardsCategory';
 
 
 
-const Category = ({match}) => {
+const Category = ({ match }) => {
     return (
         <>
-            <div className='bg-pale-leaf pb-5'>
-                
-                <HeaderCategory id={match.params.id}/>
+            <div className='pb-5'>
+
+                <HeaderCategory id={match.params.id} />
             </div>
             <CardsCategory id={match.params.id} />
             {/* <Footer /> */}
