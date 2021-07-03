@@ -46,17 +46,13 @@ export const GetOneSpecialist = (id) => async (dispatch) => {
 
 //wrong
 export const Get_Profile_Specialist = () => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
-    },
-  };
+
+
 
   try {
-    const res = await client.get(`/specialist`, config);
-
-    await dispatch({
+    const res = await client.get(`/specialist`);
+    
+   await dispatch({
       type: Get_Profile_Spec,
       payload: res.data,
     });
@@ -70,18 +66,13 @@ export const Get_Profile_Specialist = () => async (dispatch) => {
 };
 
 export const Get_Edit_Specialist = (data) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
-    },
-  };
-  try {
-    const res = await client.post(`/specialist/edit`, data, config);
-    if (res) {
-      console.log(res.data);
 
-      await dispatch({
+  
+  try {
+    const res = await client.post(`/specialist/edit`, data);
+    if(res){
+      console.log(res.data)
+  await     dispatch({
         type: Get_Profile_Spec,
         payload: res.data,
       });
@@ -158,3 +149,18 @@ export const CreateEventSpecialist =
       });
     }
   };
+
+
+
+
+///////////////////////////////// get doctor CLients /////////////////////////////
+export const getDoctorClients = async ()  => {
+  try {
+    const clients = await client.get(`/specialist/clients`);
+    console.log(clients.data);
+    return clients.data
+  } catch (err) {
+    console.log(err) ; 
+    return false
+  }
+};

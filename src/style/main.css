@@ -16,6 +16,8 @@ Use a better box model (opinionated).
 *::before,
 *::after {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+
 }
 
 /**

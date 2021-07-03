@@ -4,14 +4,14 @@ import { CardClient } from '../molecules/cardclients';
 
 
 
- const RightDocProfile = () => {
+ const RightDocProfile = ({usersArr}) => {
 
   
   return (
    <>
   <div className=" md:mr-44 lg:mr-16" >
   <CardProfile />
-   <CardClient/>
+   <CardClient usersArr={usersArr}/>
   </div>
    </>
   );

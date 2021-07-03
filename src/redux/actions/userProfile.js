@@ -1,53 +1,28 @@
 import { client } from "../../services/client";
 
-import { Get_User, Error_User } from "./types";
+import {locationsDescendingTimeOrder} from "../../utils/DateTime"
 
-export const GetUer = () => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
-    },
-  };
-  try {
-    const res = await client.get("/users", config);
-    dispatch({
-      type: Get_User,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: Error_User,
-      payload: { msg: err },
-    });
-  }
-};
+import {
+    Get_User,
+    Error_User,} from "./types";
 
-export const GetEditUer = (data) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorizarion: sessionStorage.getItem("token"),
-    },
-  };
-  try {
-    // console.log(data);
-    const res = await client.post("/users/edit", data, config);
-    // console.log(res);
-    dispatch({
-      type: Get_User,
-      payload: res.data,
-    });
 
-    return true;
-  } catch (err) {
-    dispatch({
-      type: Error_User,
-      payload: { msg: err },
-    });
-    return false;
-  }
-};
+
+export const GetUer = () => async dispatch => {
+
+    try {
+        const res = await client.get('/users');
+        dispatch({
+            type: Get_User,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: Error_User,
+            payload: { msg: err }
+        });
+    }
+}
 
 ///////////////////////////////// update image /////////////////////////////
 
@@ -57,7 +32,6 @@ export const uploadImg = (img_upload, id) => async (dispatch) => {
   if (img_upload) {
     let img = img_upload.target.files[0];
     console.log(img);
-
     formData.append("image", img);
     console.log(formData);
   }
@@ -74,3 +48,45 @@ export const uploadImg = (img_upload, id) => async (dispatch) => {
     });
   }
 };
+
+export const GetEditUer = (data) => async dispatch => {
+  
+    try {
+        console.log(data);
+        const res = await client.post('/users/edit', data);
+        console.log(res);
+        dispatch({
+            type: Get_User,
+            payload: res.data
+        });
+
+        return true
+    } catch (err) {
+        dispatch({
+            type: Error_User,
+            payload: { msg: err }
+        });
+        return false
+    }
+}
+
+  
+
+
+///////////////////////////////// get doctor CLients /////////////////////////////
+export const getUserAppointments = async (clientId)  => {
+    try {
+        
+      const appointments = await client.get(`/users/${clientId}/appointments`);
+    //   console.log(appointments.data.sort(locationsDescendingTimeOrder));
+
+      return appointments.data.sort(locationsDescendingTimeOrder)
+    } catch (err) {
+      console.log(err) ; 
+      return false
+    }
+  };
+
+ 
+
+

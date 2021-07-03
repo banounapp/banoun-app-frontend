@@ -4,17 +4,19 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { signup } from '../../services/auth';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 
 
-export const FormField = () => {
+ let FormField = ({history}) => {
   const validate = Yup.object({
     username: Yup.string()
       .max(15, 'لابد ان تكون 15 حرف على الاقل')
       .required('مطلوب'),
     firstName: Yup.string()
-      .max(7, 'لابد ان تكون 7 حرف على الاقل')
+      .min(3, 'لابد ان تكون 3 حرف على الاقل')
       .required('مطلوب'),
     lastName: Yup.string()
       .max(7, 'لابد ان تكون 7 حرف على الاقل')
@@ -30,6 +32,7 @@ export const FormField = () => {
       .required('مطلوب')
   })
 
+  const [isLoading, setisLoading] = useState(false)
   return (
     <Formik
       initialValues={{
@@ -42,22 +45,32 @@ export const FormField = () => {
       }}
       validationSchema={validate}
       onSubmit={async (values, { setSubmitting }) => {
+        setisLoading(true)
         await signup(values)
         setSubmitting(false);
+        setisLoading(false) ; 
+
+        history.push("/confirmMsg")
+
 
       }}
     >
 
       {formik => (
         <Form action="#"
-          className="text-center content-center justify-center md:mx-10 " >
+          className="text-center m-auto  justify-center md:m-auto " >
           <h2 className="my-10 lg:my-7 text-lg md:text-xl lg:text-2xl " >انشاء الحساب</h2>
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-            textFieldProps={{ name: 'firstName', placeholder: "الاسم الاول", type: "text" }} />
+            textFieldProps={{ name: 'firstName', placeholder: "الاسم الاول", type: "text" }}
+            SpecificStyle="flex mx-20  lg:mx-20"
+           
+            />
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-            textFieldProps={{ name: 'lastName', placeholder: "الاسم التانى", type: "text" }} />
+    
+            textFieldProps={{ name: 'lastName', placeholder: "الاسم التانى", type: "text" }}
+             />
 
           <InputField iconsProps={{ icon: "text-gray-500 fas fa-user " }}
             textFieldProps={{ name: 'username', placeholder: "اسم المستخدم", type: "text" }} />
@@ -73,7 +86,10 @@ export const FormField = () => {
 
 
           <Button stylee="bg-silver-tree  text-white my-4" type='submit'>
-            انشاء الحساب
+        انشاء الحساب { isLoading && (
+          <svg class="animate-spin h-3 w-3 mr-3 " viewBox="0 0 24 24" style={{display:"inline-block",backgroundColor:"white"}}>
+          </svg>
+        )} 
           </Button>
 
           <p className="social-text text-base mt-6 ">او انشأ حسابك عن طريق مواقع التواصل الاجتماعيه</p>
@@ -99,3 +115,6 @@ export const FormField = () => {
   );
 }
 
+
+FormField =withRouter(FormField);
+export  {FormField}

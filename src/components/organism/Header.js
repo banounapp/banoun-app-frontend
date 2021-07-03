@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
-    <div className="block items-center md:flex   px-20 my-14">
-      <div className="sm:w-30 lg:w-2/3 md:w-2/5 ">
+    <div className=" items-center  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  mt-10"  >
+      <div className=" ">
         <img
-          className="m-auto"
+          className="m-auto w-56 h-44 lg:w-96 lg:h-80"
           alt=""
-          src="https://img.freepik.com/free-vector/family-meeting-grandparents-country-house-excited-children-parents-visiting-grandmother-grandfather-boy-running-granny-vector-illustration-happy-family-love-parenting_74855-8358.jpg?size=626&ext=jpg"
+          src="images/welcome.png"
         ></img>
       </div>
-      <div className=" bg-green space-y-6 lg:w-1/3  md:mx-20 text-center  md:text-right   ">
+      <div className=" bg-green space-y-6   md:mx-20 text-center  md:text-right   ">
         <div className="space-y-6">
           <h1 className="text-xl lg:text-3xl md:text-xl   sm:text-sm   ">
             أهلا بك في{" "}
-            <span className="text-4xl  md:text-4xl lg:text-6xl">بنون</span>
+            <span className="text-4xl  md:text-4xl lg:text-6xl text-silver-tree-500">بنون</span>
           </h1>
-          <div>
+          <div className="text-gray-500">
             <h3 className="text-xl  lg:text-3xl md:text-2xl ">
               كن معلما لأبنك في الصغر{" "}
             </h3>
@@ -29,7 +29,7 @@ export const Header = () => {
         </div>
         {
         
-        !sessionStorage.getItem('token') &&
+       (localStorage.token == "null") &&
           <>
           <Link  to="/login">
           <Btn stylee=" py-1 text-white text-lg mx-0 px-0 bg-silver-tree-500">
@@ -37,7 +37,7 @@ export const Header = () => {
           </Btn>
           </Link>
            <Link to ="/register">
-           <Btn stylee="py-1  text-lg  border-2 mx-3">انشاء حساب</Btn>
+           <Btn stylee="py-1  text-lg text-silver-tree-500  border-silver-tree-500 border mx-3">انشاء حساب</Btn>
 
            </Link>
           </>  }

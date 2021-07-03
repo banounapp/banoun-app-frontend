@@ -13,6 +13,9 @@ import DoctorBooking from "../../pages/DoctorBooking";
 import DocProfile from "./../../pages/docprofile";
 import NavBar from "./NavBar";
 import Error from "./../../pages/Error";
+import {Footer}  from '../../components/organism/footer'
+import Community from './../../pages/Community';
+import ReviewingDoctor from "./ReviewingDoctor";
 const Application = () => {
   return (
     <>
@@ -28,9 +31,15 @@ const Application = () => {
           <Route exact path="/DetailsPost/:id" component={DetailsPost} />
           <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
           <Route exact path="/docprofile" component={DocProfile} />
+          <Route exact path="/Community" component={Community} />
+          <Route exact path="/ReviwingDoctor/:id" component={ReviewingDoctor} />
+
+
           <Redirect to="/NotFound"></Redirect>
         </Switch>
       </>
+      <Footer />
+
     </>
   );
 };

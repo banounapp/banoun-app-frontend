@@ -1,3 +1,5 @@
+@import url(../atoms/dropdown.css);
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
@@ -5,3 +7,78 @@
 #menu-button:hover + .toggle-menu-bar {
   visibility: visible;
 }
+
+
+.profile{
+
+  position:absolute !important;
+  top:18px !important;
+  left:100px !important;
+}
+@media (max-width:1045px){
+
+  .logo{
+    padding:0px !important;
+ 
+
+  }
+  .logoWrapper{
+    width: 22%;
+  }
+  .nav{
+    padding-right:1% !important;
+    /* font-size: 12px !important; */
+
+  }
+  .Name{
+    display: none;
+  }
+  .nav-items{
+    font-size: 18px !important;
+  }
+  .nav-items .nav-items-wrapper *{
+    min-width: 18% !important;
+  }
+  .nav-items .nav-items-wrapper .main{
+    min-width: 30% !important;
+  }
+  .profile{
+    left:  5% !important;
+    top:-84%!important;
+  }
+
+}
+
+@media (max-width:805px){
+
+  .nav-items{
+    font-size: 16px !important;
+  }
+  .nav-items .nav-items-wrapper *{
+    min-width: 15% !important;
+  }
+  .nav-items .nav-items-wrapper .main{
+    min-width: 30% !important;
+  }
+ 
+
+
+}
+
+
+
+
+
+@media (max-width:640px) {
+  
+  .profile{
+    display: none !important;
+    /* left: 50px !important;
+    top:-542px !important; */
+  }
+  .logoWrapper{
+    width: 100%;
+  }
+
+}
+
