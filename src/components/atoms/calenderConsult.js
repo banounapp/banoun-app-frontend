@@ -16,44 +16,41 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
   const onDateChange = async (value) => {
     setReserved(false);
     setDateValue(value);
+    console.log(filteredAppointments);
   };
   const getFormattedDate = (date) => {
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   };
 
   const { id } = useParams();
-  
+
   //m-day-year
-  
+
   const [userId, setuserId] = useState(null);
-  
+
   let [filteredAppointments, setfilteredAppointments] = useState(appointments);
   useEffect(() => {
     getDoctorAppointments(id);
-
   }, []);
-  
+
   const filterAppointments = () => {
     if (appointments) {
       const filteredAppointments = [...appointments];
       const filteredArr = filteredAppointments.filter((appointment, index) => {
-        
+     
         const appointmentDate = new Date(appointment.date);
-        console.log(getDate(dateValue) , getDate(appointmentDate))
         return getDate(dateValue) == getDate(appointmentDate);
       });
-      console.log(filteredArr)
       setfilteredAppointments(filteredArr);
     }
   };
-  
+
   const getDate = (date) => {
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   };
 
   const [isModalOpened, setisModalOpened] = useState(false);
-  
-  console.log(filteredAppointments,dateValue);
+
   // let  [isLoading, setisLoading] = useState(true)
   useEffect(() => {
     if (appointments) {
@@ -137,7 +134,7 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
                       </div> */}
                     {(filteredAppointments&&new Date(dateValue).setHours(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0) &&filteredAppointments.map((appointment) => (
                       <>
-                        {appointment.status == "reserved" || (!checkTime(appointment.time)&&new Date(dateValue).setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)) ? (
+                        {appointment.status == "reserved" || (new Date(dateValue).setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0) &&!checkTime(appointment.time) ) ? (
                           <div  
                             key={appointment._id}
                             className="px-1 sm:px-4 py-1 cursor-pointer sm:py-2 bg-gray-400 text-white rounded-md flex justify-center align-center"

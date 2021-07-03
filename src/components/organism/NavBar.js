@@ -44,7 +44,7 @@ const NavBar = ({
     <nav  >
       <div className="max-w-7xl mx-auto px-2  lg:px-8 pt-4 nav" style={{paddingRight:"5%",paddingLeft:"0px" ,minWidth :"100%" }}>
         <div className="text-bl  flex items-center justify-content-around h-16" style={{width:"100%"}}>
-          <div className="absolute inset-y-0 left-10  flex items-center nav" style={{top:"-86%"}}>
+          <div className="absolute inset-y-0 left-10  flex items-center nav" style={{top:"-87%"}}>
             {/* Mobile menu button */}
             <button
               type="button"
@@ -101,7 +101,7 @@ const NavBar = ({
             </button>
           </div>
           <div className=" flex items-center justify-center sm:items-stretch sm:justify-start" >
-            <div className="flex-shrink-0 flex items-center "  >
+            <div className="flex-shrink-0 flex items-center logoWrapper"  >
               <Link to="/" className="text-silver-tree text-4xl  px-3 py-2 rounded-md logo ">
                 <img src="/images/logo.png" alt="logo" className="w-32 lg:w-44 " />
               </Link>
@@ -128,8 +128,8 @@ const NavBar = ({
                 <a href="/#consult" style={{minWidth:"16%",marginLeft:"8%"}}>
                   أستشير!
                 </a>
-                <Link to="/community" className=" " aria-current="page" style={{minWidth:"16%",marginLeft:"8%"}}>
-                  مقا لا ت
+                <Link to="/community" className=" " aria-current="page" style={{minWidth:"18%",marginLeft:"8%"}}>
+                  مقالات
                 </Link>
               </div>
             </div>

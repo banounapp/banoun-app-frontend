@@ -1,6 +1,5 @@
 export const checkTime = (time) => {
     let newTime = time.split("p")[1] ? parseInt(time.split("p")[0]) + 12 : parseInt(time.split("a")[0]);
-
     console.log(newTime, new Date().getHours());
     return newTime > new Date().getHours();
   };

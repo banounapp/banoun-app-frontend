@@ -1,7 +1,10 @@
 import React from "react";
 import { Card } from "../molecules";
+import { connect } from 'react-redux';
+import categories from './../../redux/reducers/categories';
 
-export const Section1 = () => {
+export const Section1 = ({categories}) => {
+  console.log(categories)
   return (
     <div style={{backgroundColor:"#D6EAD4"}}>
       <div className="pt-5 px-6 md:px-32  md:mb-20 mt-20  ">
@@ -16,7 +19,7 @@ export const Section1 = () => {
 
       <div className=" grid lg:grid-cols-3 mr-24  h-4/5">
         <div className="ml-10">
-          <Card stylee="lg:w-full -mt-1 lg:mt-20 -mr-7 lg:mr-12" category="الحمل" imageSource="images/card1.png" />
+          <Card stylee="lg:w-full -mt-1 lg:mt-20 -mr-7 lg:mr-12" category="الحمل" imageSource="images/card1.png"  />
           <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="الطفوله" imageSource="images/card2.png" />
           <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="حالات خاصه" imageSource="images/card3.png" />
         </div>
@@ -31,3 +34,5 @@ export const Section1 = () => {
     </div>
   );
 };
+connect((state)=>{return{categories:state.categories}})(Section1)
+
