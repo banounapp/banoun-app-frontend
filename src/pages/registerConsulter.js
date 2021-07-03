@@ -4,7 +4,7 @@ import RegisterConsult from "./../components/organism/registerConsult";
 
 const RegisterConsulter = () => {
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ">
+    <div className=" flex justify-between ">
       <RightSideRegisterdoc />
       <RegisterConsult />
     </div>

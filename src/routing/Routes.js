@@ -9,6 +9,7 @@ import RegisterConsulter from "../pages/registerConsulter";
 // import PrivateRoute from "./privateRoute";
 
 import Confirmation from "./../pages/confirmation";
+import Events from "../pages/events";
 
 import Loading from "../pages/loading";
 
@@ -36,7 +37,7 @@ const Routes = ({ dispatch }) => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/NotFound" component={Error} />
         <Route exact path="/loading" component={Loading} />
-        {/* <Route exact path="/postsDoctor" component={Postdoc} /> */}
+
         <Route exact path="/confirmMsg" component={ConfirmMsg} />
         <Route exact path="/NotFound" component={Error} />
         <Route path="/" component={Application} />

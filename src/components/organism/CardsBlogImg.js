@@ -45,6 +45,7 @@ const CardsBlogImg = ({
                   specid={item.Specialist._id}
                   auth={specialist?._id}
                   userauth={userauth}
+                  DeletePost={DeletePost}
                   imageURL={
                     item.Specialist?.image
                       ? `https://banoun-app.herokuapp.com/api/upload/show/${item.Specialist.image?.filename}`
@@ -76,6 +77,7 @@ const CardsBlogImg = ({
                   auth={specialist?._id}
                   userauth={userauth}
                   specid={item.Specialist._id}
+                  DeletePost={DeletePost}
                 />
               )
             )}

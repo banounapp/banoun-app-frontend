@@ -13,6 +13,7 @@ export const CardBlog = ({
   auth,
   userauth,
   specid,
+  DeletePost,
 }) => {
   console.log(content.length);
   const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
@@ -24,15 +25,21 @@ export const CardBlog = ({
       <div className=" mt-3">
         <div className=" flex justify-between">
           <div className="  text-gray-500">
-            <i className="far fa-comment-dots px-4"></i>
+            <i className="far fa-comment-dots pr-12"></i>
             <span className=" px-2"> {blogtitle}</span>
           </div>
           <div className=" ml-10 cursor-pointer	 text-xl">
             {auth == specid && (
-              <i
-                class="fas fa-trash-alt px-2"
-                style={{ color: "red", fontSize: "18px" }}
-              ></i>
+              <button
+                onClick={() => {
+                  DeletePost(id);
+                }}
+              >
+                <i
+                  class="fas fa-trash-alt px-2"
+                  style={{ color: "red", fontSize: "18px" }}
+                ></i>
+              </button>
             )}
           </div>
         </div>
@@ -43,12 +50,12 @@ export const CardBlog = ({
               className=" rounded-full w-10 h-12  mr-10 mt-5"
             />
           </div>
-          <div className=" mt-5 mr-2">
+          <div className=" mt-8 mr-2">
             <p> {Name}</p>
             <p className=" text-gray-500">{time} </p>
           </div>
         </div>
-        <p className="mr-10 mt-5" style={{ width: "90%" }}>
+        <p className="mr-10 mt-5 mb-7" style={{ width: "90%" }}>
           {content.length >= 200 && !isFullContentOrdered ? (
             <>
               {" "}
@@ -57,7 +64,7 @@ export const CardBlog = ({
                 onClick={() => setisFullContentOrdered(true)}
                 style={{ color: "blue" }}
               >
-                see more
+                اكثر
               </button>
             </>
           ) : (
@@ -66,9 +73,9 @@ export const CardBlog = ({
               {content.length >= 200 && (
                 <button
                   onClick={() => setisFullContentOrdered(false)}
-                  style={{ color: "blue" }}
+                  style={{ color: "silver-tree" }}
                 >
-                  collapse
+                  اقل
                 </button>
               )}
             </>

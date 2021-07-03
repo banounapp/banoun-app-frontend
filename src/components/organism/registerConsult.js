@@ -75,201 +75,154 @@ const RegisterConsult = ({ GetAuth }) => {
           action="#"
           className="text-center content-center justify-center md:mx-10 lg:mr-30 "
         >
-          <h2 className=" my-10 lg:my-7 text-lg md:text-xl lg:text-2xl lg:ml-40">
+          <h2 className=" my-10 lg:my-7 text-lg md:text-xl lg:text-2xl   text-center">
             انشاء حساب كمتخصص
           </h2>
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:gris-cols-2 -mr-80">
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-user " }}
-              textFieldProps={{
-                name: "username",
-                placeholder: "الاسم بالكامل",
-                type: "text",
-              }}
-            />
 
-            {/* <InputField
-                            iconsProps={{ icon: " fas fa-camera " }}
-                            textFieldProps={{ name: 'camera', placeholder: "", type: "file" }} /> */}
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:p-8  md:-mr-44 lg:pl-20 ">
+            <div className="  ">
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-user " }}
+                textFieldProps={{
+                  name: "username",
+                  placeholder: "الاسم بالكامل",
+                  type: "text",
+                }}
+              />
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-phone " }}
+                textFieldProps={{
+                  name: "phone",
+                  placeholder: "رقم التليفون",
+                  type: "number",
+                }}
+              />
 
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-phone " }}
-              textFieldProps={{
-                name: "phone",
-                placeholder: "رقم التليفون",
-                type: "number",
-              }}
-            />
-
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-envelope " }}
-              textFieldProps={{
-                name: "email",
-                placeholder: "البريد الالكترونى",
-                type: "email",
-              }}
-            />
-
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-key " }}
-              textFieldProps={{
-                name: "password",
-                placeholder: "الرقم السرى",
-                type: "password",
-              }}
-            />
-
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-key " }}
-              textFieldProps={{
-                name: "confirmPassword",
-                placeholder: "تأكيد الرقم السرى",
-                type: "password",
-              }}
-            />
-            {/* <InputField iconsProps={{ icon: "text-gray-500 fas fa-id-card-alt" }}
-                            textFieldProps={{ name: 'id', placeholder: "الرقم القومى ", type: "number" }} /> */}
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt" }}
-              textFieldProps={{
-                name: "address",
-                placeholder: "العنوان  ",
-                type: "text",
-              }}
-            />
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt " }}
-              textFieldProps={{
-                name: "city",
-                placeholder: "المحافظه ",
-                type: "text",
-              }}
-            />
-
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-briefcase " }}
-              textFieldProps={{
-                name: "job",
-                placeholder: "وظيفتك ",
-                type: "text",
-              }}
-            />
-
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
-              textFieldProps={{
-                name: "gender",
-                placeholder: "النوع",
-                type: "text",
-              }}
-            />
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
-              textFieldProps={{
-                name: "Specialization",
-                placeholder: "التخصص",
-                type: "text",
-              }}
-            />
-
-            <InputField
-              iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
-              textFieldProps={{
-                name: "bio",
-                placeholder: " نبذه عنك ",
-                type: "text",
-              }}
-            />
-
-            <div className="file-input">
-              <input
-                type="file"
-                id="file"
-                className="file"
-                name="certification"
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-envelope " }}
+                textFieldProps={{
+                  name: "email",
+                  placeholder: "البريد الالكترونى",
+                  type: "email",
+                }}
+              />
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-key " }}
+                textFieldProps={{
+                  name: "password",
+                  placeholder: "الرقم السرى",
+                  type: "password",
+                }}
+              />
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-key " }}
+                textFieldProps={{
+                  name: "confirmPassword",
+                  placeholder: "تأكيد الرقم السرى",
+                  type: "password",
+                }}
+              />
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt" }}
+                textFieldProps={{
+                  name: "address",
+                  placeholder: "العنوان  ",
+                  type: "text",
+                }}
+              />
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-map-marker-alt " }}
+                textFieldProps={{
+                  name: "city",
+                  placeholder: "المحافظه ",
+                  type: "text",
+                }}
               />
             </div>
-            {/* <div className="file-input">
+            <div className=" ">
               <InputField
-                iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
-                type="file"
-                id="file"
-                className="file"
-                name="certification"
+                iconsProps={{ icon: "text-gray-500 fas fa-briefcase " }}
                 textFieldProps={{
-                  name: "certification",
-                  placeholder: " شهادة ",
-                  type: "file",
+                  name: "job",
+                  placeholder: "وظيفتك ",
+                  type: "text",
                 }}
               />
-            </div> */}
-
-            {/* <div className="file-input">
               <InputField
-                iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
-                type="file"
-                id="file"
-                className="file"
-                name="image"
+                iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
                 textFieldProps={{
-                  name: "image",
-                  placeholder: " صورة شخصية  ",
-                  type: "file",
+                  name: "gender",
+                  placeholder: "النوع",
+                  type: "text",
                 }}
               />
-            </div> */}
-
-            {/* <div className="file-input">
               <InputField
-                iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
-                type="file"
-                id="file"
-                className="file"
-                name="NationalID"
+                iconsProps={{ icon: "text-gray-500 fas fa-venus-mars" }}
                 textFieldProps={{
-                  name: "NationalID",
-                  placeholder: " الرقم القومي  ",
-                  type: "file",
+                  name: "Specialization",
+                  placeholder: "التخصص",
+                  type: "text",
                 }}
               />
-            </div> */}
 
-            {/* <div className="file-input">
-              <input type="file" id="file" className="file" name="NationalID" />
-              <label htmlFor="file">
-                Select file
-                <p className="file-name"></p>
-              </label>
-            </div> */}
-            {/* <div className="file-input">
-              <input type="file" id="file" className="file" name="image" />
-              <label htmlFor="file">
-                Select file
-                <p className="file-name"></p>
-              </label>
-            </div> */}
+              <InputField
+                iconsProps={{ icon: "text-gray-500 fas fa-edit " }}
+                textFieldProps={{
+                  name: "bio",
+                  placeholder: " نبذه عنك ",
+                  type: "text",
+                }}
+              />
+
+              <div class="flex  items-center justify-center bg-grey-lighter lg:mr-12 md:mr-20 ">
+                <label class="w-40 h-10 flex  items-center  bg-white text-silver-tree rounded-lg  tracking-wide uppercase border border-silver-tree cursor-pointer ">
+                  <i className="fas fa-cloud-upload-alt px-2"></i>
+                  <span class=" text-base leading-normal"> اختر صوره </span>
+                  <input
+                    class="hidden"
+                    type="file"
+                    name="image "
+                    onChange={(e) => Setimg_upload(e)}
+                  />
+                </label>
+              </div>
+
+              <div class="flex  items-center justify-center bg-grey-lighter lg:mr-12 md:mr-20 mt-5">
+                <label class="w-40 h-10 flex  items-center  bg-white text-silver-tree rounded-lg  tracking-wide uppercase border border-silver-tree cursor-pointer ">
+                  <i className="fas fa-cloud-upload-alt px-2"></i>
+                  <span class="mt-1 mr-2 text-base leading-normal">
+                    {" "}
+                    الرقم القومي{" "}
+                  </span>
+                  <input
+                    class="hidden"
+                    type="file"
+                    name="NationalID "
+                    onChange={(e) => SetNationalID_upload(e)}
+                  />
+                </label>
+              </div>
+
+              <div class="flex  items-center justify-center bg-grey-lighter lg:mr-12 md:mr-20 mt-5 ">
+                <label class="w-40 h-10  flex  items-center  bg-white text-silver-tree rounded-lg  tracking-wide uppercase border border-silver-tree cursor-pointer ">
+                  <i className="fas fa-cloud-upload-alt px-2"></i>
+                  <span class="mt-1 mr-2 text-base leading-normal">
+                    {" "}
+                    ارفع شهادتك{" "}
+                  </span>
+                  <input
+                    class="hidden"
+                    type="file"
+                    name="Certification "
+                    onChange={(e) => SetCertification_upload(e)}
+                  />
+                </label>
+              </div>
+            </div>
           </div>
-          <input
-            class="choose-file"
-            type="file"
-            name="image "
-            onChange={(e) => Setimg_upload(e)}
-          />
-          <input
-            class="choose-file"
-            type="file"
-            name="NationalID "
-            onChange={(e) => SetNationalID_upload(e)}
-          />
-          <input
-            class="choose-file"
-            type="file"
-            name="Certification "
-            onChange={(e) => SetCertification_upload(e)}
-          />
 
           <Button
-            stylee="bg-silver-tree lg:ml-40 text-white my-4 content-center"
+            stylee="bg-silver-tree  text-white my-8 content-center align-center text-center m-auto"
             type="submit"
           >
             دخول

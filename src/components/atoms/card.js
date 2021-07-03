@@ -13,8 +13,9 @@ export const Card = ({
   return (
     <div
       className={` w-full shadow-lg h-28 mx-2 md:h-36 border-2 mt-16 mb-6 rounded  flex sm:px-4 bg-white text-black ${stylee}`}
+    // style={{ overflow: "scroll", overflowX: "hidden", width: "90%", height: '250px' }}
     >
-      <div className="text-center  w-full text-lg sm:text-xl my-auto">
+      <div className="text-center  w-full text-lg sm:text-xl my-auto ">
         {/* <Link to={link} className="text-sm sm:text-xl text-silver-tree">
           {category}
         </Link> */}
@@ -32,11 +33,12 @@ export const Card = ({
         </Link>
         <h3 className="text-sm sm:text-md">{des}</h3>
       </div>
-      <div className="my-auto ">
+      <div className="my-auto md:w-10  " style={{ width: "40%", height: "80%", marginLeft: "10%" }}
+      >
         <img
           alt=""
-          className="h-30 w-44 md:h-24  md:w-30 "
           src={imageSource}
+          style={{ width: "100%", height: "100%" }}
         ></img>
       </div>
     </div>
