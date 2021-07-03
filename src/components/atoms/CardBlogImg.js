@@ -14,6 +14,7 @@ export const CardBlogImg = ({
   auth,
   userauth,
   specid,
+  DeletePost,
 }) => {
   console.log(auth, specid);
   const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
@@ -23,19 +24,25 @@ export const CardBlogImg = ({
       className=" 	 h-auto	  border-2 border-gray-300 rounded-lg mt-5   "
       style={{ width: "51%" }}
     >
-      <div className=" mt-3">
-        <div className=" flex justify-between">
+      <div className=" mt-3" style={{ height: "100%" }}>
+        <div className=" flex justify-between " style={{ height: "10%" }}>
           <div className="  text-gray-500">
-            <i className="far fa-comment-dots px-4"></i>
+            <i className="far fa-comment-dots pr-12"></i>
             <span className=" px-2"> {blogtitle}</span>
           </div>
           <div className=" ml-10 cursor-pointer	 text-xl">
             {/* <span>...</span> */}
             {auth == specid && (
-              <i
-                class="fas fa-trash-alt px-2"
-                style={{ color: "red", fontSize: "18px" }}
-              ></i>
+              <button
+                onClick={() => {
+                  DeletePost(id);
+                }}
+              >
+                <i
+                  class="fas fa-trash-alt px-2"
+                  style={{ color: "red", fontSize: "18px" }}
+                ></i>
+              </button>
             )}
           </div>
         </div>
@@ -46,7 +53,7 @@ export const CardBlogImg = ({
               className=" rounded-full w-10 h-12 mr-10 mt-5"
             />
           </div>
-          <div className=" mt-5 mr-2">
+          <div className=" mt-8 mr-2">
             <p> {Name}</p>
             <p className=" text-gray-500">{time} </p>
           </div>
@@ -57,10 +64,10 @@ export const CardBlogImg = ({
               {" "}
               {content.substr(0, 200)}
               <button
+                className=" text-silver-tree px-2"
                 onClick={() => setisFullContentOrdered(true)}
-                style={{ color: "blue" }}
               >
-                see more
+                المزيد
               </button>
             </>
           ) : (
@@ -68,10 +75,10 @@ export const CardBlogImg = ({
               <span>{content}</span>
               {content.length >= 200 && (
                 <button
+                  className=" text-silver-tree px-2"
                   onClick={() => setisFullContentOrdered(false)}
-                  style={{ color: "blue" }}
                 >
-                  collapse
+                  اظهر اقل
                 </button>
               )}
             </>
@@ -82,8 +89,8 @@ export const CardBlogImg = ({
         <div>
           <img
             src={imageSrc}
-            className=" m-auto  mt-5"
-            style={{ width: "90%", height: "500px" }}
+            className=" m-auto  mt-5 mb-10"
+            style={{ width: "70%", minHeight: "300px", maxHeight: "300px" }}
           />
         </div>
         {userauth && (

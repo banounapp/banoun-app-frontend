@@ -10,6 +10,7 @@ import Community from "../pages/Community";
 // import PrivateRoute from "./privateRoute";
 
 import Confirmation from "./../pages/confirmation";
+import Events from "../pages/events";
 
 import Loading from "../pages/loading";
 
@@ -41,6 +42,8 @@ const Routes = ({ dispatch }) => {
         <Route exact path="/postsDoctor" component={Postdoc} />
         <Route exact path="/" component={Application} />
         <Route exact path="/Community" component={Community} />
+        <Route exact path="/events" component={Events} />
+
         <Route exact path="/confirmMsg" component={ConfirmMsg} />
         <Route exact path="/NotFound" component={Error} />
         <Route path="/" component={Application} />

@@ -30,7 +30,7 @@ const HeaderCommunity = ({ AddPost }) => {
       >
         <div className=" border-b-2 border-gray-300 p-3 ">
           <input
-            className=" mr-10 text-xl "
+            className=" mr-10 text-xl  p-5 outline-none focus "
             placeholder="عنوان"
             value={title}
             onChange={(e) => settitle(e.target.value)}
@@ -46,14 +46,14 @@ const HeaderCommunity = ({ AddPost }) => {
             <input
               type="text"
               placeholder="ماذا تريد ان تقول؟"
-              className="mr-3 mt-10 text-gray-400 text-xl outline-none"
+              className="mr-3 mt-10 text-gray-400 text-xl outline-none focus"
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
           </div>
           <div className="flex">
-            <div class="flex  items-center justify-center bg-grey-lighter mr-10 md:-mr-80 lg:-mr-80">
-              <label class="w-28 flex  items-center  bg-white text-silver-tree rounded-lg  tracking-wide uppercase border border-silver-tree cursor-pointer ">
+            <div class="flex  items-center justify-center bg-grey-lighter  mr-10 md:-mr-80 lg:-mr-80">
+              <label class="w-28 flex  items-center  bg-white text-silver-tree rounded-lg  tracking-wide uppercase border border-silver-tree cursor-pointer p-1 ">
                 <i className="fas fa-cloud-upload-alt px-2"></i>
                 <span class="mt-1 mr-2 text-base leading-normal">
                   {" "}
@@ -68,10 +68,9 @@ const HeaderCommunity = ({ AddPost }) => {
               </label>
             </div>
             <input
-              // className="w-full"
               type="submit"
               value="نشر"
-              className="btn  my-9 bg-silver-tree text-white"
+              className="btn  my-10 bg-silver-tree text-white px-10 rounded-lg p-2 m-2"
             />
 
             <div className="w-full"> {/* <DropdownCommunity /> */}</div>

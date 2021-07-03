@@ -28,3 +28,4 @@ export * from "./tabs";
 export * from "./HeaderCommunity";
 export * from "./CardsBlog";
 export * from "./CardsBlogImg";
+export * from "./cardsbroadcast";
