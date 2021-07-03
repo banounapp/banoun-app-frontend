@@ -53,7 +53,6 @@ let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotO
       price: specialist.specialist_auth.price,
     };
     console.log(body.price);
-    console.log(body)
     const requesting = async () => {
       const res = await client.post("specialist/schedule", body);
       handleDateChange(dateValue);

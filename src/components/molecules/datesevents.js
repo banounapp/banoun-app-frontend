@@ -5,7 +5,6 @@ import { DateOfline, DateOnline, Calender, CalenderDoc } from "../atoms";
 
 export const DatesEvents = ({ setusersArr }) => {
   const [reservedAppointments, setreservedAppointments] = useState([]);
-  console.log(reservedAppointments);
   const getFormattedDate = (date) => {
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   };
@@ -23,8 +22,11 @@ export const DatesEvents = ({ setusersArr }) => {
     });
     setappointments({available :availableAppointments ,notAvailable :nonAvailableAppointments  })
   }, [reservedAppointments]);
-
+  
   const [isNotOutdated, setisNotOutdated] = useState(true);
+  console.log(appointments)
+
+  console.log(reservedAppointments);
 
   return (
     <>
