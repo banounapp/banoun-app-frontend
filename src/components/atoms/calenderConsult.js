@@ -19,7 +19,7 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
     console.log(filteredAppointments);
   };
   const getFormattedDate = (date) => {
-    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate());
   };
 
   const { id } = useParams();
@@ -46,7 +46,7 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
   };
 
   const getDate = (date) => {
-    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate());
   };
 
   const [isModalOpened, setisModalOpened] = useState(false);
