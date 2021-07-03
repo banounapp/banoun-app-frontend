@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const RightSideRegisterdoc = () => {
   return (
-    <div className="bg-silver-tree lg:h-screen hidden md:hidden lg:inline-block lg:rounded-bl-full  lg:w-3/4  ">
+    <div className="bg-silver-tree lg:h-screen hidden md:hidden lg:inline-block lg:rounded-bl-full  lg:w-3/12 ">
       <div className="panel right-panel ">
         <div className="text-white text-center  lg:my-40 ">
           <h3 className=" lg:text-3xl mt-5 "> لديك حساب ؟</h3>
@@ -22,7 +22,15 @@ export const RightSideRegisterdoc = () => {
             </Button>
           </Link>
 
-          <img src="images/g-baby.svg" className=" relative right-60" alt="" />
+          <img
+            src="images\Group.png"
+            className=" relative right-60 top-8 "
+            alt=""
+            style={{
+              width: "600px",
+              height: "300px",
+            }}
+          />
         </div>
       </div>
     </div>
