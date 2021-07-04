@@ -23,7 +23,6 @@ import {Get_Profile_Spec} from "../../redux/actions/types"
 
     const onSubmit = async (values) => {
         const res = await loginSpecialist(values);
-        console.log(res);
         if (res.isError) {
             setAlertMessage(res.errorMessage);
             setTimeout(() => {

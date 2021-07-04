@@ -10,7 +10,6 @@ const CreateEvent = ({ CreateEventSpecialist }) => {
   const [value, setValueDate] = useState(null)
   const onChange = e => {
     setValueDate(e)
-    console.log(value);
   }
   const [formData, setFormData] = useState({
     Specialization: "",
@@ -19,13 +18,11 @@ const CreateEvent = ({ CreateEventSpecialist }) => {
   })
   const { Specialization, Topic, description } = formData;
   const onChangeMethod = e => {
-    console.dir(e.target);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
   const onSubmit = async e => {
     e.preventDefault();
 
-    console.log(formData, value)
     await CreateEventSpecialist(formData.Specialization, formData.Topic, formData.description, value);
     // console.log(formData.Specialization)
 

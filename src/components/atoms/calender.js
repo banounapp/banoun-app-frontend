@@ -11,8 +11,7 @@ import "./calender.css";
 const CalenderSystem = ({ appointments, getDoctorAppointments }) => {
   const [value, onChange] = useState(new Date());
   const { id } = useParams();
-  console.log(value);
-  console.log(appointments);
+ 
 
   useEffect(() => {
     getDoctorAppointments(id);

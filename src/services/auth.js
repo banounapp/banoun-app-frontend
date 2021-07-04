@@ -93,7 +93,6 @@ export async function InitializeData(dispatch) {
   try {
     let result;
     const res = await client.get("/customRoutes/dataInitialization");
-    console.log(res)
     if (res.data.specialist) {
       result = { data: res.data, isError: false, errorMessage: "" };
       await dispatch({
@@ -114,7 +113,6 @@ export async function InitializeData(dispatch) {
     }
    
   } catch (e) {
-    console.log(e.message);
     return false;
   }
 }

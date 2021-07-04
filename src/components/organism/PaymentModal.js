@@ -19,7 +19,6 @@ const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, g
 
   const appointmentPrice = CurrentAppointment.price;
   const specialistId = useParams();
-  console.log(specialistId);
 
   const success = async (body) => {
     try {
@@ -29,9 +28,7 @@ const PaymentModal = ({ AppointmentDate, setisModalOpened, CurrentAppointment, g
       body.userId = userId;
       body.appointmentPrice = appointmentPrice;
 
-      console.log(body)
       const response = await client.patch(`https://banoun-app.herokuapp.com/api/appointment/${_id}`, body);
-      console.log("Res", response);
       confirm();
       setresponseData(response.data)
     } catch (error) {

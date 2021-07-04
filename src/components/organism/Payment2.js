@@ -11,7 +11,6 @@ export const PaymentTwo = ({ handleClose, setpaymentMethod, setviewNum, setpayme
     setpaymentMethod(event.target.value);
   };
   const isNextDisabled = selectedOption === "cash";
-  console.log(isNextDisabled);
 
   useEffect(() => {
     if(attending == "online"){

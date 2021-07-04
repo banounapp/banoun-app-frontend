@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import "../atoms/dropdown.css";
 
 export const DropDownList = ({ parent, category }) => {
-  console.log(category);
 
   const [isDropDownOpened, setisDropDownOpened] = useState(false);
   const getCategoryImage = (name) => {
@@ -28,7 +27,6 @@ export const DropDownList = ({ parent, category }) => {
       default:
         imageUrl = "/images/المراهقة.png";
     }
-    console.log(imageUrl);
     return imageUrl;
   };
   return (

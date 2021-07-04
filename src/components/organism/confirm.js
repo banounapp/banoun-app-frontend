@@ -15,13 +15,11 @@ const Confirm = ({history}) => {
     SetData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData.text);
      const isError  = confirmationCode(formData);
      if(!isError.isError){
        history.push("/login")
      }
      else{
-       console.log(isError)
       setvalidated(false)
      }
   };

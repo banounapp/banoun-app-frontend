@@ -19,9 +19,8 @@ const CheckoutForm = ({ success, appointmentPrice }) => {
     if (!res.error) {
       let body = {};
       const { id } = res.paymentMethod;
-      console.log(id);
       body.paymentId = id;
-      console.log(res, id);
+    
       success(body);
       setisSubmitted(false);
     }

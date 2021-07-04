@@ -6,7 +6,6 @@ const Section4 = ({ reviwes, GetCommentReview }) => {
   useEffect(() => {
     GetCommentReview();
   }, [])
-  console.log(reviwes);
   return (
     <div className=" pb-5 px-6 md:px-32" id="visitors">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">

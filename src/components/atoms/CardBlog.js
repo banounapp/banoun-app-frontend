@@ -15,7 +15,6 @@ export const CardBlog = ({
   specid,
   DeletePost,
 }) => {
-  console.log(content.length);
   const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
   return (
     <div

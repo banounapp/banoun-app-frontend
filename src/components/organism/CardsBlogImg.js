@@ -22,7 +22,6 @@ const CardsBlogImg = ({
   useEffect(() => {
     GetPosts();
   }, [GetPosts]);
-  console.log(specialist);
   return (
     <>
       <div className=" mt-12 mb-10 m-0  flex flex-wrap justify-center">
@@ -81,17 +80,7 @@ const CardsBlogImg = ({
                 />
               )
             )}
-          {/* <div>
-            <CardBlogImg
-              blogtitle="مابعد الولاده"
-              imageURL="images/1-business-woman-removebg-preview 2.png"
-              Name="ليلي سمير"
-              time="19 يونيو الساعه 12:32ص"
-              content="في نهاية كل دورة ، يستيقظ الأطفال حديثي الولادة لبعض الوقت.
-        عندما يستيقظون ، قد يصيحون أو يبكون. إذا "
-              imageSrc="images/Baby-sleeping-positions-questions-mom-with-newborn-baby-frequently-ask.jpg"
-            />
-          </div> */}
+    
         </div>
       </div>
     </>

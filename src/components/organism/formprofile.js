@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 const FormEdit = ({ GetEditUer, user, togglePopup, uploadImg }) => {
   const [img_upload, Setimg_upload] = useState("");
 
-  console.log(user);
   const [formData, setFormData] = useState({
     lastname: user?.lastName ? user.lastName : "",
     firstname: user?.firstName ? user.firstName : "",

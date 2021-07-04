@@ -36,7 +36,6 @@ export const GetPosts = () => async (dispatch) => {
 //get  single post
 
 export const GetOnePost = (id) => async (dispatch) => {
-  console.log(id);
 
   try {
     const res = await client.get(`/posts/${id}`);
@@ -62,13 +61,10 @@ export const AddPost = (text, title, img_upload) => async (dispatch) => {
 
   if (img_upload) {
     let img = img_upload.target.files[0];
-    console.log(img);
 
     formData.append("image", img);
-    console.log(formData);
   }
   // text=  JSON.stringify(text);
-  console.log(text);
   formData.append("title", title);
 
   formData.append("text", text);

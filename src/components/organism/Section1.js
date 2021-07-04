@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import categories from './../../redux/reducers/categories';
 
 export const Section1 = ({categories}) => {
-  console.log(categories)
   return (
     <div style={{backgroundColor:"#D6EAD4"}}>
       <div className="pt-5 px-6 md:px-32  md:mb-20 mt-20  ">

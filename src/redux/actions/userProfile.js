@@ -28,12 +28,9 @@ export const GetUer = () => async dispatch => {
 
 export const uploadImg = (img_upload, id) => async (dispatch) => {
   const formData = new FormData();
-  console.log(img_upload);
   if (img_upload) {
     let img = img_upload.target.files[0];
-    console.log(img);
     formData.append("image", img);
-    console.log(formData);
   }
   try {
     const res = await client.post(`/users/img/${id}`, formData);
@@ -52,9 +49,7 @@ export const uploadImg = (img_upload, id) => async (dispatch) => {
 export const GetEditUer = (data) => async dispatch => {
   
     try {
-        console.log(data);
         const res = await client.post('/users/edit', data);
-        console.log(res);
         dispatch({
             type: Get_User,
             payload: res.data
@@ -82,7 +77,6 @@ export const getUserAppointments = async (clientId)  => {
 
       return appointments.data.sort(locationsDescendingTimeOrder)
     } catch (err) {
-      console.log(err) ; 
       return false
     }
   };

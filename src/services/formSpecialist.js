@@ -1,7 +1,6 @@
 import { client } from "./client";
 
 export async function FormSpecialist(dataform) {
-  console.log(dataform);
   let result = { data: null, isError: true, errorMessage: "" };
   const res = await client.post("/specialist", dataform);
   if (res.data.code === 0) {

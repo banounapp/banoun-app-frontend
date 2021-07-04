@@ -9,14 +9,12 @@ export const CardClient = () => {
   useEffect(() => {
     const getClients = async () => {
       const respArr = await getDoctorClients();
-      console.log(respArr);
       respArr && setusersArr(respArr);
     };
     getClients();
   }, []);
   const [showAllClientsModal, setshowAllClientsModal] = useState(false);
 
-  console.log(usersArr);
   return (
     <>
       <>

@@ -10,7 +10,6 @@ import { GetSubCategory } from "../redux/actions/categories";
 const BooksArticles = ({ subCategory, GetSubCategory, match, props }) => {
   useEffect(() => {
     GetSubCategory(match.params.catId, match.params.subId);
-    console.log(props);
   }, [match.params.catId, match.params.subId]);
   return (
     <>

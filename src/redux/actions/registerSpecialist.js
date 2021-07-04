@@ -5,29 +5,22 @@ import { Get_auth_Specialist, Error_auth_specialist } from "./types";
 export const GetAuth =
   (data, img_upload, NationalID_upload, certification_upload) =>
   async (dispatch) => {
-    console.log(img_upload, NationalID_upload, certification_upload);
 
     const formData = new FormData();
     if (img_upload) {
       let img = img_upload.target.files[0];
-      console.log(img);
 
       formData.append("image", img);
-      console.log(formData);
     }
     if (NationalID_upload) {
       let img = NationalID_upload.target.files[0];
-      console.log(img);
 
       formData.append("image", img);
-      console.log(formData);
     }
     if (certification_upload) {
       let img = certification_upload.target.files[0];
-      console.log(img);
 
       formData.append("image", img);
-      console.log(formData);
     }
 
     formData.append("username", data.username);
@@ -41,7 +34,6 @@ export const GetAuth =
     formData.append("Specialization", data.Specialization);
     formData.append("bio", data.bio);
 
-    console.log(formData);
     // const config = {
     //   headers: {
     //     "Content-Type": "application/json",
@@ -65,10 +57,8 @@ export const GetAuth =
 
 export const uploadImg = (img_upload, id) => async (dispatch) => {
   const formData = new FormData();
-  console.log(img_upload);
   if (img_upload) {
     let img = img_upload.target.files[0];
-    console.log(img);
 
     formData.append("image", img);
   }

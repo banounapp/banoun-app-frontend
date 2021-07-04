@@ -8,7 +8,6 @@ import { client } from "../../services/client";
 import Load from "../molecules/load";
 import { checkTime } from './../../utils/DateTime';
 let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotOutdated }) => {
-  console.log(setusersArr);
   const timesArr = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"];
   const [availableTimes, setavailableTimes] = useState(timesArr);
   //with every click add time
@@ -24,7 +23,6 @@ let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotO
     const newDate = new Date(value);
     const date = getFormattedDate(newDate);
     const res = await client.get(`specialist/schedule/${date}`);
-    console.log(res.data);
     // const reservedAppointments =res.data.reservedAppointments ;
     const newFilteredAvailableTimes = [...timesArr].filter((time) => {
       const available = !res.data.reservedTimes.includes(time);
@@ -36,7 +34,6 @@ let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotO
     setDateValue(newDate);
     setreqFinished(true);
     if (setreservedAppointments) {
-      console.log(res.data.reservedAppointments);
       setreservedAppointments(res.data.reservedAppointments);
     }
     if (setusersArr) {
@@ -52,8 +49,7 @@ let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotO
       date: getFormattedDate(dateValue),
       price: specialist.specialist_auth.price,
     };
-    console.log(body.price);
-    console.log(body)
+    
     const requesting = async () => {
       const res = await client.post("specialist/schedule", body);
       handleDateChange(dateValue);
@@ -73,7 +69,6 @@ let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotO
 
  
 
-  console.log(availableTimes);
 
   const reservingButtons = [
     ...availableTimes.map((time) => {

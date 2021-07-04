@@ -24,7 +24,6 @@ const NavBar = ({
     GetAllCategories()(dispatch);
   }, []);
 
-  console.log(categories, toggleBurgerIcon);
   // console.table(user, sessionStorage, specialist_auth);
 
   const LogOut = async (e) => {

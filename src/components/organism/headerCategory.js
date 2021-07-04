@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 const HeaderCategory = ({ sub_category }) => {
-    console.log(sub_category);
     return (
         <div className="  block items-center md:flex px-20 my-14">
 

@@ -14,7 +14,6 @@ const Reviews = ({ getDoctorReview, reviews }) => {
   }, []);
   const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
 
-  console.log(reviews);
   return (
     <div className="mt-40 pb-5 px-6 lg:px-32">
       <div className="pt-5   my-14 md:mb-20 mt-10  ">

@@ -5,7 +5,6 @@ export const PaymentThree = ({ handleClose, setviewNum, attending, responseData 
   const textAreaRef = useRef(null);
 
   const copy = (e) => {
-    console.log(textAreaRef);
     textAreaRef.current.select();
     document.execCommand("copy");
   };

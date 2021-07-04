@@ -10,7 +10,6 @@ let Appointment = ({ userProfile }) => {
     const getAppointments = async () => {
       const respArr = await getUserAppointments(userProfile?.user?._id);
 
-      console.log(respArr);
       if (respArr) {
         const outDated = [];
         const upcoming = [];

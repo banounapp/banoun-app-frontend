@@ -29,7 +29,6 @@ export default function specialist(state = initialState, action) {
     ////////////////////////// /// Get Specialist Reviews
 
     case Get_specialist_reviews:
-      console.log(payload);
       return {
         ...state,
         reviews: payload,
@@ -38,7 +37,6 @@ export default function specialist(state = initialState, action) {
     ////////////////////////// /// Get Specialist appointments
 
     case Get_specialist_appointments:
-      console.log(payload);
       return {
         ...state,
         appointments: payload,
@@ -72,7 +70,6 @@ export default function specialist(state = initialState, action) {
         loading: false,
       };
     case "Get_specialist_appointments":
-      console.log(payload);
       return {
         ...state,
         appointments: payload,

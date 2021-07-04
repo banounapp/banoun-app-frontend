@@ -9,7 +9,6 @@ const initialState = {
     isAuthenticated: false,
 }
 export default function userProfile(state = initialState, action) {
-    console.log(state);
     const { type, payload } = action;
     switch (type) {
         case Get_User:

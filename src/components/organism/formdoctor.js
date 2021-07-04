@@ -24,14 +24,11 @@ const FormEditDoctor = ({
 
   const { username, price, job, city, bio, phone, Specialization } = formData;
   const onChangeMethod = (e) => {
-    console.dir(e.target);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    console.log(img_upload);
-
+    
     await uploadImg(img_upload, specialist?._id);
 
     await Get_Edit_Specialist(formData);

@@ -18,7 +18,6 @@ let ClientArchive = ({ specialist, user }) => {
     const getAppointments = async () => {
       const respArr = await getUserAppointments(user._id);
 
-      console.log(respArr)
       if (respArr?.length >0) {
         const onlineAppointments = [];
         const offlineAppointments = [];

@@ -16,7 +16,6 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
   const onDateChange = async (value) => {
     setReserved(false);
     setDateValue(value);
-    console.log(filteredAppointments);
   };
   const getFormattedDate = (date) => {
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();

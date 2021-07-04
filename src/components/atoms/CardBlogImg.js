@@ -16,7 +16,6 @@ export const CardBlogImg = ({
   specid,
   DeletePost,
 }) => {
-  console.log(auth, specid);
   const [isFullContentOrdered, setisFullContentOrdered] = useState(false);
 
   return (
