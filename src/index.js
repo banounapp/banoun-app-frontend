@@ -10,6 +10,8 @@ import store from "../src/redux/store";
 //styles
 import "./index.css";
 import "../src/style/main.css";
+import './tailwind.output.css';
+
 
 const options = {
   // you can also just use 'bottom center'

@@ -8,15 +8,24 @@
     "@progress/kendo-react-dateinputs": "^4.7.0",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.15.1",
-    "@tailwindcss/postcss7-compat": "^2.2.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "@types/react-calendar": "^3.4.0",
+    "autoprefixer": "^9",
     "axios": "^0.21.1",
+    "chokidar-cli": "^2.1.0",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "formik": "^2.2.6",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "postcss": "^7",
+    "postcss-flexbugs-fixes": "^4",
+    "postcss-loader": "^4.1.0",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.2",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
@@ -37,15 +46,17 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.3.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "web-vitals": "^1.1.1",
-    "yup": "^0.32.9",
-    "autoprefixer": "^9",
-    "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "yup": "^0.32.9"
   },
   "scripts": {
+    "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
+    "watch:tailwind": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:tailwind'",
+    "start": "npm-run-all build:tailwind --parallel watch:tailwind start:react",
+    "start:react": "react-scripts start",
+    "prebuild": "run-s build:tailwind",
     "eject": "react-scripts eject",
-    "start": "craco start",
     "build": "craco build ",
     "test": "craco test"
   },
@@ -67,9 +78,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "workspaces": {
     "nohoist": [
       "@tailwindcss/forms",
