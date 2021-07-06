@@ -4,7 +4,7 @@ import waves from "../../assets/waves.png";
 const Wave = ({ stylee }) => {
   return (
     <img
-      style={{ minWidth: "300px", maxWidth: "600px" }}
+      style={{ minWidth: "100%", maxWidth: "100%" }}
       className={`absolute ${stylee}`}
       src={waves}
     ></img>

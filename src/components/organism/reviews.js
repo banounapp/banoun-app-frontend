@@ -33,7 +33,7 @@ const Reviews = ({ getDoctorReview, reviews }) => {
               comment={review.text}
             />
           ))}
-          {reviews && reviews.length >= 3 && (
+          {reviews && reviews.length > 3  && (
             <button onClick={() => setisFullContentOrdered(false)}>
               اعرض أقل
             </button>
@@ -65,7 +65,7 @@ const Reviews = ({ getDoctorReview, reviews }) => {
         </>
       )}
       <div className="text-center   ">
-        <Link to={`/ReviwingDoctor/${id}`}>
+        <Link to={`/ReviewingDoctor/${id}`}>
           <Btn stylee="mt-12  md:py-1 md:px-5 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
             أرسل تقييم
           </Btn>
