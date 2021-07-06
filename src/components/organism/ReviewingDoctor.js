@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { connect } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-
+import Login from "../../pages/Login";
 import { AddDoctorReview } from "../../redux/actions/Reviews";
 
 const ReviwingDoctor = ({ AddDoctorReview }) => {
@@ -15,6 +15,12 @@ const ReviwingDoctor = ({ AddDoctorReview }) => {
   const ratingChanged = (newRating) => {
     setstars(newRating);
   };
+  if((localStorage.token == "null"|| !localStorage.token)){
+    alert("you are not authorized please login")
+    return (
+      <Login></Login>
+    )
+  }
   return (
     <>
       <div class="min-h-screen bg-gray-300 py-6 flex flex-col justify-center sm:py-12">

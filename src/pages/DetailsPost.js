@@ -3,12 +3,20 @@ import { DetailsPostdoc } from "../components/molecules";
 import NavBar from "../components/organism/NavBar";
 import { connect } from "react-redux";
 import { GetOnePost } from "../redux/actions/posts";
-
+import Login from "./Login";
 const DetailsPost = ({ GetOnePost, post, match }) => {
+
+  
   useEffect(() => {
     GetOnePost(match.params.id);
   }, [match.params.id]);
 
+  if((localStorage.token == "null"|| !localStorage.token)){
+    alert("you are not authorized please login")
+    return (
+      <Login></Login>
+    )
+  }
   return (
     <div className="bg-alabaster-500 space-y-8">
       <div className="lg:flex">

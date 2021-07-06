@@ -13,7 +13,6 @@ const Consult = () => {
         <HeaderConsult />
         <Statics />
         <Doctors />
-        <Footer />
       </div>
     </>
   );

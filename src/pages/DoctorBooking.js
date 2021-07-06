@@ -5,8 +5,14 @@ import DoctorCard from "../components/organism/doctorcard";
 import Footer from "../components/organism/footer";
 import NavBar from "../components/organism/NavBar";
 import Reviews from "../components/organism/reviews";
-
+import Login from "./Login";
 const DoctorBooking = () => {
+  if((localStorage.token == "null"|| !localStorage.token)){
+    alert("you are not authorized please login")
+    return (
+      <Login></Login>
+    )
+  }
   return (
     <div className="bg-silver-tree-100">
       <Wave stylee="mt-12 left-0" />

@@ -16,7 +16,11 @@ import Error from "./../../pages/Error";
 import {Footer}  from '../../components/organism/footer'
 import Community from './../../pages/Community';
 import ReviewingDoctor from "./ReviewingDoctor";
+import Login from './../../pages/Login';
 const Application = () => {
+
+
+  
   return (
     <>
       <NavBar />
@@ -25,14 +29,14 @@ const Application = () => {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/pregnacy/:id" component={Category} />
           <Route exact path="/sub/:catId/:subId" component={BooksArticles} />
+          <Route exact path="/Community" component={Community} />
           <Route exact path="/consult" component={Consult} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/posts" component={Postdoc} />
           <Route exact path="/DetailsPost/:id" component={DetailsPost} />
           <Route exact path="/doctorbooking/:id" component={DoctorBooking} />
           <Route exact path="/docprofile" component={DocProfile} />
-          <Route exact path="/Community" component={Community} />
-          <Route exact path="/ReviwingDoctor/:id" component={ReviewingDoctor} />
+          <Route exact path="/ReviewingDoctor/:id" component={ReviewingDoctor} />
 
 
           <Redirect to="/NotFound"></Redirect>

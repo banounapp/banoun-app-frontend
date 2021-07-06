@@ -18,26 +18,21 @@ import Loading from "../pages/loading";
 import Application from "./../components/organism/Application";
 import { InitializeData } from "./../services/auth";
 
-
 // import Postdoc from "../pages/Postdoc.js";
 import ConfirmMsg from "../pages/confirmMsg";
 
 const Routes = ({ dispatch }) => {
-
   useEffect(() => {
-     InitializeData(dispatch);
+    InitializeData(dispatch);
   }, []);
   return (
     <>
-
-      
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/registerCousulter" component={RegisterConsulter} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/NotFound" component={Error} />
         <Route exact path="/loading" component={Loading} />
-
         <Route exact path="/confirmMsg" component={ConfirmMsg} />
         <Route exact path="/NotFound" component={Error} />
         <Route path="/" component={Application} />

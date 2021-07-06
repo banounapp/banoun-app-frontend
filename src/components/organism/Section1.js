@@ -3,7 +3,17 @@ import { Card } from "../molecules";
 import { connect } from 'react-redux';
 import categories from './../../redux/reducers/categories';
 
-export const Section1 = ({categories}) => {
+let  Section1 = ({categories }) => {
+  console.log(categories)
+
+  const getCategoryLink = (name) => {
+  
+    const category =  categories?.find((item)=>item.name === name) ;
+    console.log(category) 
+    return category?._id ; 
+    }
+  
+  
   return (
     <div style={{backgroundColor:"#D6EAD4"}}>
       <div className="pt-5 px-6 md:px-32  md:mb-20 mt-20  ">
@@ -18,20 +28,25 @@ export const Section1 = ({categories}) => {
 
       <div className=" grid lg:grid-cols-3 mr-24  h-4/5">
         <div className="ml-10">
-          <Card stylee="lg:w-full -mt-1 lg:mt-20 -mr-7 lg:mr-12" category="الحمل" imageSource="images/card1.png"  />
-          <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="الطفوله" imageSource="images/card2.png" />
-          <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="حالات خاصه" imageSource="images/card3.png" />
+          <Card stylee="lg:w-full -mt-1 lg:mt-20 -mr-7 lg:mr-12" category="الحمل" imageSource="images/card1.png"  route = {getCategoryLink('الحمل')} />
+          <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="الطفوله" imageSource="images/card2.png" route = {getCategoryLink("الطفولة")}/>
+          <Card stylee="lg:w-full -mt-1 lg:mt-72 -mr-7 lg:mr-12" category="حالات خاصه" imageSource="images/card3.png" route ={ getCategoryLink('حالات خاصة')} />
         </div>
         <div className=" hidden lg:block z-10">
           <img src="images/tree.png" className="" />
         </div>
         <div className="ml-10">
-          <Card stylee="lg:w-full -mt-1 -mr-7 lg:mt-80 lg:-mr-2 " category="ما بعد الولاده" imageSource="images/card4.png" />
-          <Card stylee="lg:w-full -mt-1 -mr-7 lg:mt-72 lg:-mr-2" category="المراهقه" imageSource="images/card5.png" />
+          <Card stylee="lg:w-full -mt-1 -mr-7 lg:mt-80 lg:-mr-2 " category="ما بعد الولاده" imageSource="images/card4.png" route = {getCategoryLink("ما بعد الولادة")} />
+          <Card stylee="lg:w-full -mt-1 -mr-7 lg:mt-72 lg:-mr-2" category="المراهقه" imageSource="images/card5.png" route = {getCategoryLink("المراهقة ")} />
         </div>
       </div>
     </div>
   );
 };
-connect((state)=>{return{categories:state.categories}})(Section1)
+const mapStateToProps = (state) => ({
+  categories: state.categories.categories,
 
+});
+Section1 = connect(mapStateToProps)(Section1)
+
+export default Section1 

@@ -4,7 +4,7 @@ import PostForm from "../components/molecules/PostForm";
 import { connect } from "react-redux";
 import { GetPosts, DeletePost } from "../redux/actions/posts";
 import { Add_Like, Remove_Like } from "./../redux/actions/posts";
-
+import Login from "./Login";
 const Postdoc = ({
   GetPosts,
   posts,
@@ -14,10 +14,19 @@ const Postdoc = ({
   Remove_Like,
   userauth,
 }) => {
+
+
+
   useEffect(() => {
     GetPosts();
   }, [GetPosts]);
 
+  if((localStorage.token == "null"|| !localStorage.token)){
+    alert("you are not authorized please login")
+    return (
+      <Login></Login>
+    )
+  }
   return (
     <div className=" space-y-8">
       <h1 style={{ color: "red" }}>

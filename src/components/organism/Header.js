@@ -9,7 +9,7 @@ export const Header = () => {
         <img
           className="m-auto w-56 h-44 lg:w-96 lg:h-80"
           alt=""
-          src="/images/welcome.png"
+          src="/images/Welcome.png"
         ></img>
       </div>
       <div className=" bg-green space-y-6   md:mx-20 text-center  md:text-right   ">
