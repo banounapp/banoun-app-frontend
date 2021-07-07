@@ -23,7 +23,7 @@ const ReviwingDoctor = ({ AddDoctorReview }) => {
   }
   return (
     <>
-      <div class="min-h-screen bg-gray-300 py-6 flex flex-col justify-center sm:py-12">
+      <div class="min-h-screen bg-gray-300 py-6 flex flex-col justify-center sm:py-12" style={{minHeight:"100vh"}}  >
         <div class="py-3 w-full px-12 sm:w-1/2  sm:mx-auto">
           <div class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
             <div class="px-12 py-5">

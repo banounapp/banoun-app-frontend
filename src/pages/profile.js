@@ -12,7 +12,7 @@ const Profile = () => {
     )
   }
   return (
-    <div className='bg-alabaster-500 space-y-8'>
+    <div className='bg-alabaster-500 space-y-8' style={{minHeight:"100vh"}} >
       <div className="lg:flex">
         <EditProfile />
         <Appointment className="mt-8" />

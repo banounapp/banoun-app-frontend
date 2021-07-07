@@ -15,7 +15,7 @@ if((localStorage.token == "null"|| !localStorage.token)){
   )
 }
   return (
-    <div>
+    <div style={{minHeight:"100vh"}} >
       {/* <NavBar className="bg-pale-leaf-300" /> */}
       <div className=" lg:flex ">
       <RightDocProfile  usersArr={usersArr}/>

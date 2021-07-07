@@ -8,15 +8,15 @@ import CardsCategory from '../components/organism/cardsCategory';
 
 const Category = ({ match }) => {
     return (
-        <>
-            <div className='pb-5'>
+        <div style={{minHeight:"100vh"}} >
+            <div className='pb-5'  >
 
                 <HeaderCategory id={match.params.id} />
             </div>
             <CardsCategory id={match.params.id} />
             {/* <Footer /> */}
 
-        </>
+        </div>
     );
 };
 

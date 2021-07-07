@@ -9,6 +9,7 @@ import "./calender.css";
 import PaymentModal from "../organism/PaymentModal";
 import { checkTime } from "../../utils/DateTime";
 import Load from "./../molecules/load"
+import "./calender.css";
 // import userProfile from './../../redux/reducers/userProfile';
 
 const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) => {
@@ -92,7 +93,7 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
           </h2>
         </div>
           <div className=" flex text-center flex-wrap justify-start  lg:justify-start" style={{ marginTop: "1.5rem" }}>
-            <div className="text-center flex justify-center " style={{ width: "49.8%", paddingRight: "8.7%" }}>
+            <div className="text-center flex justify-center calendar" style={{ width: "49.8%", paddingRight: "8.7%" }}>
               <Calender
                 onChange={onDateChange}
                 value={dateValue}
@@ -110,6 +111,7 @@ const CalenderConsult = ({ appointments, getDoctorAppointments, userProfile }) =
                 paddingTop: "4.4rem",
                 paddingRight: "4.4%",
               }}
+              className = "times"
             >
               <h1 style={{ marginBottom: "1.12rem", textAlign: "start", fontSize: "1.2rem" }}>اختر التوقيت</h1>
               <h4 style={{ textAlign: "start", fontSize: ".7rem", fontWeight: "600", fontFamily: "Arial" }}>

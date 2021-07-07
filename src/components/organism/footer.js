@@ -3,7 +3,7 @@ import React from "react";
 import { Icons } from '../atoms';
 export const Footer = () => {
   return (
-    <footer className="p-10  bg-gray-900">
+    <footer className="p-10  bg-gray-900 " >
      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 lg:mr-20 ">
      <div className="mt-10 ">
        <h1 className="text-silver-tree lg:text-4xl">بنون</h1>

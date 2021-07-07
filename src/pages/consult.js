@@ -8,13 +8,13 @@ import { Statics } from "../components/organism/statics";
 
 const Consult = () => {
   return (
-    <>
+    <div style={{minHeight:"100vh"}} >
       <div className="bg-alabaster-500 ">
         <HeaderConsult />
         <Statics />
         <Doctors />
       </div>
-    </>
+    </div>
   );
 };
 

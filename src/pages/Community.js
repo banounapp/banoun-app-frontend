@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 
 const Community = ({ specialist }) => {
   return (
-    <>
+    <div style={{minHeight:"100vh"}} >
       <div>
         {sessionStorage.getItem("token") && specialist && <HeaderCommunity />}
         <CardsBlogImg />
@@ -17,7 +17,7 @@ const Community = ({ specialist }) => {
 
         {/* <Footer/> */}
       </div>
-    </>
+    </div>
   );
 };
 

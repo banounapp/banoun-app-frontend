@@ -12,15 +12,15 @@ const BooksArticles = ({ subCategory, GetSubCategory, match, props }) => {
     GetSubCategory(match.params.catId, match.params.subId);
   }, [match.params.catId, match.params.subId]);
   return (
-    <>
-      <div className="bg-white ">
+    <div style={{minHeight:"100vh"}} >
+      <div className="bg-white " >
         {/* {} */}
         <HeaderArtcles />
       </div>
       <CardsBook />
       <CardsArticles />
       {/* <Footer /> */}
-    </>
+    </div>
   );
 };
 
