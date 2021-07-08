@@ -19,9 +19,7 @@ const HeaderArtcles = ({ HeadArtcles }) => {
                     </p>
 
                 </div>
-                <div className="px-10 ">
-                    <img src="images/Pregnancy.png" alt="pregnancy" className="w-full	 lg:w-11/12 	" />
-                </div>
+              
             </div>
             {/* <img src="images/shagara.png" alt="tree" className=" lg:w-3/12 lg:h-30	" /> */}
 

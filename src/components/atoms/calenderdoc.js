@@ -139,7 +139,7 @@ let CalenderDoc = ({ specialist, setreservedAppointments, setusersArr, setisNotO
               >
                 <span style={{ color: "red", fontSize: "2rem" }}>
                   {" "}
-                  الأوقات المتاحة في يوم : <span style={{ fontFamily: "Arial" }}>{getFormattedDate(dateValue)}</span>
+                  الأوقات المتاح اضافتها يوم : <span style={{ fontFamily: "Arial" }}>{getFormattedDate(dateValue)}</span>
                 </span>
                 <h1>اختر التوقيت</h1>
                 <div className=" bg-spring-rain-600  " style={{ width: "93%" }}>

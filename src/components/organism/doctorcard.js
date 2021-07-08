@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Btn } from "../atoms/btn";
 import doctorImage from "../../assets/doctor.png";
 import { GetOneSpecialist } from "../../redux/actions/specialist";
@@ -17,7 +18,7 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
   return (
     // RIGHT SECTION
 
-    <div className="block lg:flex mt-52 mx-1 md:mx-20 pb-8 justify-center mb-12 ">
+    <div className="block lg:flex mt-52 mx-1 md:mx-20 pb-8 justify-center mb-12  " >
       <div className="flex justify-center">
         <div className="max-w-md  md:max-w-2xl px-2">
           <div className="bg-white shadow-xl rounded-lg justify-between  md:flex">
@@ -60,9 +61,9 @@ const DoctorCard = ({ specialist, GetOneSpecialist }) => {
                       </div>
                     </div>
                   </div>
-                  <Btn stylee="mt-3 md:py-1 md:px-5  sm:mt-0 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
+                  <a href={"#calendar"} className="text-sm  rounded   mt-4 px-3 sm:px-4 mt-3 md:py-1 md:px-5  sm:mt-0 bg-spring-rain-900  text-white md:text-lg rounded-lg shadow-md">
                     احجز موعدًا
-                  </Btn>
+                  </a>
                 </div>
               </div>
             </div>

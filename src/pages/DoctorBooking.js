@@ -15,13 +15,13 @@ const DoctorBooking = () => {
   }
   return (
     <div className="bg-silver-tree-100" style={{minHeight:"100vh"}} >
-      <Wave stylee="mt-12 left-0" />
+      {/* <Wave stylee="mt-12 left-0 z-0" /> */}
       <DoctorCard />
-      <Wave />
+      {/* <Wave /> */}
       <Reviews />
       <Wave stylee="mt-12 left-0" />
       <CalenderConsult />
-      <Wave stylee="mt-12" />
+      {/* <Wave stylee="mt-12" /> */}
     </div>
   );
 };
