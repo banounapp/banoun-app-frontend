@@ -17,6 +17,7 @@ import {Footer}  from '../../components/organism/footer'
 import Community from './../../pages/Community';
 import ReviewingDoctor from "./ReviewingDoctor";
 import Login from './../../pages/Login';
+import { ScrollToTopBtn } from "../atoms/ScrollToTopBtn";
 const Application = () => {
 
 
@@ -43,6 +44,7 @@ const Application = () => {
         </Switch>
       </>
       <Footer />
+      <ScrollToTopBtn></ScrollToTopBtn>
 
     </>
   );

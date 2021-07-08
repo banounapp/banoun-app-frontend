@@ -5,10 +5,8 @@ import Spinner from "../atoms/spinner";
 import { GetCategory } from ".././../redux/actions/categories";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-const CardsCategory = ({ GetCategory, sub_category, id }) => {
-  useEffect(() => {
-    GetCategory(id);
-  }, [id]);
+const CardsCategory = ({  sub_category, id }) => {
+
   return (
     <Fragment>
 
@@ -51,10 +49,4 @@ const CardsCategory = ({ GetCategory, sub_category, id }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  sub_category: state.categories.category,
-});
-
-export default connect(mapStateToProps, {
-  GetCategory,
-})(CardsCategory);
+export default CardsCategory

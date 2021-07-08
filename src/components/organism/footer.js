@@ -39,7 +39,7 @@ export const Footer = () => {
           <h1 className="text-2xl md:text-2xl lg:text-3xl mb-4 text-white"> يسعدنا ان نسمع منك  </h1>
          
         </div>
-        <div className="bg-silver-tree rounded h-10 text-white w-3/4 text-center text-base py-2 lg:text-2xl">01278023989</div>
+        <div className="bg-silver-tree rounded h-10 text-white w-3/4 text-center text-base py-2 lg:text-2xl" style={{fontFamily:"Arial"}}>01278023989</div>
         <div className="bg-silver-tree rounded h-10 text-white w-3/4 text-center text-base py-2 lg:text-xl mt-2">banoun.app@gmail.com</div>
 
       </div>

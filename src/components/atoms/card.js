@@ -12,10 +12,10 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={` w-full shadow-lg h-28 mx-2 md:h-36 border-2 mt-16 mb-6 rounded  flex sm:px-4 bg-white text-black ${stylee}`}
-    // style={{ overflow: "scroll", overflowX: "hidden", width: "90%", height: '250px' }}
+      className={` w-full shadow-lg h-44 mx-1  lg:w-5/12 ml-10   md:h-44 border-2 mt-16 mb-6 rounded  flex  bg-white text-black md:w-full sm:w-full   ${stylee}` } 
+    style={{ overflow: "hidden"  }}
     >
-      <div className="text-center  w-full text-lg sm:text-xl my-auto ">
+      <div className="text-center  w-full text-lg sm:text-xl my-auto   relative">
         {/* <Link to={link} className="text-sm sm:text-xl text-silver-tree">
           {category}
         </Link> */}
@@ -31,7 +31,8 @@ export const Card = ({
         <Link to={link} className="text-sm sm:text-xl text-silver-tree">
           {category}
         </Link>
-        <h3 className="text-sm sm:text-md">{des}</h3>
+        <h3 className="text-sm sm:text-md p-4 pt-5">{des.slice(0,80)}...</h3>
+        {/* <Link style={{width:"40%", height:"30%",position:"absolute" , top:"80%",left:"30%" , background:"#77BFA3" ,color:"white",fontSize:".8rem"}}>اعرض المزيد</Link> */}
       </div>
       <div className="my-auto md:w-10  " style={{ width: "40%", height: "80%", marginLeft: "10%" }}
       >

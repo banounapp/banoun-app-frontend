@@ -1,15 +1,21 @@
 
-import React from 'react';
+import React , {useState,useEffect} from 'react';
 import { Card } from '../atoms';
 import { connect } from 'react-redux';
 import Spinner from '../atoms/spinner';
 
 
 const CardsArticles = ({ articles }) => {
+   
+    const [isLoading, setisLoading] = useState(true)
+    useEffect(()=>{
+    setisLoading(false)
+    },[articles])
+ 
     return (
         <>
-            {!articles ? <Spinner /> : (
-                <div className=" grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 py-5 px-10 md:px-20 lg:px-20">
+            {!articles ||isLoading ? <Spinner /> : (
+                <div className="flex flex-wrap justify-start" style={{paddingRight:"5% "}}>
                     {articles?.articles?.map(item => (
 
                         <Card
