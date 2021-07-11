@@ -42,7 +42,7 @@ const NavBar = ({
   return (
     <nav  >
       <div className="flex justify-center align-center nav" style={{paddingRight:"5%",paddingLeft:"0px"  , paddingTop:"0px",minWidth :"100%" }}>
-        <div className="text-bl  flex items-start justify-start nav-items-container" style={{minWidth:"100%" , minHeight:"10vh"}}>
+        <div className="text-bl  flex items-center justify-start nav-items-container" style={{minWidth:"100%" , minHeight:"10vh"}}>
          
           <div className=" flex items-center justify-start sm:items-stretch sm:justify-start "  style={{width:"70%"}}>
             <div className="flex-shrink-0 flex items-center logoWrapper"  >
@@ -231,8 +231,8 @@ const NavBar = ({
           {toggleBurgerIcon ? (
         <div className="sm:hidden relative " id="mobile-menu"  style={{justifySelf:"end"}}>
           <div
-            className="px-2 pt-2  w-full bg-white pb-3 space-y-1 absolute top-20 left-0 "
-            style={{ zIndex: 1 ,width:"100vw" }}
+            className="px-2 pt-2  w-full bg-white pb-3 space-y-1 absolute top-10 "
+            style={{ zIndex: 1 ,width:"90vw"  , left:"6vw"}}
           >
             <Link
               to="#"
