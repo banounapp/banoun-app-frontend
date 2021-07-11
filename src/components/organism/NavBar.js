@@ -41,9 +41,44 @@ const NavBar = ({
 
   return (
     <nav  >
-      <div className="max-w-7xl mx-auto px-2  lg:px-8 pt-4 nav" style={{paddingRight:"5%",paddingLeft:"0px" ,minWidth :"100%" }}>
-        <div className="text-bl  flex items-center justify-content-around h-16" style={{width:"100%"}}>
-          <div className="absolute inset-y-0 left-10  flex items-center nav" style={{top:"-87%"}}>
+      <div className="flex justify-center align-center nav" style={{paddingRight:"5%",paddingLeft:"0px"  , paddingTop:"0px",minWidth :"100%" }}>
+        <div className="text-bl  flex items-start justify-start nav-items-container" style={{minWidth:"100%" , minHeight:"10vh"}}>
+         
+          <div className=" flex items-center justify-start sm:items-stretch sm:justify-start "  style={{width:"70%"}}>
+            <div className="flex-shrink-0 flex items-center logoWrapper"  >
+              <Link to="/" className="text-silver-tree text-4xl  py-2 rounded-md logo ">
+                <img src="/images/logo.png" alt="logo" className="w-32 lg:w-44 " />
+              </Link>
+            </div>
+
+            <div className="hidden my-auto sm:block sm:ml-6 nav-items" style={{minWidth:"65%",fontSize:"19px",marginLeft:"4%"}}>
+              <div className="flex flex-between align-center space-x-4 nav-items-wrapper " style={{minWidth:"100%"}} >
+                <Link to="/" className="main" aria-current="page" style={{minWidth:"15%",marginLeft:"3%" }}>
+                  الصفحة الرئيسية
+                </Link>
+
+                {/* DROP DOWN */}
+
+                <div style={{padding:"0px", minWidth:"9%" ,marginLeft:"4%"}}>
+                  <DropDownList parent="المحتوي" category={categories} />
+                </div>
+                <a href="/#banoun" style={{minWidth:"9%", }}>
+                  عن بنون
+                </a>
+
+                <a href="/#visitors" style={{minWidth:"9%",}}>
+                  اراء الزوار
+                </a>
+                <a href="/#consult" style={{minWidth:"9%",}}>
+                  استشير!
+                </a>
+                <a href="/community" className=" " aria-current="page" style={{minWidth:"9%",}}>
+                  مقالات
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className=" flex items-start nav" >
             {/* Mobile menu button */}
             <button
               type="button"
@@ -99,43 +134,9 @@ const NavBar = ({
               </svg>
             </button>
           </div>
-          <div className=" flex items-center justify-center sm:items-stretch sm:justify-start" >
-            <div className="flex-shrink-0 flex items-center logoWrapper"  >
-              <Link to="/" className="text-silver-tree text-4xl  px-3 py-2 rounded-md logo ">
-                <img src="/images/logo.png" alt="logo" className="w-32 lg:w-44 " />
-              </Link>
-            </div>
-
-            <div className="hidden my-auto sm:block sm:ml-6 nav-items" style={{minWidth:"50%",fontSize:"19px",marginLeft:"4%"}}>
-              <div className="flex flex-between align-center space-x-4 nav-items-wrapper " style={{minWidth:"100%"}} >
-                <Link to="/" className="main" aria-current="page" style={{minWidth:"30%",marginLeft:"8%" }}>
-                  الصفحة الرئيسية
-                </Link>
-
-                {/* DROP DOWN */}
-
-                <div style={{padding:"0px", minWidth:"16%" ,marginLeft:"8%"}}>
-                  <DropDownList parent="المحتوي" category={categories} />
-                </div>
-                <a href="/#banoun" style={{minWidth:"16%",marginLeft:"8%" }}>
-                  عن بنون
-                </a>
-
-                <a href="/#visitors" style={{minWidth:"16%",marginLeft:"8%"}}>
-                  اراء الزوار
-                </a>
-                <a href="/#consult" style={{minWidth:"16%",marginLeft:"8%"}}>
-                  أستشير!
-                </a>
-                <Link to="/community" className=" " aria-current="page" style={{minWidth:"18%",marginLeft:"8%"}}>
-                  مقالات
-                </Link>
-              </div>
-            </div>
-          </div>
 
           {/* SEARCH  */}
-          <div className=" inset-y-0   lg:block flex items-center pr-2 profile "  style={{position:"absolute",top:"18px",left:"100px" }}>
+          <div className="flex items-start justify-end my-auto profile"  style={{width: "30%",paddingLeft:"5%"}}>
             {user || specialist_auth
               ? localStorage.getItem("token") && (
                   <div className="flex-shrink-0 flex items-center ">
@@ -227,17 +228,11 @@ const NavBar = ({
                 )
               : ""}{" "}
           </div>
-        </div>
-        {/* <div className="   lg:hidden md:hidden    flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <SearchInput placeholder="  البحث...      " />
-        </div> */}
-      </div>
-
-      {toggleBurgerIcon ? (
-        <div className="md:hidden relative" id="mobile-menu">
+          {toggleBurgerIcon ? (
+        <div className="sm:hidden relative " id="mobile-menu"  style={{justifySelf:"end"}}>
           <div
-            className="px-2 pt-2 absolute w-full bg-white pb-3 space-y-1"
-            style={{ zIndex: 1 }}
+            className="px-2 pt-2  w-full bg-white pb-3 space-y-1 absolute top-20 left-0 "
+            style={{ zIndex: 1 ,width:"100vw" }}
           >
             <Link
               to="#"
@@ -277,6 +272,15 @@ const NavBar = ({
           </div>
         </div>
       ) : null}
+
+          
+        </div>
+        {/* <div className="   lg:hidden md:hidden    flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <SearchInput placeholder="  البحث...      " />
+        </div> */}
+      </div>
+
+     
     </nav>
   );
 };

@@ -57,7 +57,7 @@
     "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
     "watch:tailwind": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:tailwind'",
     "start": "npm-run-all build:tailwind --parallel  start:react",
-    "start:react": "react-scripts start",
+    "start:react": "craco start",
     "prebuild": "run-s build:tailwind",
     "eject": "react-scripts eject",
     "build": "craco build ",

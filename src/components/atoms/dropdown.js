@@ -112,6 +112,7 @@ export const DropDownList = ({ parent, category }) => {
           paddingBottom: "16.8px",
           display: isDropDownOpened ? "block" : "none",
         }}
+        onClick={() => setisDropDownOpened(!isDropDownOpened)}
       >
         {/* <div className="dropdownMenu">
 

@@ -8,13 +8,12 @@
   visibility: visible;
 }
 
-
-.profile{
-
-  position:absolute !important;
-  top:18px !important;
-  left:100px !important;
+.nav{
+  justify-self: end;
 }
+
+
+
 @media (max-width:1045px){
 
   .logo{
@@ -26,7 +25,7 @@
     width: 22%;
   }
   .nav{
-    padding-right:1% !important;
+    /* padding-right:1% !important; */
     /* font-size: 12px !important; */
 
   }
@@ -43,8 +42,7 @@
     min-width: 30% !important;
   }
   .profile{
-    left:  5% !important;
-    top:-84%!important;
+
   }
 
 }
@@ -77,8 +75,21 @@
     top:-542px !important; */
   }
   .logoWrapper{
-    width: 100%;
+    width:30vw
+  }
+  .nav-items-wrapper{
+    display: flex !important;
+    justify-content: space-around !important;
+    flex-flow:row nowrap !important;
+  }
+  .nav{
+    min-width: 30% !important;
+    justify-content: end !important;
+    padding-right: 15%;
+    padding-top: 2%;
   }
 
+
 }
+
 
