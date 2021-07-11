@@ -18,10 +18,11 @@ const Section4 = ({ reviwes, GetCommentReview }) => {
       </div>
 
       {/* 1 */}
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2">
 
       {reviwes?.map(item =>
         <Comments
+        image ={item?.user?.image?.filename}
           name={item?.user?.username}
           email={item?.user?.email}
           comment={item?.text}

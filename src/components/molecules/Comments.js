@@ -1,16 +1,16 @@
 import React from "react";
 import _ from "lodash";
 
-export const Comments = ({ name, email, comment, date, rate }) => {
+export const Comments = ({ name, email, comment, date, rate ,image }) => {
   return (
     <div className="mt-10 border-2 py-4 px-2 md:p-4 shadow ml-10">
-      <div className="block  sm:flex justify-between">
+      <div className="block  md:flex justify-between">
         <div className="flex">
           <div>
             <img
               className="w-14  h-18 sm:w-28 sm:h-20 rounded-circle"
               alt=""
-              src="https://cdn.dribbble.com/users/2199928/screenshots/11532918/shot-cropped-1590177932366.png?compress=1&resize=400x300"
+              src={image?`https://banoun-app.herokuapp.com/api/upload/show/${image}`:"https://cdn.dribbble.com/users/2199928/screenshots/11532918/shot-cropped-1590177932366.png?compress=1&resize=400x300"}
             ></img>
           </div>
           <div className="text-xs md:text-xl">
